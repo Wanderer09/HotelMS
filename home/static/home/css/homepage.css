@@ -10,7 +10,7 @@
     font-family: 'Lato', sans-serif;
 }
 .navbar{
-    background-image: url(bg-1.jpg);
+    background-image: url("..home/img/bg-1.jpg");
     background-size: cover;
     height: 100vh;
 }
