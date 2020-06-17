@@ -41,32 +41,38 @@
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique sapien libero, id condimentum ligula vestibulum sed. Ut ac ipsum non eros pretium consectetur. Nunc accumsan.</p>
                </div>    
             </section>
-            <section class="rooms">
+             <section class="rooms">
               <div class="container-rooms">
                 <h2>Our Rooms</h2>
                 <div class="flex-rooms">
+                  {% for style,price,rating in mylist %}
                   <div class="rooms-row">
                     <a href="#">
                       <div class="module row-content"> 
-                        <div class="heading"><p> LUXURY ROOM </p> </div>
+                        <div class="heading"><p>{{ style }}</p></div>
                         <div class="ratings">
                           <p>Ratings :
+                            {% with ''|center:rating as range %}
+                            {% for _ in range %}
                             <i class="fas fa-star"></i>
+                            {% endfor %}
+                            {% endwith %}
+                            <!-- <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i> -->
                           </p>
                         </div>
                         <div class="available">
                           <p>Available 48</p>
                         </div>  
                         <div class="rates">
-                          <p><i class="fas fa-rupee-sign"></i>5000</p>
+                          <p><i class="fas fa-rupee-sign"></i>{{ price }}</p>
                         </div>  
                       </div>
                     </a> 
                   </div>
-                  <div class="rooms-row">
+                  {% endfor %}
+                  <!-- <div class="rooms-row">
                     <a href="#">
                       <div class="img-2 row-content "> 
                         <div class="heading"><p> LUXURY ROOM </p> </div>
@@ -172,7 +178,7 @@
                         </div>  
                       </div>
                     </a> 
-                  </div>         
+                  </div>    -->      
                 </div>
               </div>      
             </section>     

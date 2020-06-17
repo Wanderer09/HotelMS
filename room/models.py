@@ -4,6 +4,7 @@ class Room_type(models.Model):
 	room_type=models.CharField(max_length=100);
 	room_price=models.PositiveIntegerField();
 	smoking_status=models.BooleanField();
+	room_rating=models.PositiveIntegerField(default=5)
 	room_description=models.CharField(max_length=100);
 	number_of_guests=models.PositiveIntegerField();
 room_status_choices=[

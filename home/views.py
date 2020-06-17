@@ -1,11 +1,21 @@
 from django.shortcuts import render
 from .models import Contact
+from room.models import Room,Room_type
 
 
 def index(request):
-	return render(request,"home/homepage.html")
-
-
+    room_type=Room_type.objects.all();
+    style=[]
+    price=[]
+    rating=[]
+    for i in room_type:
+        style.append(i.room_type)
+        price.append(i.room_price)
+        rating.append(i.room_rating)
+    mylist=zip(style,price,rating)
+    data={}
+    data["mylist"]=mylist
+    return render(request,"home/homepage.html",data)
 def contact(request):
     thank=False
     if request.method=="POST":
