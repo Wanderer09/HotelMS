@@ -10,7 +10,7 @@
     font-family: 'Lato', sans-serif;
 }
 .navbar{
-    background-image: url(static/images/bg-1.jpg);
+    background-image: url("/static/home/img/bg-1.jpg");
     background-size: cover;
     height: 100vh;
 }
@@ -245,7 +245,7 @@ button .btn-submit:focus{
 }
 /*-----------ROOMS--------*/
 .rooms{
-    background-image: url(static/images/bed-1.jpg);
+    background-image: url("/static/home/img/bed-1.jpg");
     background-size: cover;
 }
 .container-rooms{
@@ -264,12 +264,12 @@ button .btn-submit:focus{
     width: 33.33%;
 }
 .module{
-    background: 
+    background-image: 
     linear-gradient(
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url(static/images/bed-2.jpg);
+    url("/static/home/img/bed-2.jpg");
   background-size: cover;
   width: 400px;
   height: 300px;
@@ -279,12 +279,12 @@ button .btn-submit:focus{
   margin-top: 50px;
 }
 .img-2{
-    background: 
+    background-image: 
     linear-gradient(
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url(static/images/bed-3.jpg);
+    url("/static/home/img/bed-3.jpg");
   background-size: cover;
   width: 400px;
   height: 300px;

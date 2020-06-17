@@ -16,6 +16,7 @@ def index(request):
     data={}
     data["mylist"]=mylist
     return render(request,"home/homepage.html",data)
+
 def contact(request):
     thank=False
     if request.method=="POST":
