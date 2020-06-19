@@ -1,5 +1,5 @@
 .container-contact{
-    background-image: url(contact.jpg);
+    background-image: url(/static/home/img/contact.jpg);
     background-size: cover;
     height: 100vh;
 }

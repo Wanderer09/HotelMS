@@ -7,6 +7,7 @@
           <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
           <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
           
       </head>    
          <body>
@@ -22,7 +23,7 @@
                         <li><a href="#">Rooms</a></li>
                         <li><a href="#">Dining</a></li>
                         <li><a href="#">Gallary</a></li>
-                        <li id="nav-contact"><a href="contact.html">Contact Us</a></li>
+                        <li id="nav-contact"><a href="{% url 'contact_us' %}">Contact Us</a></li>
                         <li id="nav-login">
                           <a href="#">
                             <span>Login</span>
@@ -41,20 +42,25 @@
                       <div class="booking-bar">
                         <div class="bookings">
                           <div class="check-in">
-                            <p>Arrival</p>
-                           
+                            <div class="arrival">
+                              <span>Arrival</span>
+                              <i class="fas fa-chevron-down"></i>
+                            </div>  
                           </div> 
                           <div class="check-in">
-                            <p>Departure</p>
-                            
+                           <div class="arrival"> 
+                             <span>Departure</span>
+                             <i class="fas fa-chevron-down"></i>
+                           </div>
                           </div>  
+                          
                           <div class="check-in">
-                            <p>No. Of Guests</p>
-                           
+                            <input type="text" class="guests" placeholder="No. Of Guests"></input>    
                           </div>   
+                        
                           <div class="check-in">
-                            <p>No. Of Rooms</p> 
-                           
+                            <input type="text" class="guests" placeholder="No. Of Rooms"></input>  
+                            
                           </div>
                           <div class="check-available">
                             <button class="btn-avail" type="submit" >Check Availability</button>
@@ -64,11 +70,17 @@
                   </div> 
                 </div>
               </header> 
-           <section class="about-us">
-               <div class="about">
-                 <h2>About-Us</h2>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum tincidunt arcu. Donec ac convallis mi, ac interdum mauris. Morbi consequat nunc lacinia, dictum ligula in, malesuada urna. In sagittis euismod magna, eu consequat velit rhoncus quis. Aliquam nec arcu.</p>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique sapien libero, id condimentum ligula vestibulum sed. Ut ac ipsum non eros pretium consectetur. Nunc accumsan.</p>
+           <section class="us-about">
+               <div class="about-container">
+                 <div class="about-padding">
+                   <div class="about-image">
+                      <h2>About Us</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum tincidunt arcu. Donec ac convallis mi, ac interdum mauris. Morbi consequat nunc lacinia, dictum ligula in, malesuada urna. In sagittis euismod magna, eu consequat velit rhoncus quis. Aliquam nec arcu.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique sapien libero, id condimentum ligula vestibulum sed. Ut ac ipsum non eros pretium consectetur. Nunc accumsan.</p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique sapien libero, id condimentum ligula vestibulum sed. Ut ac ipsum non eros pretium consectetur. Nunc accumsan.</p>
+                      <button class="btn-read">Read More</button>
+                   </div>   
+                  </div> 
                </div>    
             </section>
              <section class="rooms">

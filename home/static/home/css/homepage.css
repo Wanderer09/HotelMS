@@ -13,6 +13,9 @@
     font-family: neutra;
     src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
 }
+{
+    font-family: 'Cabin', sans-serif;
+}
 .navigation{
     background-image: 
     linear-gradient(
@@ -21,7 +24,8 @@
     ),
     url(/static/home/img/bg-new.jpg);
     background-size: cover;
-    height: 100vh;
+    width: 100%;
+    height: 105vh;
 }
 .back-image{
     display: flex;
@@ -32,7 +36,7 @@
     width: 80%;
     margin: auto;
     padding-left: 3%;
-
+   
 }
 .navbar-list ul{
     list-style: none;
@@ -84,19 +88,19 @@
     margin-top: 150px;
     text-transform: uppercase;
     text-align: center;
-    font-size: 44px;
+    font-size: 3.2vw;
     color: #fafafa;
     font-family: neutra;
     font-weight: bold;
 }
 .content-header p{
     text-align: center;
-    font-size: 24px;
+    font-size: 1.8vw;
     font-style: italic;
     color: #fafafa;
     margin-top: 25px;
     font-weight: 500;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Cabin', sans-serif;
 }
 .booking-bar{
     border: 1px solid #ffffff; 
@@ -108,66 +112,115 @@
    display: flex;
    background-color: transparent;
    padding: 17px 10px;
+  
 }
 .check-in{
     width: 20%;
     border-right: .5px solid #fafafa;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
-.check-in p{
-    font-family: 'Lato', sans-serif;
-    font-size: 20px;
+.check-in span{
+    display: inline;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.5vw;
     font-style: normal;
     text-align: center;
     margin: 0;
+    color: #fafafa;
 }
+.check-in i{
+    color: #fafafa;
+    text-align: right;
+    font-size: 1.5vw;
+    padding: 0px 25px;
+}
+.arrival{
+    margin-top: 2px;
+}
+.guests{
+    border:none;
+    background: transparent;
+    padding: 10px 10px;
+}
+.guests::placeholder{
+    color: #fafafa;
+    font-size: 1.5vw;
+    opacity: 1;
+    font-family: 'Cabin', sans-serif;
+}
+.guests:focus{
+    outline: none;
+    color: #fafafa;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.8vw;
+    margin: 0;
+    padding: 0;
 
+}
 .check-available{
    width: 20%;
-   font-family: 'Lato', sans-serif;
-   font-size: 18px;
-   font-style: normal;
    text-align: center;
+   
 }
 .check-available button{
     border: none;
     background-color: transparent;
-    font-size: 18px;
+    font-size: 1.5vw;
     font-style: normal;
     text-align: center;
     color: #d53343;
-    font-weight: bolder;
-    padding: 5px 10px;
+    padding: 5px 25px;
     cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    padding-left: 10rcm;
 }
+
 .check-available button:focus{
     outline: none;
 }
 
-.about-us{
+.us-about{
     padding: 15px 80px ;
-    margin: 60px 0px;
+    background-color: #eae7dc;
+    height: 65vh;
+    background-attachment: fixed;
 }
-.about{
+.about-container{
     text-align: center;
 }
-.about h2{
+.about-container h2{
+    margin-top: 30px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 15%;
-    padding-bottom: 7px;
-    font-size: 34px;
-    border-bottom: 1px solid black;
+    font-family: neutra;
+    font-weight: bold;
+    font-size: 44px;
+    color: #484848;
     
 }
-.about p{
-    font-size: 16px;
-    font-family: 'Lato', sans-serif;
+.about-image p{
+    font-size: 2.4vh;
+    font-family: 'Cabin', sans-serif;
     font-weight: 500;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 0px 60px;
-    line-height: 1.6;
+    line-height: 2.0;
+    color: #1e2b31;
+   
+}
+.btn-read{
+    padding: 13px 20px;
+    font-family: 'Cabin', sans-serif;
+    margin-top: 30px;
+    background-color: #1e2b31;
+    color: #fafafa;
+    border: none;
+    font-size: 13px;
+    border-radius: 3px;
 }
 .list-navbar ul li a {
     text-decoration: none;
@@ -187,7 +240,10 @@
 }
 .container-rooms h2{
     text-align: center;
-    font-size: 34px;
+    font-size: 44px;
+    font-family: neutra;
+    font-weight: bold;
+    color: #484848;
 }
 .flex-rooms{
     display: flex;
@@ -342,18 +398,5 @@
     font-family: 'Lato', sans-serif;
 
 }
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-  
-.active, .dot:hover {
-    background-color: #717171;
-}
+
 
