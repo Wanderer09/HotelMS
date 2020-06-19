@@ -31,12 +31,15 @@
     display: flex;
     background-color: #fafafa;
     padding: 20px 40px;
+    width: 100%;
+    position: fixed;
 }
 .navbar-list{
     width: 80%;
     margin: auto;
     padding-left: 3%;
    
+
 }
 .navbar-list ul{
     list-style: none;
@@ -83,6 +86,7 @@
 }
 .content-header{
     padding: 20px 80px;
+    
 }
 .content-header h1{
     margin-top: 150px;
@@ -92,6 +96,7 @@
     color: #fafafa;
     font-family: neutra;
     font-weight: bold;
+    margin-top: 270px;
 }
 .content-header p{
     text-align: center;
@@ -176,10 +181,14 @@
     font-family: 'Lato', sans-serif;
     font-weight: bold;
     padding-left: 10rcm;
+    transition: 500ms ease-in-out;
 }
 
 .check-available button:focus{
     outline: none;
+}
+.check-available button:hover{
+    color: #fafafa;
 }
 
 .us-about{
@@ -231,6 +240,7 @@
 .rooms{
     background-image: url("/static/home/img/bed-1.jpg");
     background-size: cover;
+    
 }
 .container-rooms{
     margin: 0px 50px;
@@ -269,82 +279,6 @@
   float: left;
   margin-top: 50px;
 }
-/*.img-2{
-    background-image: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.2)
-    ),
-    url("/static/home/img/bed-3.jpg");
-  background-size: cover;
-  width: 400px;
-  height: 300px;
-  margin: 0 30px 0 0px; 
-  position: relative;
-  float: left;
-  margin-top: 50px; 
-}
-.img-3{
-    background: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.2)
-    ),
-    url(static/images/bed-4.jpg);
-  background-size: cover;
-  width: 400px;
-  height: 300px;
-  margin: 0 30px 0 0px; 
-  position: relative;
-  float: left;
-  margin-top: 50px; 
-}
-.img-4{
-    background: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.2)
-    ),
-    url(static/images/bed-5.jpg);
-  background-size: cover;
-  width: 400px;
-  height: 300px;
-  margin: 0 30px 0 0px; 
-  position: relative;
-  float: left;
-  margin-top: 50px; 
-}
-.img-5{
-    background: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.2)
-    ),
-    url(static/images/bed-6.jpg);
-  background-size: cover;
-  width: 400px;
-  height: 300px;
-  margin: 0 30px 0 0px; 
-  position: relative;
-  float: left;
-  margin-top: 50px; 
-}
-.img-6{
-    background: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.2)
-    ),
-    url(static/images/bed-3.jpg);
-  background-size: cover;
-  width: 400px;
-  height: 300px;
-  margin: 0 30px 0 0px; 
-  position: relative;
-  float: left;
-  margin-top: 50px; 
-}
-*/
 
 .row-content .heading{
     text-align: center;

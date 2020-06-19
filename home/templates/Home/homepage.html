@@ -1,13 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
-  <html>
+   <html>
       <head>
-          <title> Fouses Hotels </title>
-          <link rel="stylesheet" href="{% static '/home/css/homepage.css' %}">
-          <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
-          <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-          <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-          <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        <title> Fouses Hotels </title>
+        <link rel="stylesheet" href="{% static '/home/css/homepage.css' %}">
+        <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
           
       </head>    
          <body>
@@ -83,7 +83,7 @@
                   </div> 
                </div>    
             </section>
-             <section class="rooms">
+            <section class="rooms">
               <div class="container-rooms">
                 <h2>Our Rooms</h2>
                 <div class="flex-rooms">
@@ -110,137 +110,11 @@
                         </div>  
                       </div>
                     </a> 
+                    <button class="view-btn">View More </button>
                   </div>
                  {% endif %}
                   {% endfor %}
-                   <!--<div class="rooms-row">
-                    <a href="#">
-                      <div class="img-2 row-content "> 
-                        <div class="heading"><p> LUXURY ROOM </p> </div>
-                        <div class="ratings">
-                          <p>Ratings :
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                          </p>
-                        </div>
-                        <div class="available">
-                          <p>Available 48</p>
-                        </div>  
-                        <div class="rates">
-                          <p><i class="fas fa-rupee-sign"></i>5000</p>
-                        </div>  
-                      </div>
-                    </a> 
-                  </div>
-                  <div class="rooms-row">
-                    <a href="#">
-                      <div class="img-3 row-content"> 
-                        <div class="heading"><p> LUXURY ROOM </p> </div>
-                        <div class="ratings">
-                          <p>Ratings :
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                          </p>
-                        </div>
-                        <div class="available">
-                          <p>Available 48</p>
-                        </div>  
-                        <div class="rates">
-                          <p><i class="fas fa-rupee-sign"></i>5000</p>
-                        </div>  
-                      </div>
-                    </a> 
-                  </div>         
-                </div>
-                <div class="flex-rooms">
-                  <div class="rooms-row">
-                    <a href="#">
-                      <div class="img-4 row-content"> 
-                        <div class="heading"><p> LUXURY ROOM </p> </div>
-                        <div class="ratings">
-                          <p>Ratings :
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                          </p>
-                        </div>
-                        <div class="available">
-                          <p>Available 48</p>
-                        </div>  
-                        <div class="rates">
-                          <p><i class="fas fa-rupee-sign"></i>5000</p>
-                        </div>  
-                      </div>
-                    </a> 
-                  </div>
-                  <div class="rooms-row">
-                    <a href="#">
-                      <div class="img-5 row-content"> 
-                        <div class="heading"><p> LUXURY ROOM </p> </div>
-                        <div class="ratings">
-                          <p>Ratings :
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                          </p>
-                        </div>
-                        <div class="available">
-                          <p>Available 48</p>
-                        </div>  
-                        <div class="rates">
-                          <p><i class="fas fa-rupee-sign"></i>5000</p>
-                        </div>  
-                      </div>
-                    </a> 
-                  </div>
-                  <div class="rooms-row">
-                    <a href="#">
-                      <div class="img-6 row-content"> 
-                        <div class="heading"><p> LUXURY ROOM </p> </div>
-                        <div class="ratings">
-                          <p>Ratings :
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                          </p>
-                        </div>
-                        <div class="available">
-                          <p>Available 48</p>
-                        </div>  
-                        <div class="rates">
-                          <p><i class="fas fa-rupee-sign"></i>5000</p>
-                        </div>  
-                      </div>
-                    </a> 
-                  </div>        
-                </div>-->
-                
-              </div>    
-              <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-              </div>
+               </div>    
             </section>     
-         </body>  
-      <script>
-         var slideIndex = 0;
-         showSlides();
-
-         function showSlides() {
-         var i;
-         var slides = document.getElementsByClassName("module");
-         slideIndex++;
-         if (slideIndex > slides.length) {slideIndex = 1}
-         slides[slideIndex-1].style.display = "block";
-         setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
-      </script>  
-  </html>    
+         </body>   
+   </html>    

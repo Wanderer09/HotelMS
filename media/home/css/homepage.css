@@ -24,7 +24,8 @@
     ),
     url(/static/home/img/bg-new.jpg);
     background-size: cover;
-    height: 100vh;
+    width: 100%;
+    height: 105vh;
 }
 .back-image{
     display: flex;
@@ -87,14 +88,14 @@
     margin-top: 150px;
     text-transform: uppercase;
     text-align: center;
-    font-size: 44px;
+    font-size: 3.2vw;
     color: #fafafa;
     font-family: neutra;
     font-weight: bold;
 }
 .content-header p{
     text-align: center;
-    font-size: 24px;
+    font-size: 1.8vw;
     font-style: italic;
     color: #fafafa;
     margin-top: 25px;
@@ -111,65 +112,115 @@
    display: flex;
    background-color: transparent;
    padding: 17px 10px;
+  
 }
 .check-in{
     width: 20%;
     border-right: .5px solid #fafafa;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
-.check-in h6{
+.check-in span{
     display: inline;
     font-family: 'Cabin', sans-serif;
-    font-size: 20px;
+    font-size: 1.5vw;
     font-style: normal;
     text-align: center;
     margin: 0;
     color: #fafafa;
 }
+.check-in i{
+    color: #fafafa;
+    text-align: right;
+    font-size: 1.5vw;
+    padding: 0px 25px;
+}
+.arrival{
+    margin-top: 2px;
+}
+.guests{
+    border:none;
+    background: transparent;
+    padding: 10px 10px;
+}
+.guests::placeholder{
+    color: #fafafa;
+    font-size: 1.5vw;
+    opacity: 1;
+    font-family: 'Cabin', sans-serif;
+}
+.guests:focus{
+    outline: none;
+    color: #fafafa;
+    font-family: 'Cabin', sans-serif;
+    font-size: 1.8vw;
+    margin: 0;
+    padding: 0;
 
+}
 .check-available{
    width: 20%;
    text-align: center;
+   
 }
 .check-available button{
     border: none;
     background-color: transparent;
-    font-size: 20px;
+    font-size: 1.5vw;
     font-style: normal;
     text-align: center;
     color: #d53343;
-    padding: 5px 10px;
+    padding: 5px 25px;
     cursor: pointer;
     font-family: 'Lato', sans-serif;
     font-weight: bold;
-
+    padding-left: 10rcm;
 }
+
 .check-available button:focus{
     outline: none;
 }
 
 .us-about{
     padding: 15px 80px ;
-    margin: 60px 0px;
+    background-color: #eae7dc;
+    height: 65vh;
+    background-attachment: fixed;
 }
 .about-container{
     text-align: center;
 }
 .about-container h2{
+    margin-top: 30px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     font-family: neutra;
     font-weight: bold;
     font-size: 44px;
+    color: #484848;
+    
 }
-.about p{
-    font-size: 16px;
-    font-family: 'Lato', sans-serif;
+.about-image p{
+    font-size: 2.4vh;
+    font-family: 'Cabin', sans-serif;
     font-weight: 500;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 0px 60px;
-    line-height: 1.6;
+    line-height: 2.0;
+    color: #1e2b31;
+   
+}
+.btn-read{
+    padding: 13px 20px;
+    font-family: 'Cabin', sans-serif;
+    margin-top: 30px;
+    background-color: #1e2b31;
+    color: #fafafa;
+    border: none;
+    font-size: 13px;
+    border-radius: 3px;
 }
 .list-navbar ul li a {
     text-decoration: none;
@@ -189,7 +240,10 @@
 }
 .container-rooms h2{
     text-align: center;
-    font-size: 34px;
+    font-size: 44px;
+    font-family: neutra;
+    font-weight: bold;
+    color: #484848;
 }
 .flex-rooms{
     display: flex;
