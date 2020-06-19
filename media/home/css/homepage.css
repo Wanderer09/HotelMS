@@ -10,9 +10,30 @@
     font-family: 'Lato', sans-serif;
 }
 .navbar{
-    background-image: url(static/images/bg-1.jpg);
+    background-image: url(/static/home/img/bg-1.jpg);
     background-size: cover;
     height: 100vh;
+    width:100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    animation: slidebg 60s linear infinite 0s;
+    animation-timing-function: ease-in-out;
+
+}
+@keyframes slidebg {
+    0% {
+        background-image: url(/static/home/img/bg-1.jpg);
+    }
+    30% {
+        background-image: url(/static/home/img/1.jpg);
+    }
+    60% {
+        background-image: url(/static/home/img/2.jpg);
+    }
+    100% {
+        background-image: url(/static/home/img/bg-1.jpg);
+    }
 }
 .list-navbar{
     display: flex;
@@ -245,12 +266,13 @@ button .btn-submit:focus{
 }
 /*-----------ROOMS--------*/
 .rooms{
-    background-image: url(static/images/bed-1.jpg);
+    background-image: url("/static/home/img/bed-1.jpg");
     background-size: cover;
 }
 .container-rooms{
     margin: 0px 50px;
     padding: 80px 0px;
+    overflow: hidden;
     
 }
 .container-rooms h2{
@@ -259,17 +281,23 @@ button .btn-submit:focus{
 }
 .flex-rooms{
     display: flex;
+    width: 100%;
+
+    transition: all 1s;
 }
-.rows-room{
+.flex-rooms:hover{
+    transform: translateX(-100vw);
+}
+.rooms-row{
     width: 33.33%;
 }
 .module{
-    background: 
+    background-image: 
     linear-gradient(
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url(static/images/bed-2.jpg);
+    url("/static/home/img/bed-2.jpg");
   background-size: cover;
   width: 400px;
   height: 300px;
@@ -278,13 +306,13 @@ button .btn-submit:focus{
   float: left;
   margin-top: 50px;
 }
-.img-2{
-    background: 
+/*.img-2{
+    background-image: 
     linear-gradient(
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url(static/images/bed-3.jpg);
+    url("/static/home/img/bed-3.jpg");
   background-size: cover;
   width: 400px;
   height: 300px;
@@ -353,6 +381,7 @@ button .btn-submit:focus{
   float: left;
   margin-top: 50px; 
 }
+*/
 
 .row-content .heading{
     text-align: center;
@@ -406,6 +435,18 @@ button .btn-submit:focus{
     font-family: 'Lato', sans-serif;
 
 }
-
-
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.active, .dot:hover {
+    background-color: #717171;
+}
 

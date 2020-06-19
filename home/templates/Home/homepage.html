@@ -3,41 +3,46 @@
   <html>
       <head>
           <title> Fouses Hotels </title>
-<<<<<<< HEAD
-          <link rel="stylesheet" href={% static '/home/css/homepage.css' %}>
-=======
-          <link rel="stylesheet" href="{% static 'home/css/homepage.css' %}">
->>>>>>> 4628cd24a3b5ab6fefd02edcc1a54e7a903523a8
+          <link rel="stylesheet" href="{% static '/home/css/homepage.css' %}">
           <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
           <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
       </head>    
-      <body>
-           <header class="navbar">
-                <div class="back-image">  
-                  <div class="list-navbar">
-                    <ul id="left-navbar">  
-                     <li><a href="#">Home</a></li>
-                     <li><a href="#">About-Us</a></li>
-                     <li><a href="#">Rooms</a></li>
-                    </ul> 
-                     <div class="logo-image" > <img src="{% static 'home/img/logo.png'%}" height="190px" width="190px"> </div>
-                    <ul id="right-navbar"> 
-                     <li><a href="#">Dining</a></li>
-                     <li><a href="#">Gallary</a></li>
-                     <li><a href="contact.html">Contact Us</a></li>
-                    </ul> 
-                  </div>  
-                  <div class="header-content"> 
-                      <h1>Lorem ipsum dolor sit </h1> 
-                     <h3>Lorem ipsum dolor sit amet, consectetur adipiscing <br>
-                     elit. Donec at.</h3>
+         <body>
+              <header class="navigation">
+                 <div class="back-image">  
+                    <div class="logo-image">
+                      <img src="{%static '/home/img/logoimg.png ' %} " height="60px" width="200px">
+                    </div>  
+                    <div class="navbar-list">
+                      <ul>  
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About-Us</a></li>
+                        <li><a href="#">Rooms</a></li>
+                        <li><a href="#">Dining</a></li>
+                        <li><a href="#">Gallary</a></li>
+                        <li id="nav-contact"><a href="contact.html">Contact Us</a></li>
+                        <li id="nav-login">
+                          <a href="#">
+                            <span>Login</span>
+                          </a>  
+                        </li>  
+                        <li id="nav-search">
+                            <input type="text" placeholder="Search"></input>
+                            <i class="fas fa-search"></i>
+                        </li>  
+                     </ul> 
+                    </div> 
+                  </div>   
+                  <div class="content-header"> 
+                      <h1>Awaken To Different World </h1> 
+                     <p>Your Historic Dwelling in The Heart of City.</p>
                       <div class="search-bar">
-                           <input type="text"placeholder= "Search"></input>
+                           
                       </div>
                   </div> 
                 </div>
-           </header> 
+              </header> 
            <section class="about-us">
                <div class="about">
                  <h2>About-Us</h2>
@@ -52,7 +57,7 @@
                   {% for style,price,rating in mylist %}
                   <div class="rooms-row">
                     <a href="#">
-                      <div class="module row-content"> 
+                      <div class="module row-content" id="mySlides"> 
                         <div class="heading"><p>{{ style }}</p></div>
                         <div class="ratings">
                           <p>Ratings :
@@ -75,8 +80,9 @@
                       </div>
                     </a> 
                   </div>
+                 
                   {% endfor %}
-                   <div class="rooms-row">
+                   <!--<div class="rooms-row">
                     <a href="#">
                       <div class="img-2 row-content "> 
                         <div class="heading"><p> LUXURY ROOM </p> </div>
@@ -183,8 +189,27 @@
                       </div>
                     </a> 
                   </div>        
-                </div>
-              </div>      
+                </div>-->
+                
+              </div>    
+              <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+              </div>
             </section>     
-      </body>    
+         </body>  
+      <script>
+         var slideIndex = 0;
+         showSlides();
+
+         function showSlides() {
+         var i;
+         var slides = document.getElementsByClassName("module");
+         slideIndex++;
+         if (slideIndex > slides.length) {slideIndex = 1}
+         slides[slideIndex-1].style.display = "block";
+         setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+      </script>  
   </html>    
