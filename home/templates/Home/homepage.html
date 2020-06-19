@@ -75,7 +75,8 @@
               <div class="container-rooms">
                 <h2>Our Rooms</h2>
                 <div class="flex-rooms">
-                  {% for style,price,rating in mylist %}
+                  {% for style,price,rating,show_on_homepage,room_available_count in mylist %}
+                  {% if show_on_homepage %}
                   <div class="rooms-row">
                     <a href="#">
                       <div class="module row-content" id="mySlides"> 
@@ -87,13 +88,10 @@
                             <i class="fas fa-star"></i>
                             {% endfor %}
                             {% endwith %}
-                            <!-- <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i> -->
                           </p>
                         </div>
                         <div class="available">
-                          <p>Available 48</p>
+                          <p>Available {{ room_available_count }}</p>
                         </div>  
                         <div class="rates">
                           <p><i class="fas fa-rupee-sign"></i>{{ price }}</p>
@@ -101,7 +99,7 @@
                       </div>
                     </a> 
                   </div>
-                 
+                 {% endif %}
                   {% endfor %}
                    <!--<div class="rooms-row">
                     <a href="#">
