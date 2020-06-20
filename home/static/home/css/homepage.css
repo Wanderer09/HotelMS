@@ -33,6 +33,7 @@
     padding: 20px 40px;
     width: 100%;
     position: fixed;
+    z-index:999;
 }
 .navbar-list{
     width: 80%;
