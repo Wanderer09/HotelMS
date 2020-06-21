@@ -1,3 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+{
+    font-family: 'Cabin', sans-serif;
+}
+
 .container-contact{
     background-image: url(/static/home/img/contact.jpg);
     background-size: cover;
@@ -8,19 +27,19 @@
  
 }
 .contact-us h2{
-    font-size: 34px;
+    font-size: 44px;
     color: #484848;
     text-align: center;
     padding-left: 38%;
-    
+    font-family: neutra;
 }
 .contact-us p{
     font-size: 20px;
     color: #484848;
     text-align: center;
     padding-left: 38%;
-    font-family: 'Lato', sans-serif;
     margin-top: 20px;
+    font-family: 'Cabin', sans-serif;
 
 }
 .contact-us input,textarea{
@@ -32,7 +51,7 @@
     border: none;
     border-bottom: 1px solid #484848;
     width: 90%;
-    background-color: #eaeaea;
+    background-color: transparent;
 }
 .information {
     

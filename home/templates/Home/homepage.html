@@ -25,7 +25,7 @@
                         <li><a href="#">Gallary</a></li>
                         <li id="nav-contact"><a href="{% url 'contact_us' %}">Contact Us</a></li>
                         <li id="nav-login">
-                          <a href="#">
+                          <a href="{% url 'login' %}">
                             <span>Login</span>
                           </a>  
                         </li>  
@@ -110,10 +110,10 @@
                         </div>  
                       </div>
                     </a> 
-                    <button class="view-btn">View More </button>
                   </div>
                  {% endif %}
                   {% endfor %}
+                  <button class="view-btn">View More </button>
                </div>    
             </section>     
          </body>   

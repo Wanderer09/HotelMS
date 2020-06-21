@@ -76,4 +76,5 @@ def contact(request):
         thank=True
     return render(request, 'home/contact.html',{"thank":thank})
 
-
+def login(request):
+    return render(request,'home/login.html',{})

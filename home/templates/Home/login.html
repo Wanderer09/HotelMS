@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+   <html>
+       <head>
+           <title>Fouses Login</title>
+           <link rel="stylesheet" href="{% static '/home/css/login.css'%}">
+           <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+           <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+           <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+           <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+       </head>   
+       <body>
+        <section class="bg-color">   
+           <div class="container" id="container">
+               <div class="form-container sign-up-container">
+                    <form action="#">
+                      <h1>Create Account</h1>
+                        <div class="social-container">
+                          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                       <span>or use your Email/Phone for registration</span>
+                       <input type="text" placeholder="Full Name" />
+                       <input type="email" placeholder="Email" />
+                       <input type="text" placeholder="Phone Number" />
+                       <input type="password" placeholder="Password" />
+                       <input type="password" placeholder="Confirm Password">
+                       <button>Sign Up</button>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form action="#">
+                       <h1>Sign in</h1>
+                       <div class="social-container">
+                           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                           <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                           <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                       </div>
+                       <span>or use your account</span>
+                       <input type="email" placeholder="Email" />
+                       <input type="password" placeholder="Password" />
+                       <a href="#">Forgot your password?</a>
+                       <button>Sign In</button>
+                    </form>
+               </div>
+               <div class="overlay-container">
+                   <div class="overlay">
+                       <div class="overlay-panel overlay-left">
+                           <h1>Welcome Back!</h1>
+                           <p>To keep connected with us please login with your personal info</p>
+                           <button class="ghost" id="signIn">Sign In</button>
+                           <h6>Already A Customer Sign In</h6> 
+                       </div>
+                       <div class="overlay-panel overlay-right">
+                           <h1>Hello !</h1>
+                           <p>Enter your personal details and start journey with us</p>
+                           <button class="ghost" id="signUp">Sign Up</button>
+                           <h6>New To Fouses ? Create An Account</h6> 
+                       </div>
+                   </div>
+               </div>
+            </div>
+        </section>    
+       </body>  
+       <script src="{% static '/home/js/login.js'%}"></script>  
+   </html>    
