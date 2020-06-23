@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'room',
     'accounts',
 ]
+AUTH_USER_MODEL = 'accounts.User' 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -83,7 +84,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
-        'PORT': '4646',
+        'PORT': '3306',
     }
 }
 
