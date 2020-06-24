@@ -39,8 +39,6 @@
     width: 80%;
     margin: auto;
     padding-left: 3%;
-   
-
 }
 .navbar-list ul{
     list-style: none;
@@ -94,7 +92,7 @@
     text-transform: uppercase;
     text-align: center;
     font-size: 3.2vw;
-    color: #fafafa;
+    color:#fafafa;
     font-family: neutra;
     font-weight: bold;
     margin-top: 270px;
@@ -326,12 +324,15 @@
     position: absolute;
     bottom: 40px;
     right: 20px;
-    color:#F4364F;
+    color:red;
     padding-right: 20px;
     font-size: 20px;
     font-weight: bold;
     font-family: 'Lato', sans-serif;
 
 }
-
+/**SERVICES**/
+.service-container{
+   display: flex;
+}
 

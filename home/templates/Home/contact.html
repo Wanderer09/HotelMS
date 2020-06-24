@@ -14,7 +14,7 @@
 <body>
     <section class="container-contact">
         <div class="contact-us">
-            <form action="/home/contact/" method="post">{% csrf_token %}
+            <form action="{% url 'contact_us' %}" method="post">{% csrf_token %}
                 <h2> Get In Touch </h2>
                 <p>Send Us A Message</p>
                 <div class="information">
