@@ -1,73 +1,135 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Fouses Login</title>
-    <link rel="stylesheet" href="{% static '/accounts/css/login.css'%}">
-    <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <style>
+        body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #7abecc !important;
+    }
+    .user_card {
+      width: 350px;
+      margin-top: auto;
+      margin-bottom: auto;
+      background: #74cfbf;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 5px;
+
+    }
+
+    .form_container {
+      margin-top: 20px;
+    }
+
+    #form-title{
+      color: #fff;
+    }
+    .login_btn {
+      width: 100%;
+      background: #33ccff !important;
+      color: white !important;
+    }
+    .login_btn:focus {
+      box-shadow: none !important;
+      outline: 0px !important;
+    }
+    .login_container {
+      padding: 0 2rem;
+    }
+    .input-group-text {
+      background: #f7ba5b !important;
+      color: white !important;
+      border: 0 !important;
+      border-radius: 0.25rem 0 0 0.25rem !important;
+    }
+    .input_user,
+    .input_pass:focus {
+      box-shadow: none !important;
+      outline: 0px !important;
+    }
+
+  </style>
 </head>
 
 <body>
-    <section class="bg-color">
-        <div class="container" id="container">
-            <div class="form-container sign-up-container">
-                <form method="POST">
-                    {% csrf_token %}
-                    <h1>Create Account</h1>
-                    <div class="social-container">
-                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <span>or use your Email/Phone for registration</span>
-                    <input type="text" name="username" placeholder="User Name" />
-                    <input type="text" name="first_name" placeholder="Full Name" />
-                    <input type="email" name="email" placeholder="Email" />
-                    <input type="password" name="password" placeholder="Password" />
-                    <!-- <input type="password" name="password2" placeholder="Confirm Password"> -->
-                    <input type="submit" value="SignIn">
-                </form>
-            </div>
-          
-            <div class="form-container sign-in-container">
-                <form method="POST">
-                    {% csrf_token %}
-                    <h1>Sign in</h1>
-                    <div class="social-container">
-                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <span>or use your account</span>
-                    <input type="username" name="username" placeholder="Username" />
-                    <input type="password" name="password" placeholder="Password" />
-                    <a href="#">Forgot your password?</a>
-                    <input type="submit" Value="login">
-                </form>
-            </div>
-            <div class="overlay-container">
-                <div class="overlay">
-                    <div class="overlay-panel overlay-left">
-                        <h1>Welcome Back!</h1>
-                        <p>To keep connected with us please login with your personal info</p>
-                        <button class="ghost" id="signIn">Sign In</button>
-                        <h6>Already A Customer Sign In</h6>
-                    </div>
-                    <div class="overlay-panel overlay-right">
-                        <h1>Hello !</h1>
-                        <p>Enter your personal details and start journey with us</p>
-                        <button class="ghost" id="signUp">Sign Up</button>
-                        <h6>New To Fouses ? Create An Account</h6>
+    <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <div class="user_card">
+                <div class="d-flex justify-content-center">
+                    <h3 id="form-title">REGISTER ACCOUNT</h3>
+                </div>
+                <div class="d-flex justify-content-center form_container">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            {{form.username}}
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+                            </div>
+                            {{form.email}}
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            {{form.password1}}
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            {{form.password2}}
+                        </div>
+                        <div class="d-flex justify-content-center mt-3 login_container">
+                            <input class="btn login_btn" type="submit" value="Register Account">
+                        </div>
+                    </form>
+                </div>
+                {{form.errors}}
+                <div class="mt-4">
+                    <div class="d-flex justify-content-center links">
+                        Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    <script>
+    /* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
+    //We start indexing at one because CSRF_token is considered and input field 
+     */
+
+    //Query All input fields
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'Username..';
+    form_fields[2].placeholder = 'Email..';
+    form_fields[3].placeholder = 'Enter password...';
+    form_fields[4].placeholder = 'Re-enter Password...';
+
+
+    for (var field in form_fields) {
+        form_fields[field].className += ' form-control'
+    }
+    </script>
 </body>
-<script src="{% static '/accounts/js/login.js'%}"></script>
 
 </html>
