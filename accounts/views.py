@@ -30,7 +30,7 @@ def SignUp(request):
             
 
         context = {'form':form}
-        return render(request, 'accounts/login.html', context)
+        return render(request, 'accounts/signup.html', context)
 
 def Login(request):
     if request.user.is_authenticated:
@@ -49,7 +49,7 @@ def Login(request):
                 messages.info(request, 'Username OR password is incorrect')
 
         context = {}
-        return render(request, 'accounts/reg.html', context)
+        return render(request, 'accounts/login.html', context)
 
 def LogoutUser(request):
     logout(request)
