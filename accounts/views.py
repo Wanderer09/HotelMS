@@ -1,40 +1,56 @@
-from django.shortcuts import render,redirect
-from .forms import *
-from .models import *
-# Create your views here.
-def login(request):
-	login=loginform()
-	signup=signupform()
-	# if(request.method=='POST'):
-	# 	login=loginform(request.POST)
-	# 	if login.is_valid():
-	# 		email=request.POST['Email']
-	# 		password=request.POST['Password']
-	# 		search=Customer_Account.objects.filter(Email=email,Password=password).exists()
-	# 		if(search):
-	# 			login=loginform()
-	# 			return redirect('home')
-	# 		else:
-	# 			login=loginform(request.POST)
-	# 			return render(request,'accounts/login.html',{'signup_form':signup,'login_form':login})
-	return render(request,'accounts/login.html',{'signup_form':signup,'login_form':login})
-def signup(request):
-	signup=signupform()
-	login=loginform()
-	# if(request.method=='POST'):
-	# 	signup=signupform(request.POST)
-	# 	if signup.is_valid():
-	# 		name=request.POST['Full_Name']
-	# 		email=request.POST['Email']
-	# 		number=request.POST['PhoneNumber']
-	# 		password=request.POST['Password']
-	# 		rpassword=request.POST['Retype_Password']
-	# 		if(password==rpassword):
-	# 			Customer_Account.objects.create(Full_Name=name,Email=email,PhoneNumber=number,Password=password)
-	# 			signup=signupform()
-	# 			return redirect('home')
-	# 	else:
-	# 		signup=signupform(request.POST)
-	# 		return render(request,'accounts/signup.html',{'signup_form':signup,'login_form':login})
-	return render(request,'accounts/signup.html',{'signup_form':signup,'login_form':login})
+from django.shortcuts import render, redirect 
+from django.http import HttpResponse
+from django.forms import inlineformset_factory
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login,logout
 
+
+from django.contrib import messages
+
+from django.contrib.auth.decorators import login_required
+
+# Create your views here.
+from .models import *
+from .forms import  CreateUserForm
+
+
+def SignUp(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        form = CreateUserForm()
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Account was created for ' + user)
+
+                return redirect('login')
+            
+
+        context = {'form':form}
+        return render(request, 'accounts/login.html', context)
+
+def Login(request):
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password =request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            else:
+                messages.info(request, 'Username OR password is incorrect')
+
+        context = {}
+        return render(request, 'accounts/reg.html', context)
+
+def LogoutUser(request):
+    logout(request)
+    return redirect('login')
