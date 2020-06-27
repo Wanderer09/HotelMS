@@ -74,8 +74,20 @@ form{
 .login-content h2{
 	margin: 15px 0;
 	color: #333;
-	text-transform: uppercase;
 	font-size: 2.9rem;
+	font-family: neutra;
+}
+.social-icons i{
+	font-size: 30px;
+
+	border-radius: 20px;
+	padding: 10px;
+}
+.fa-google-plus-g{
+	color: #db4a39;
+}
+.fa-facebook{
+	color: #3b5998;
 }
 
 .login-content .input-div{
@@ -84,7 +96,7 @@ form{
     grid-template-columns: 7% 93%;
     margin: 25px 0;
     padding: 5px 0;
-    border-bottom: 2px solid #484848;
+    border-bottom: 2px solid #777672;
 }
 
 .login-content .input-div.one{
@@ -92,7 +104,7 @@ form{
 }
 
 .i{
-	color: #484848;
+	color: #777672;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -112,9 +124,10 @@ form{
 	left: 10px;
 	top: 50%;
 	transform: translateY(-50%);
-	color: #484848;
+	color: #777672;
 	font-size: 18px;
 	transition: .3s;
+	font-family: 'Cabin', sans-serif;
 }
 
 .input-div:before, .input-div:after{
@@ -123,7 +136,7 @@ form{
 	bottom: -2px;
 	width: 0%;
 	height: 2px;
-	background-color: #38d39f;
+	background-color: #fafafa;
 	transition: .4s;
 }
 
@@ -145,7 +158,7 @@ form{
 }
 
 .input-div.focus > .i > i{
-	color: #38d39f;
+	color: #fafafa;
 }
 
 .input-div > div > input{
@@ -174,6 +187,7 @@ a{
 	color: #999;
 	font-size: 0.9rem;
 	transition: .3s;
+	font-family: 'Cabin', sans-serif;
 }
 
 a:hover{
@@ -199,6 +213,7 @@ a:hover{
 	transition: .5s;
 	margin-right: auto;
 	margin-left: auto;
+	font-family: 'Cabin', sans-serif;
 }
 .btn:hover{
 	background-position: right;
@@ -207,10 +222,13 @@ a:hover{
 	color: #141E30;
 	font-size: 12px;
 	text-align: center;
+	font-family: 'Cabin', sans-serif;
 }
 .signup a{
 	text-align: center;
 	margin-top: 8px;
+	font-family: 'Cabin', sans-serif;
+	color: #fafafa;
 }
 
 @media screen and (max-width: 1050px){

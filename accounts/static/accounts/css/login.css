@@ -77,6 +77,18 @@ form{
 	font-size: 2.9rem;
 	font-family: neutra;
 }
+.social-icons i{
+	font-size: 30px;
+
+	border-radius: 20px;
+	padding: 10px;
+}
+.fa-google-plus-g{
+	color: #db4a39;
+}
+.fa-facebook{
+	color: #3b5998;
+}
 
 .login-content .input-div{
 	position: relative;
@@ -84,7 +96,7 @@ form{
     grid-template-columns: 7% 93%;
     margin: 25px 0;
     padding: 5px 0;
-    border-bottom: 2px solid #484848;
+    border-bottom: 2px solid #777672;
 }
 
 .login-content .input-div.one{
@@ -92,7 +104,7 @@ form{
 }
 
 .i{
-	color: #484848;
+	color: #777672;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -112,7 +124,7 @@ form{
 	left: 10px;
 	top: 50%;
 	transform: translateY(-50%);
-	color: #484848;
+	color: #777672;
 	font-size: 18px;
 	transition: .3s;
 	font-family: 'Cabin', sans-serif;

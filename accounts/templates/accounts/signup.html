@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fouses Login Form</title>
+	<link rel="stylesheet" href="{% static '/accounts/css/signup.css'%}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<!-- <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+</head>
+<body >
+    <div id="wrapper">
+        <div class="form-container">
+            <span class="form-heading">Sign up</span>
+            <form action="">
+                <div class="input-group">
+                    <i class="fas fa-file-signature"></i>
+                    <input type="text" placeholder="Full Name" required>
+                    <span class="bar"></span>
+                </div>  
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Username" required>
+                    <span class="bar"></span>
+                </div>  
+                <div class="input-group">
+                    <i class="far fa-envelope"></i>
+                    <input type="text" placeholder="Email" required>
+                    <span class="bar"></span>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-unlock-alt"></i>
+                    <input type="text" placeholder="Password" required>
+                    <span class="bar"></span>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-clipboard-check"></i>
+                    <input type="text" placeholder="Confirm Password" required>
+                    <span class="bar"></span>
+                </div>
+                <div class="input-group">
+                    <button class="signup-btn">
+                        Sign Up
+                    </button>  
+                </div>
+                <div class="switch-login">
+                  <a href="login.html">Already Have An Account ? <span>Login</span></a>        
+            </form>    
+        </div>         
+        
+    </div>
+</body>
+</html>
