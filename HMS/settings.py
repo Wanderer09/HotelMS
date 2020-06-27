@@ -84,7 +84,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
-        'PORT': '4646',
+        'PORT': '3306',
     }
 }
 
@@ -137,4 +137,11 @@ STATICFILE_DIRS = [
 MEDIA_URL="/img/"
 
 STATIC_ROOT=os.path.join(BASE_DIR,"media")
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'anandpasam1115@gmail.com'
+EMAIL_HOST_PASSWORD = 'anand1234567890'
+EMAIL_PORT = 587
 
