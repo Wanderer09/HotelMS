@@ -137,3 +137,9 @@ MEDIA_URL="/img/"
 
 STATIC_ROOT=os.path.join(BASE_DIR,"media")
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'noreplyhotelms@gmail.com'
+EMAIL_HOST_PASSWORD = 'hms@2020'
+EMAIL_PORT = 587
+
