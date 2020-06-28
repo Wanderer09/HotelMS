@@ -10,3 +10,10 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+class Restaurant_Booking(models.Model):
+	name=models.CharField(max_length=50)
+	phonenumber=models.CharField(max_length=50)
+	Number_of_persons=models.PositiveIntegerField()
+	date=models.DateField(auto_now=False,auto_now_add=False)
+	time=models.TimeField(auto_now=False,auto_now_add=False)
+
