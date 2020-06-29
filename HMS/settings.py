@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'home',
     'room',
     'accounts',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'HMS.urls'
@@ -143,3 +149,24 @@ EMAIL_HOST_USER = 'noreplyhotelms@gmail.com'
 EMAIL_HOST_PASSWORD = 'hms@2020'
 EMAIL_PORT = 587
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+SITE_ID = 2
+LOGIN_REDIRECT_URL='home'
+SOCIAL_AUTH_FACEBOOK_KEY = '604867870437648'
+SOCIAL_AUTH_FACEBOOK_SECRET = '5bcbaed041a8c51b4f8450f710155f38'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '142840312725-vf2bumraoeba4mmne12almgohskmk7p1.apps.googleusercontent.com',
+            'secret': 'HXRuYrS_qj-kYRnyP8JTI3fH',
+            'key': ''
+        }
+    }
+}

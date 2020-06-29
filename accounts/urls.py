@@ -3,6 +3,7 @@ from accounts import views as v
 from home import views as u
 from django.conf.urls import url
 urlpatterns = [
+    path('accounts/', include('allauth.urls')),
     path('signup/',v.SignUp,name="signup"),
     path('login/',v.Login,name="login"),
     path('logout/',v.Logout,name="logout"),
