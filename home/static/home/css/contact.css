@@ -16,11 +16,23 @@
 {
     font-family: 'Cabin', sans-serif;
 }
+.contact-header{
+    background-image: url(/static/home/img/contact-us.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 65vh;
+}
+.contact-header h2{
+    padding-top: 210px;
+    text-align: center;
+    font-family: neutra;
+    font-size: 54px;
+}
 
 .container-contact{
     background-image: url(/static/home/img/contact.jpg);
     background-size: cover;
-    height: 110vh;
+    height: 112vh;
 }
 .contact-us{
     padding: 110px 80px; 
@@ -147,7 +159,7 @@ button .btn-submit:focus{
     width: 30%;
     color: #fafafa;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Cabin', sans-serif;
 }
 .copyright p{

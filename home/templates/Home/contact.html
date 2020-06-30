@@ -20,28 +20,28 @@
              <img src="{%static '/home/img/logoimg.png ' %} " height="60px" width="200px">
            </div>  
            <div class="navbar-list">
-             <ul>  
-               <li><a href="#">Home</a></li>
-               <li><a href="#">About-Us</a></li>
-               <li><a href="#">Rooms</a></li>
-               <li><a href="#">Dining</a></li>
-               <li><a href="#">Gallary</a></li>
-               <li id="nav-contact"><a href="{% url 'contact_us' %}">Contact Us</a></li>
-               <li id="nav-login">
-                 {% if user.authenticated %}
-                   <a href="{% url 'logout'%}">Logout</a>
-                  {% else %}
-                   <a href="{% url 'login' %}">Login</a>
-                 {% endif %}
-               </li>  
-               <li id="nav-search">
-                   <input type="text" placeholder="Search"></input>
-                   <i class="fas fa-search"></i>
-               </li>  
-            </ul> 
-           </div> 
-         </div>
-        </div>    
+                <ul>  
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About-Us</a></li>
+                    <li><a href="#">Rooms</a></li>
+                    <li><a href="#">Dining</a></li>
+                    <li><a href="#">Gallary</a></li>
+                    <li id="nav-contact"><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                    <li id="nav-login">
+                        {% if user.authenticated %}
+                        <a href="{% url 'logout'%}">Logout</a>
+                        {% else %}
+                        <a href="{% url 'login' %}">Login</a>
+                        {% endif %}
+                    </li>  
+                    <li id="nav-search">
+                        <input type="text" placeholder="Search"></input>
+                        <i class="fas fa-search"></i>
+                    </li>  
+                </ul> 
+           </div>
+        </div>   
+        <h2>Contact Us</h2>  
     </header>     
     <section class="container-contact">
         <div class="contact-us">
