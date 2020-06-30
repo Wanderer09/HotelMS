@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'HMS.urls'
@@ -89,7 +90,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PORT': '4646',
     }
 }
 
@@ -154,9 +155,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 SITE_ID = 2
-LOGIN_REDIRECT_URL='home'
-SOCIAL_AUTH_FACEBOOK_KEY = '604867870437648'
-SOCIAL_AUTH_FACEBOOK_SECRET = '5bcbaed041a8c51b4f8450f710155f38'
+LOGIN_REDIRECT_URL= 'home'
+
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

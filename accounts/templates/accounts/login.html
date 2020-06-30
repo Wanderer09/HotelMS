@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +30,7 @@
 				{% endfor %}
 				<div class="social-icons">
 					<a href="https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=142840312725-vf2bumraoeba4mmne12almgohskmk7p1.apps.googleusercontent.com&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Faccount%2Fsocial%2Fgoogle%2Flogin%2Fcallback%2F&scope=profile%20email&response_type=code&state=Y0kD9n8t1hlw&o2v=1&as=Qr0vI05W31VDvApJUmHuiQ&flowName=GeneralOAuthFlow"><i class="fab fa-google-plus-g"></i></a>
-					<a href="#"><i class="fab fa-facebook"></i></a>		
+					<a href="{% provider_login_url "facebook" method="oauth2" %}"><i class="fab fa-facebook"></i></a>		
 			    </div>	
            		<div class="input-div one">
            		   <div class="i">
