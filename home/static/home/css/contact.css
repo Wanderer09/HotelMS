@@ -1,17 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+{
+    font-family: 'Cabin', sans-serif;
+}
+
 .container-contact{
     background-image: url(/static/home/img/contact.jpg);
     background-size: cover;
-    height: 100vh;
+    height: 110vh;
 }
 .contact-us{
-    padding: 90px 80px; 
+    padding: 110px 80px; 
  
 }
 .contact-us h2{
-    font-size: 34px;
+    font-size: 48px;
     color: #484848;
     text-align: center;
     padding-left: 38%;
+    font-family: neutra;
     
 }
 .contact-us p{
@@ -19,7 +39,7 @@
     color: #484848;
     text-align: center;
     padding-left: 38%;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Cabin', sans-serif;
     margin-top: 20px;
 
 }
@@ -32,7 +52,8 @@
     border: none;
     border-bottom: 1px solid #484848;
     width: 90%;
-    background-color: #eaeaea;
+    background-color: transparent;
+    font-family: 'Cabin', sans-serif;
 }
 .information {
     
@@ -41,17 +62,29 @@
     padding-left: 45%;
     margin-top: 50px;
 }
+.information textarea{
+    width: 90%;
+    font-family: 'Cabin', sans-serif;
+}
 .contact-us input:focus{
     outline: none;
 }
 .contact-us textarea:focus{
     outline : none;
 }
+.contact-us button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 35%;
+    margin-top: 30px;
+}
 .btn-submit{
-    padding: 8px 15px ;
+    padding: 13px 20px ;
     border-radius: 4px;
-    background-color: #05a081 ;
+    background-color: #1e2b31;
     color: #fafafa;
+    border: none;
 }
 button .btn-submit:focus{
     outline: none;
@@ -74,9 +107,10 @@ button .btn-submit:focus{
     font-size: 24px;
     color: #fafafa;
     margin-bottom: 15px;
+    font-family: neutra;
 }
 .footer-bg h5{
-    font-family: 'Lato', sans-serif;
+    font-family: 'Cabin', sans-serif;
     font-size: 17px;
     color: #fafafa;
     margin-bottom: 50px;
@@ -109,12 +143,15 @@ button .btn-submit:focus{
     padding-left: 20px;
     
 }
-.copyright{
+.copyright {
     width: 30%;
     color: #fafafa;
     text-align: center;
-    font-size: 14px;
-    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-family: 'Cabin', sans-serif;
+}
+.copyright p{
+    font-family: 'Cabin', sans-serif;
 }
 .icons{
     width: 35%;

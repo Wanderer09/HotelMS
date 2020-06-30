@@ -466,7 +466,8 @@
 /**GALLERY**/
 .gallery-container h2{
     text-align: center;
-    margin-bottom: 40px;
+    color: #fafafa;
+    margin-bottom: 35px;
     font-family: neutra;
     font-size: 44px;
 }
@@ -485,10 +486,12 @@
     transition: 0.3s;
     width: 33.33%;
     padding: 20px 0px;
-    border: none;
+    font-family: 'Cabin', sans-serif;
+    color: #c9ab81;
+    font-size: 16px;
   }
   .tab button:hover {
-    border-bottom:1px solid #ddd;
+    color: #fafafa;
   }
   .tab button.active {
     border-bottom:1px solid #ddd;
@@ -498,18 +501,32 @@
     padding: 6px 12px;
     border-top: none;
     width: 100%;
-    text-align: center;
-    animation: fadeEffect 900ms;
+    animation: fadeEffect 2000ms;
+    margin-top: 40px; 
+  }
+  .tabcontent img{
+      margin: 0;
+      padding: 0;
+  }
+  .gallery{
+    background-image: url(/static/home/img/bg-gallery.jpg);
   }
   .gallery-container{
+      
       margin: 0px 50px;
       padding: 60px 0px;
+  }
+  .gallery-container .view-btn{
+      margin-top: 20px;
+      border: 1px solid #c9ab81;
+      font-size: 14px;
   }
   .gallery-content{
       padding-left: 20px;
   }
   @keyframes fadeEffect {
-     to {margin-left: -100%}
-     from {margin-left: 0%;}
+     from {opacity: 0;}
+     to {opacity: 1;}
+     
   }
   

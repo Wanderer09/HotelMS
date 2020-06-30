@@ -4,6 +4,7 @@
       <head>
         <title> Fouses Hotels </title>
         <link rel="stylesheet" href="{% static '/home/css/homepage.css' %}">
+        <link rel="stylesheet" href="{% static '/home/css/contact.css' %}">
         <meta name="viewport" content="width=device-width , initial-scale=1.0">
         <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -177,51 +178,79 @@
                 </div>   
               </div>  
             </section>  
-            <section class="gallery-container">
-              <h2>Gallery</h2>
-              <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Hotel & Ground</button>
-                <button class="tablinks" onclick="openCity(event, 'Paris')">Room/Suite</button>
-                <button class="tablinks" onclick="openCity(event, 'Tokyo')">Dining</button>
-              </div>
-              <div class="gallery-content">
-                <div id="London" class="tabcontent">
-                  <h3>Hotel & Ground</h3>
-                  <p>London is the capital city of England.</p>
+            <section class="gallery">
+              <div class="gallery-container">
+                <h2>Gallery</h2>
+                <div class="tab">
+                  <button class="tablinks" onclick="openCity(event, 'ground')" id="defaultOpen">Hotel & Ground</button>
+                  <button class="tablinks" onclick="openCity(event, 'suite')">Room/Suite</button>
+                  <button class="tablinks" onclick="openCity(event, 'dining')">Dining</button>
                 </div>
-              </div>
-              <div  class="gallery-content">
-                <div id="Paris" class="tabcontent">
-                  <h3>Room/Suite</h3>
-                  <p>Paris is the capital of France.</p>
+                <div class="gallery-content">
+                  <div id="ground" class="tabcontent">
+                    <img src="{% static '/home/img/pool.jpg'%}" height="300px" width="290px">
+                    <img src="{% static '/home/img/1.jpg'%}" height="300px" width="290px">
+                    <img src="{% static '/home/img/2.jpg'%}"  height="300px" width="290px">
+                    <img src="{% static '/home/img/3.jpg'%}"  height="300px" width="290px">
+                  </div>
                 </div>
-              </div>  
-              <div  class="gallery-content">
-                <div id="Tokyo" class="tabcontent">
-                  <h3>Dining</h3>
-                  <p>Tokyo is the capital of Japan.</p>
-                </div>
+                <div  class="gallery-content">
+                  <div id="suite" class="tabcontent">
+                    <img src="{% static '/home/img/bed-6.jpg'%}" height="300px" width="290px">
+                    <img src="{% static '/home/img/bed-2.jpg'%}" height="300px" width="290px">
+                    <img src="{% static '/home/img/bed-3.jpg'%}" height="300px" width="290px">
+                    <img src="{% static '/home/img/bed-4.jpg'%}" height="300px" width="290px">
+                  </div>
+                </div>  
+                <div  class="gallery-content">
+                  <div id="dining" class="tabcontent">
+                    <img src="{% static '/home/img/pool.jpg'%}" height="300px" width="290px">
+                    <img src="{% static '/home/img/1.jpg'%}" height="300px" width="290px">
+                    <img src="{% static '/home/img/2.jpg'%}"  height="300px" width="290px">
+                    <img src="{% static '/home/img/3.jpg'%}"  height="300px" width="290px">
+                  </div>
+                </div> 
+                <button class="view-btn">View More </button> 
               </div>  
             </section>  
+            <footer class="footer">
+              <div class="footer-bg">
+                  <img src="{% static 'home/img/footer.png'%}" height="50px" width="50px">
+                  <h3>NEWS & OFFERS</h3>
+                  <h5>Enjoy many benefits and receive our promotions and special offers directly</h5>
+                  <div class="email">
+                      <input type="text" placeholder="Your E-mail Address"></input>
+                      <i class="fas fa-paper-plane"></i>
+                  </div>
+              </div>
+              <div class="social-media">
+                  <div class="copyright">
+                      <p>© 2020 Lorem Ipsum Hotels</p>
+                  </div>
+                  <div class="icons">
+                      <i class="fab fa-instagram"></i>
+                      <i class="fab fa-facebook-square"></i>
+                      <i class="fab fa-twitter"></i>
+                  </div>
+                  <div class="payment">
+                      <i class="fab fa-cc-paypal"></i>
+                      <i class="fab fa-cc-mastercard"></i>
+                      <i class="fab fa-cc-visa"></i>
+                  </div>
+              </div>
+          </footer>
             <!--*Java Script For Gallery*-->
             <script>
                function openCity(evt, cityName) {
-                // Declare all variables
                 var i, tabcontent, tablinks;
-
-                // Get all elements with class="tabcontent" and hide them
                 tabcontent = document.getElementsByClassName("tabcontent");
                 for (i = 0; i < tabcontent.length; i++) {
                   tabcontent[i].style.display = "none";
                 }
-
-                // Get all elements with class="tablinks" and remove the class "active"
                 tablinks = document.getElementsByClassName("tablinks");
                 for (i = 0; i < tablinks.length; i++) {
                   tablinks[i].className = tablinks[i].className.replace(" active", "");
                 }
-
-                // Show the current tab, and add an "active" class to the button that opened the tab
                 document.getElementById(cityName).style.display = "block";
                 evt.currentTarget.className += " active";
               }

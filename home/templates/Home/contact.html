@@ -5,13 +5,44 @@
 <head>
     <title>Contact Us </title>
     <link rel="stylesheet" href="{% static '/home/css/contact.css' %}">
+    <link rel="stylesheet" href="{% static '/home/css/homepage.css' %}">
     <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width , initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <header class="contact-header">
+        <div class="back-image">  
+           <div class="logo-image">
+             <img src="{%static '/home/img/logoimg.png ' %} " height="60px" width="200px">
+           </div>  
+           <div class="navbar-list">
+             <ul>  
+               <li><a href="#">Home</a></li>
+               <li><a href="#">About-Us</a></li>
+               <li><a href="#">Rooms</a></li>
+               <li><a href="#">Dining</a></li>
+               <li><a href="#">Gallary</a></li>
+               <li id="nav-contact"><a href="{% url 'contact_us' %}">Contact Us</a></li>
+               <li id="nav-login">
+                 {% if user.authenticated %}
+                   <a href="{% url 'logout'%}">Logout</a>
+                  {% else %}
+                   <a href="{% url 'login' %}">Login</a>
+                 {% endif %}
+               </li>  
+               <li id="nav-search">
+                   <input type="text" placeholder="Search"></input>
+                   <i class="fas fa-search"></i>
+               </li>  
+            </ul> 
+           </div> 
+         </div>
+        </div>    
+    </header>     
     <section class="container-contact">
         <div class="contact-us">
             <form action="{% url 'contact_us' %}" method="post">{% csrf_token %}
@@ -25,6 +56,7 @@
                     <button class="btn-submit" type="submit">Submit</button>
                 </div>
             </form>
+        </div>    
     </section>
     <footer class="footer">
         <div class="footer-bg">
