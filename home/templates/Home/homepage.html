@@ -162,12 +162,13 @@
                   <div class="resto-book">
                     <p>Book Table</p>
                     <img src="{% static '/home/img/heading-dark.png' %}" width="100px" height="20px">
-                    <form action="#">
-                    <input placeholder="Name"></input>
-                    <input placeholder="Phone Number"></input>
-                    <input placeholder="Person"></input>
-                    <input placeholder="Date"></input>
-                    <input placeholder="Time"></input>
+                    <form action="#" method="POST">
+                      {% csrf_token %}
+                    <input placeholder="Name" type="Text" name="name"></input>
+                    <input placeholder="Phone Number" type="tel" name="phonenumber"></input>
+                    <input placeholder="Person" type="number" name="number_of_persons"></input>
+                    <input placeholder="Date" type="date" name="date"></input>
+                    <input placeholder="Time" type="time" name="time"></input>
                     <button class="resto-btn" type="submit" >Book</button>
                     </form>
                   </div>

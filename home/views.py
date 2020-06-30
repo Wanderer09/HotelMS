@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Contact
+from .models import Contact,Restaurant_Booking
 from room.models import Room,Room_type
 def index(request):
     count=Room_type.objects.all().count()
@@ -50,6 +50,13 @@ def index(request):
     price=[]
     rating=[]
     show_on_homepage=[]
+    if(request.method=='POST'):
+        name=request.POST['name']
+        phonenumber=request.POST['phonenumber']
+        number_of_persons=request.POST['number_of_persons']
+        date=request.POST['date']
+        time=request.POST['time']
+        Restaurant_Booking.objects.create(name=name,phonenumber=phonenumber,Number_of_persons=number_of_persons,date=date,time=time)
     for i in range(1,count+1):
         a=Room.objects.filter(room_status='a',room_type_id=i).count()
         room_available_count.append(a)
