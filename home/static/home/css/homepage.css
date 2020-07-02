@@ -520,6 +520,7 @@
       margin-top: 20px;
       border: 1px solid #c9ab81;
       font-size: 14px;
+      background: #0f1d22;
   }
   .gallery-content{
       padding-left: 20px;
@@ -529,4 +530,112 @@
      to {opacity: 1;}
      
   }
-  
+  /**Reviews**/
+  .reviews{
+      background-image: url(/static/home/img/reviews.jpg);
+      background-size: cover;
+      height: 60vh;
+  }
+  .reviews-container{
+      display: flex;
+      padding: 100px 0px;
+      margin: 0px 20px;
+  }
+  .image-review{
+      display: flex;
+      width: 50%;
+  }
+  .review-image{
+      width: 30%;
+  }
+  .review-image img{
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 20px;
+  }
+ 
+  .review-content{
+      width: 70%;
+      text-align: center;
+      padding: 0px 10px;
+  }
+  .review-content h3{
+    font-family: neutra;
+    font-size: 30px;
+    margin: 10px 0px;
+
+  }
+  .review-content i{
+      font-size: 14px;
+      margin-bottom: 20px;
+      color:#ffe234;
+  }
+  .review-content p{
+      font-size: 16px;
+      font-family: 'Cabin', sans-serif;
+      line-height: 1.6;
+  }
+  /**BOOK OPTIONS **/
+  .book-option{
+      display: flex;
+      padding: 40px 40px;
+     
+  }
+.padding-book{
+    align: right;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.padding-book a{
+    text-decoration: none;
+}
+.book-now{
+    padding: 30px 0px;
+    background-color: #eae7dc;
+}
+.book-online{
+      text-align: center;
+      background-color: #1e2b31; 
+      height: 240px;
+      width: 290px;
+      padding: 60px 0px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px 5px #ccc; /* with blur shadow*/
+      transition: transform .6s;
+  }
+  .book-online:hover{
+    transform: scale(1.1);
+  }
+  .book-online i{
+      font-size: 2.1rem;
+      color: #c9ab81;
+      margin-bottom: 20px;
+  }
+  .book-online h5{
+      color: #c9ab81;
+      font-size: 1.3rem;
+      font-family: 'Cabin', sans-serif;
+  }
+  .book-heading h2{
+      font-family: neutra;
+      font-size: 44px;
+      font-weight: bolder;
+      text-align: center;
+      margin: 30px 0px;
+  }
+  .book-now button{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     padding: 15px 30px;
+     word-spacing: 1.3px;
+     border: none;
+     background-color: #0f1d22;
+     color: #fafafa;
+     font-family: 'Cabin', sans-serif;
+     cursor: pointer;
+  }
+  .book-now a{
+      text-decoration: none;
+  }
