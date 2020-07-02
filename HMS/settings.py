@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'home',
     'room',
     'accounts',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +88,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
-        'PORT': '4646',
+        'PORT': '3306',
     }
 }
 
@@ -126,7 +131,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+SITE_ID = 2
 #Added Manually
 
 STATICFILE_DIRS = [
@@ -136,4 +141,41 @@ STATICFILE_DIRS = [
 MEDIA_URL="/img/"
 
 STATIC_ROOT=os.path.join(BASE_DIR,"media")
+
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'noreplyhotelms@gmail.com'
+EMAIL_HOST_PASSWORD = 'hms@2020'
+EMAIL_PORT = 587
+
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+
+
+LOGIN_REDIRECT_URL= '/'
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+    'SCOPE': [
+            'email',
+        ],
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '142840312725-vf2bumraoeba4mmne12almgohskmk7p1.apps.googleusercontent.com',
+            'secret': 'HXRuYrS_qj-kYRnyP8JTI3fH',
+            'key': ''
+        }
+    }
+}
+
 
