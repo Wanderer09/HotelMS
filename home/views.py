@@ -82,5 +82,6 @@ def contact(request):
         contact.save()
         thank=True
     return render(request, 'home/contact.html',{"thank":thank})
-
+def booking(request):
+    return render(request,'home/booking-1.html')
 
