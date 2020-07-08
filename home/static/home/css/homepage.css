@@ -602,7 +602,7 @@
       padding: 60px 0px;
       border-radius: 5px;
       box-shadow: 0 0 10px 5px #ccc; /* with blur shadow*/
-      transition: transform .6s;
+      transition: transform .4s ease-in-out;
   }
   .book-online:hover{
     transform: scale(1.1);
