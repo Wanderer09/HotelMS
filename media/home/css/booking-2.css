@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+{
+    font-family: 'Cabin', sans-serif;
+}
+.booking-header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.back-image{
+    display: flex;
+    background-color: #fafafa;
+    padding: 20px 40px;
+    z-index:999;
+}
+.navbar-list{
+    width: 80%;
+    margin: auto;
+    padding-left: 3%;
+}
+.navbar-list ul{
+    list-style: none;
+    text-decoration: none; 
+}
+.navbar-list ul li {
+    color: #3a3434;
+    display: inline;
+    font-size: 18px;
+    padding: 5px 23px;
+   
+}
+#nav-search{
+    border-bottom: 1px solid #484848;
+    padding: 5px 0px;
+}
+.navbar-list ul li input{
+    border: none;
+    width: 15%;
+    background-color: #fafafa;
+    font-family: neutra;
+    font-weight: 300;
+}
+.navbar-list ul li input:focus{
+    outline: none;
+}
+#nav-contact{
+    padding-right: 20px;   
+}
+#nav-login{
+    padding-right: 45px;   
+}
+#nav-login a span{
+    font-family: neutra;
+}
+.navbar-list ul li a{
+    color: #3a3434;
+    text-decoration: none;
+    font-family: neutra;
+}
+.logo-image{
+   width: 20%;
+   text-align: center;
+}
