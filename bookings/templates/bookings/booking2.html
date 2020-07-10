@@ -1,0 +1,436 @@
+{% load static %}
+<!DOCTYPE html>
+  <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Fouses Bookings </title>
+            <link rel="stylesheet" href="{% static '/bookings/css/booking2.css'%}" >
+            <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        </head>
+        <body>
+            <header class="booking-header">  
+                <div class="back-image">  
+                    <div class="logo-image">
+                    <img src="{% static '/bookings/img/logoimg.png' %}" height="60px" width="200px">
+                    </div>  
+                    <div class="navbar-list">
+                    <ul>  
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About-Us</a></li>
+                        <li><a href="#">Rooms</a></li>
+                        <li><a href="#">Dining</a></li>
+                        <li><a href="#">Gallary</a></li>
+                        <li id="nav-contact"><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                        <li id="nav-login">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'logout'%}">Logout</a>
+                        {% else %}
+                            <a href="{% url 'login' %}">Login</a>
+                        {% endif %}
+                        </li>  
+                        <li id="nav-search">
+                            <input type="text" placeholder="Search"></input>
+                            <i class="fas fa-search"></i>
+                        </li>  
+                    </ul> 
+                    </div> 
+                </div>
+            </header> 
+            <form action="#" method="GET">
+                <div class="flex-class">
+                    <section class="container-sidebar">
+                        <div class="sidebar">
+                        <div class="section-book-1"> 
+                                <div class="room-heading">
+                                    <p>Your Reservation's</p>
+                                </div>  
+                                <div class="enter-info">  
+                                    <div class="check-info">
+                                        <div class="check-row">
+                                        <i class="far fa-check-circle"></i><span>Check-In</span>
+                                        </div>
+                                        <div class="check-row-2">
+                                        <span>28/07/2020</span>
+                                        </div>  
+                                    </div> 
+                                    <div class="check-info">
+                                        <div class="check-row">
+                                        <i class="fas fa-sign-out-alt"></i><span>Check-Out</span>
+                                        </div>
+                                        <div class="check-row-2">
+                                        <span>31/07/2020</span>
+                                        </div>
+                                    </div>  
+                                    <div class="check-info">
+                                        <div class="check-row">
+                                        <i class="fas fa-bed"></i><span>Number Of Rooms</span>
+                                        </div>
+                                        <div class="check-row-2">
+                                        <span>02</span>
+                                        </div> 
+                                    </div>  
+                                    <div class="check-info">
+                                        <div class="check-row">
+                                        <i class="fas fa-users"></i><span>Number Of Guests</span>
+                                        </div>
+                                        <div class="check-row-2">    
+                                        <span>04</span>
+                                        </div> 
+                                    </div>  
+                                </div>    
+                                <div class="edit-btn">
+                                    <button class="btn-edit">EDIT</button>
+                                </div>  
+                                <div class="booking-info">
+                                    <p>Select Your Rooms</p>
+                                </div>
+                                <div class="room-card">
+                                    <div class="booking-row">
+                                        <span>BOOKING ROOM - 1</span>
+                                        <span id="color-guest">1 Adult & 2 Child </span>
+                                    </div> 
+                                    <div class="booking-row">
+                                        <span id="room-color">Luxury Room</span><span id="color-number">X1</span>
+                                        <span id="color-rupee"><i class="fas fa-rupee-sign"></i> 6000<span>
+                                    </div>       
+                                </div>
+                                <div class="room-card">
+                                    <div class="booking-row">
+                                        <span>BOOKING ROOM - 2</span>
+                                        <span id="color-guest">1 Adult & 2 Child</span>
+                                    </div> 
+                                    <div class="booking-row">
+                                        <span id="room-color">Delux Room</span><span id="color-number">X1</span>
+                                        <span id="color-rupee"><i class="fas fa-rupee-sign"></i> 5000<span>
+                                    </div>       
+                                </div> 
+                        </div> 
+                        <div class="section-book-2">
+                            <div class="services-heading">
+                                <p>Additional Services</p>
+                            </div>
+                            <div class="addons">
+                                    <div class="services-row">
+                                    <div class="service-name">
+                                        <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Spa & Saloon </label>
+                                    </div>
+                                    <div class="service-cost">  
+                                        <span><i class="fas fa-rupee-sign"></i> 1500</span>
+                                    </div>  
+                                    </div>
+                                    <div class="services-row">
+                                        <div class="service-name">
+                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Gym </label>
+                                        </div>
+                                        <div class="service-cost">  
+                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
+                                        </div> 
+                                    </div>   
+                                    <div class="services-row">
+                                        <div class="service-name">
+                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Private Chef </label>
+                                        </div>
+                                        <div class="service-cost">  
+                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
+                                        </div> 
+                                    </div>   
+                                    <div class="services-row">
+                                        <div class="service-name">
+                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Laundary </label>
+                                        </div>
+                                        <div class="service-cost">  
+                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
+                                        </div>
+                                    </div>   
+                                    <div class="services-row">
+                                        <div class="service-name">
+                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Pick & Drop </label>
+                                        </div>
+                                        <div class="service-cost">  
+                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
+                                        </div>
+                                    </div> 
+                                    <div class="services-row">
+                                        <div class="service-name">
+                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Guided Tour </label>
+                                        </div>
+                                        <div class="service-cost">  
+                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
+                                        </div>
+                                    </div> 
+                                    <div class="services-row">
+                                        <div class="service-name">
+                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Dry Cleaning</label>
+                                        </div>
+                                        <div class="service-cost">  
+                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
+                                        </div>
+                                    </div>        
+                            </div>      
+                        </div>                 
+                        </div>    
+                    </section>    
+                    <section class="room-select-card"> 
+                        <div class="personal">
+                            <div class="user-navbar">
+                                <div class="options">
+                                    <div class="option-number" id="option-1">
+                                        <div class="option-padding">
+                                        <span> 1</span>
+                                        </div>  
+                                    </div>
+                                    <div class="option-row option-color padding-option-1">    
+                                        <span>Choose Date & Personal Information</span>   
+                                    </div>    
+                                </div>    
+                                <div class="options">
+                                    <div class="option-number" id="option-2">
+                                        <div class="option-padding">
+                                        <span> 2 </span>
+                                        </div> 
+                                    </div>
+                                    <div class="option-row option">    
+                                        <span>Choose Rooms</span>   
+                                    </div>    
+                                </div>    
+                                <div class="options">
+                                    <div class="option-number" id="option-3">
+                                    <div class="option-padding"> 
+                                        <span> 3 </span>
+                                    </div>
+                                    </div>
+                                    <div class="option-row option-color">    
+                                        <span>Confirmation</span>   
+                                    </div>    
+                                </div>    
+                                <div class="options">
+                                    <div class="option-number" id="option-4">
+                                    <div class="option-padding"> 
+                                        <span> 4 </span>
+                                    </div>
+                                    </div>
+                                    <div class="option-row option-color">    
+                                        <span>Payment Method </span>   
+                                    </div>    
+                                </div>    
+                            </div>  
+                        </div>
+                        <div class="room-cards ">
+                            <div class="room-card-row-1">
+                                <div class="card">
+                                    <div class="card-image">
+                                    <img src="{% static '/bookings/img/bed-2.jpg' %}" width="310px" height="230px">
+                                    </div>
+                                    <div class="room-information-row">
+                                        <div class="room-details">
+                                            <div class="room-name">
+                                                <span>LUXURY ROOM</span>
+                                            </div> 
+                                            <div class="room-price">
+                                                <span><i class="fas fa-rupee-sign"></i> 6000</span>
+                                            </div>       
+                                        </div> 
+                                        <div class="room-service">
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>King Size Bed</li>
+                                                    <li><i class="fas fa-circle"></i>Free Wifi</li>
+                                                </ul>    
+                                            </div>
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>Sitting Area</li>
+                                                <li> <i class="fas fa-circle"></i>Jacuzzi</li>
+                                                </ul>   
+                                            </div>        
+                                        </div> 
+                                        <div class="select-option">
+                                            <input class="input-rooms" placeholder="No. Of Rooms" />
+                                            <button class="select-btn">SELECT</button>
+                                        </div>  
+                                    </div>               
+                                </div>  
+                                <div class="card">
+                                    <div class="card-image">
+                                    <img src="{% static '/bookings/img/bed-3.jpg' %}" width="310px" height="230px">
+                                    </div>
+                                    <div class="room-information-row">
+                                        <div class="room-details">
+                                            <div class="room-name">
+                                                <span>DELUX ROOM</span>
+                                            </div> 
+                                            <div class="room-price">
+                                                <span><i class="fas fa-rupee-sign"></i> 5000</span>
+                                            </div>       
+                                        </div> 
+                                        <div class="room-service">
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>King Size Bed</li>
+                                                    <li><i class="fas fa-circle"></i>Free Wifi</li>
+                                                </ul>    
+                                            </div>
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>Sitting Area</li>
+                                                <li> <i class="fas fa-circle"></i>Jacuzzi</li>
+                                                </ul>   
+                                            </div>        
+                                        </div> 
+                                        <div class="select-option">
+                                            <input class="input-rooms" placeholder="No. Of Rooms" />
+                                            <button class="select-btn">SELECT</button>
+                                        </div>  
+                                    </div>               
+                                </div>  
+                                <div class="card">
+                                    <div class="card-image">
+                                    <img src="{% static '/bookings/img/bed-4.jpg' %}" width="310px" height="230px">
+                                    </div>
+                                    <div class="room-information-row">
+                                        <div class="room-details">
+                                            <div class="room-name">
+                                                <span>QUEEN'S ROOM</span>
+                                            </div> 
+                                            <div class="room-price">
+                                                <span><i class="fas fa-rupee-sign"></i> 4000</span>
+                                            </div>       
+                                        </div> 
+                                        <div class="room-service">
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>King Size Bed</li>
+                                                    <li><i class="fas fa-circle"></i>Free Wifi</li>
+                                                </ul>    
+                                            </div>
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>Sitting Area</li>
+                                                <li> <i class="fas fa-circle"></i>Jacuzzi</li>
+                                                </ul>   
+                                            </div>        
+                                        </div> 
+                                        <div class="select-option">
+                                            <input class="input-rooms" placeholder="No. Of Rooms" />
+                                            <button class="select-btn">SELECT</button>
+                                        </div>  
+                                    </div>               
+                                </div>    
+                            </div>    
+                        </div>
+                        <div class="room-cards room-card-row-2">
+                            <div class="room-card-row-1">
+                                <div class="card">
+                                    <div class="card-image">
+                                    <img src="{% static '/bookings/img/bed-5.jpg' %}" width="310px" height="230px">
+                                    </div>
+                                    <div class="room-information-row">
+                                        <div class="room-details">
+                                            <div class="room-name">
+                                                <span>SINGLE ROOM</span>
+                                            </div> 
+                                            <div class="room-price">
+                                                <span><i class="fas fa-rupee-sign"></i> 3000</span>
+                                            </div>       
+                                        </div> 
+                                        <div class="room-service">
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>King Size Bed</li>
+                                                    <li><i class="fas fa-circle"></i>Free Wifi</li>
+                                                </ul>    
+                                            </div>
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>Sitting Area</li>
+                                                <li> <i class="fas fa-circle"></i>Jacuzzi</li>
+                                                </ul>   
+                                            </div>        
+                                        </div> 
+                                        <div class="select-option">
+                                            <input class="input-rooms" placeholder="No. Of Rooms" />
+                                            <button class="select-btn">SELECT</button>
+                                        </div>  
+                                    </div>               
+                                </div>  
+                                <div class="card">
+                                    <div class="card-image">
+                                    <img src="{% static '/bookings/img/bed-6.jpg' %}" width="310px" height="230px">
+                                    </div>
+                                    <div class="room-information-row">
+                                        <div class="room-details">
+                                            <div class="room-name">
+                                                <span>ECONOMY ROOM</span>
+                                            </div> 
+                                            <div class="room-price">
+                                                <span><i class="fas fa-rupee-sign"></i> 2000</span>
+                                            </div>       
+                                        </div> 
+                                        <div class="room-service">
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>King Size Bed</li>
+                                                    <li><i class="fas fa-circle"></i>Free Wifi</li>
+                                                </ul>    
+                                            </div>
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>Sitting Area</li>
+                                                <li> <i class="fas fa-circle"></i>Jacuzzi</li>
+                                                </ul>   
+                                            </div>        
+                                        </div> 
+                                        <div class="select-option">
+                                            <input class="input-rooms" placeholder="No. Of Rooms" />
+                                            <button class="select-btn">SELECT</button>
+                                        </div>  
+                                    </div>               
+                                </div>  
+                                <div class="card">
+                                    <div class="card-image">
+                                    <img src="{% static '/bookings/img/bed-2.jpg' %}" width="310px" height="230px">
+                                    </div>
+                                    <div class="room-information-row">
+                                        <div class="room-details">
+                                            <div class="room-name">
+                                                <span>KING'S ROOM</span>
+                                            </div> 
+                                            <div class="room-price">
+                                                <span><i class="fas fa-rupee-sign"></i> 7000</span>
+                                            </div>       
+                                        </div> 
+                                        <div class="room-service">
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>King Size Bed</li>
+                                                    <li><i class="fas fa-circle"></i>Free Wifi</li>
+                                                </ul>    
+                                            </div>
+                                            <div class="room-service-row-1">
+                                                <ul>
+                                                    <li><i class="fas fa-circle"></i>Sitting Area</li>
+                                                <li> <i class="fas fa-circle"></i>Jacuzzi</li>
+                                                </ul>   
+                                            </div>        
+                                        </div> 
+                                        <div class="select-option">
+                                            <input class="input-rooms" placeholder="No. Of Rooms" />
+                                            <button class="select-btn">SELECT</button>
+                                        </div>  
+                                    </div>               
+                                </div>    
+                            </div>    
+                        </div>  
+                        <div class="page-btn">  
+                        <button class="prev-btn">BACK</button>
+                        <button class="submit-btn" type="submit">NEXT</button>
+                        </div>     
+                    </section> 
+                </div>
+            </form>                
+        </body>
+  </html>

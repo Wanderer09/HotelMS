@@ -146,7 +146,7 @@
     font-family: 'Cabin', sans-serif;
 }
 .check i{
-    margin-right: 3%;
+    margin-right: 2%;
     color: #8e7037;
 }
 
@@ -168,7 +168,7 @@
 .guest-info i{
     color: #8e7037;
     font-size: 20px;
-    margin-right: 7%;
+    margin-right: 4%;
 }
 .guest-info label{
     font-family: 'Cabin', sans-serif;
@@ -194,7 +194,7 @@
 .guest i{
     color: #8e7037;
     font-size: 16px;
-    margin-right: 7%;
+    margin-right: 4%;
 }
 .guest label{
     font-family: 'Cabin', sans-serif;
