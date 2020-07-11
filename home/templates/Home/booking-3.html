@@ -1,0 +1,325 @@
+{% load static %}
+<!DOCTYPE html>
+  <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Fouses Bookings </title>
+            <link rel="stylesheet" href="{% static '/home/css/booking-3.css'%}" >
+            <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        </head>
+        <body>
+            <header class="booking-header">  
+                <div class="back-image">  
+                    <div class="logo-image">
+                    <img src="{% static '/home/img/logoimg.png' %}" height="60px" width="200px">
+                    </div>  
+                    <div class="navbar-list">
+                    <ul>  
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About-Us</a></li>
+                        <li><a href="#">Rooms</a></li>
+                        <li><a href="#">Dining</a></li>
+                        <li><a href="#">Gallary</a></li>
+                        <li id="nav-contact"><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                        <li id="nav-login">
+                        {% if user.authenticated %}
+                            <a href="{% url 'logout'%}">Logout</a>
+                        {% else %}
+                            <a href="{% url 'login' %}">Login</a>
+                        {% endif %}
+                        </li>  
+                        <li id="nav-search">
+                            <input type="text" placeholder="Search"></input>
+                            <i class="fas fa-search"></i>
+                        </li>  
+                    </ul> 
+                    </div> 
+                </div>
+            </header> 
+            <div class="flex-class">
+                <section class="container-sidebar">
+                    <div class="sidebar">
+                       <div class="section-book-1"> 
+                            <div class="room-heading">
+                                <p>BOOKING DETAILS</p>
+                            </div>  
+                            <div class="enter-info">  
+                                <div class="check-info">
+                                    <div class="check-row">
+                                    <i class="far fa-check-circle"></i><span>Check-In</span>
+                                    </div>
+                                    <div class="check-row-2">
+                                    <span>28/07/2020</span>
+                                    </div>  
+                                </div> 
+                                <div class="check-info">
+                                    <div class="check-row">
+                                    <i class="fas fa-sign-out-alt"></i><span>Check-Out</span>
+                                    </div>
+                                    <div class="check-row-2">
+                                    <span>31/07/2020</span>
+                                    </div>
+                                </div>  
+                                <div class="check-info">
+                                    <div class="check-row">
+                                    <i class="fas fa-bed"></i><span>Number Of Rooms</span>
+                                    </div>
+                                    <div class="check-row-2">
+                                    <span>02</span>
+                                    </div> 
+                                </div>  
+                                <div class="check-info">
+                                    <div class="check-row">
+                                    <i class="fas fa-users"></i><span>Number Of Guests</span>
+                                    </div>
+                                    <div class="check-row-2">    
+                                    <span>04</span>
+                                    </div> 
+                                </div>  
+                            </div> 
+                            <div class="addon-services">
+                               <div class="selected-services-heading">
+                                 <p>Additional Services</p>
+                               </div>
+                               <div class="selected-services">
+                                   <div class="selected-services-row">
+                                       <p>Guided Tours</p>
+                                       <span><i class="fas fa-rupee-sign"></i>1500</span>
+                                   </div>
+                                   <div class="selected-services-row">
+                                      <p>Spa & Saloons</p>
+                                      <span><i class="fas fa-rupee-sign"></i>1500</span>
+                                   </div>    
+                               </div> 
+                               <div class="total">
+                                   <p>Total</p>
+                                   <span><i class="fas fa-rupee-sign"></i>3000</span>
+                               </div>           
+                            </div>
+                       </div>
+                    </div>   
+                </section>
+                <section class="room-select-card"> 
+                    <div class="personal">
+                        <div class="user-navbar">
+                            <div class="options">
+                                <div class="option-number" id="option-1">
+                                    <div class="option-padding">
+                                    <span> 1</span>
+                                    </div>  
+                                </div>
+                                <div class="option-row option-color padding-option-1">    
+                                    <span>Choose Date & Personal Information</span>   
+                                </div>    
+                            </div>    
+                            <div class="options">
+                                <div class="option-number" id="option-2">
+                                    <div class="option-padding">
+                                    <span> 2 </span>
+                                    </div> 
+                                </div>
+                                <div class="option-row option">    
+                                    <span>Choose Rooms</span>   
+                                </div>    
+                            </div>    
+                            <div class="options">
+                                <div class="option-number" id="option-3">
+                                <div class="option-padding"> 
+                                    <span> 3 </span>
+                                </div>
+                                </div>
+                                <div class="option-row option-color">    
+                                    <span>Confirmation</span>   
+                                </div>    
+                            </div>    
+                            <div class="options">
+                                <div class="option-number" id="option-4">
+                                <div class="option-padding"> 
+                                    <span> 4 </span>
+                                </div>
+                                </div>
+                                <div class="option-row option-color">    
+                                    <span>Payment Method </span>   
+                                </div>    
+                            </div>    
+                        </div>  
+                    </div>
+                    <div class="entered-information">
+                        <div class="personal-entered-info">
+                            <div class="entered-info-heading">
+                                <h2>Your Information</h2> 
+                            </div>
+                            <div class="edit-btn">
+                                <button class="edit-btn-info">EDIT</button>
+                            </div>        
+                        </div>
+                        <div class="input-field-rows">
+                            <div class="input-column">
+                               <div class="input-row">
+                                   <span>First Name :</span>
+                               </div>
+                               <div class="input-row-response">
+                                   <p>Rahul</p>
+                               </div>    
+                            </div>
+                            <div class="input-column">
+                                <div class="input-row">
+                                    <span>Last Name :</span>
+                                </div>
+                                <div class="input-row-response">
+                                    <p>Rajput</p>
+                                </div>   
+                            </div>        
+                        </div>
+                        <div class="input-field-rows">
+                            <div class="input-column">
+                               <div class="input-row">
+                                   <span>Gender :</span>
+                               </div>
+                               <div class="input-row-response">
+                                   <p>Male</p>
+                               </div>    
+                            </div>
+                            <div class="input-column">
+                                <div class="input-row">
+                                    <span>Phone Number :</span>
+                                </div>
+                                <div class="input-row-response">
+                                    <p>1234567890</p>
+                                </div>   
+                            </div>        
+                        </div> 
+                        <div class="input-field-rows">
+                            <div class="input-column">
+                               <div class="input-row">
+                                   <span>Country :</span>
+                               </div>
+                               <div class="input-row-response">
+                                   <p>India</p>
+                               </div>    
+                            </div>
+                            <div class="input-column">
+                                <div class="input-row">
+                                    <span>Town/City :</span>
+                                </div>
+                                <div class="input-row-response">
+                                    <p>Delhi</p>
+                                </div>   
+                            </div>        
+                        </div> 
+                        <div class="input-field-rows">
+                            <div class="input-column">
+                               <div class="input-row">
+                                   <span>Email-Id :</span>
+                               </div>
+                               <div class="input-row-response">
+                                   <p>Rahulrajput@gmail.com</p>
+                               </div>    
+                            </div>
+                            <div class="input-column">
+                                <div class="input-row">
+                                    <span>Choosen Id :</span>
+                                </div>
+                                <div class="input-row-response">
+                                    <p>Aadhar Card</p>
+                                </div>   
+                            </div>        
+                        </div>       
+                    </div> 
+                    <div class="room-bill-heading">
+                        <h2>Selected Rooms</h2>
+                    </div>
+                    <div class="cost-section"> 
+                        <div class="room-billing">    
+                            <div class="room-details">
+                                <p>Room-1</p>
+                                <span id="room-color">Luxury Room </span>
+                                <span id="color-change">x1</span>
+                            </div>    
+                            <div class="room-price-details">
+                                <p>Space Price</p>
+                                <div class="total-price">
+                                    <div class="dates"> 
+                                        <span>28/07/2020 - 31/07/2020</span>
+                                    </div>
+                                    <div class="date-total-cost">      
+                                        <span><i class="fas fa-rupee-sign"></i>18000</span>
+                                    </div> 
+                                </div>
+                            </div>       
+                            <div class="addon-prices">
+                                <div class="service-row-choosen">
+                                    <p>Additional Services </p>
+                                    <span><i class="fas fa-rupee-sign"></i>3000</span>
+                                </div>   
+                                <div class="service-row-choosen">
+                                    <p>Taxes</p>
+                                    <span><i class="fas fa-rupee-sign"></i>500</span>
+                                </div>    
+                            </div>    
+                            <div class="sum-amount">
+                                <div class="total-amount">
+                                    <p>Total</p>
+                                </div>    
+                                <div class="total-price-info">
+                                    <p><i class="fas fa-rupee-sign"></i>21500</p>
+                                </div>    
+                            </div>
+                        </div> 
+                        <div class="room-billing">  
+                            <div class="room-details">
+                                <p>Room-2</p>
+                                <span id="room-color">Delux Room </span>
+                                <span id="color-change">x1</span>
+                            </div>    
+                            <div class="room-price-details">
+                                <p>Space Price</p>
+                                <div class="total-price">
+                                    <div class="dates"> 
+                                        <span>28/07/2020 - 31/07/2020</span>
+                                    </div>
+                                    <div class="date-total-cost">      
+                                        <span><i class="fas fa-rupee-sign"></i>15000</span>
+                                    </div> 
+                                </div>
+                            </div>       
+                            <div class="addon-prices">
+                                <div class="service-row-choosen">
+                                    <p>Additional Services </p>
+                                    <span><i class="fas fa-rupee-sign"></i>3000</span>
+                                </div>   
+                                <div class="service-row-choosen">
+                                    <p>Taxes</p>
+                                    <span><i class="fas fa-rupee-sign"></i>500</span>
+                                </div>    
+                            </div>    
+                            <div class="sum-amount">
+                                <div class="total-amount">
+                                    <p>Total</p>
+                                </div>    
+                                <div class="total-price-info">
+                                    <p><i class="fas fa-rupee-sign"></i>18500</p>
+                                </div>    
+                            </div>
+                        </div>     
+                    </div> 
+                    <div class="payable-amount">
+                        <div class="payable-label">
+                            <p>Total Amount Payable</p>
+                        </div>
+                        <div class="payable-cost">
+                            <p><i class="fas fa-rupee-sign"></i>40000</p>
+                        </div>        
+                    </div>    
+                    <div class="page-btn">  
+                        <button class="prev-btn">BACK</button>
+                        <button class="submit-btn" type="submit">PAY</button>
+                    </div>        
+                </section>    
+            </div>                   
+        </body>    
+    </html>    
