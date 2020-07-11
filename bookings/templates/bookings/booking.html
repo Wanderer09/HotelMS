@@ -26,7 +26,7 @@
                             <li><a href="#">Gallary</a></li>
                             <li id="nav-contact"><a href="{% url 'contact_us' %}">Contact Us</a></li>
                             <li id="nav-login">
-                            {% if user.is_authenticated %}
+                            {% if user.authenticated %}
                                 <a href="{% url 'logout'%}">Logout</a>
                             {% else %}
                                 <a href="{% url 'login' %}">Login</a>
@@ -45,41 +45,42 @@
                     <div class="sidebar">
                     <h2>Your Reservation's</h2>
                     <p>Your Stay Dates</p>
-                    <form>
+                    <form method="POST" action="booking.html">
+                        {% csrf_token %}
                     <div class="check">    
                     <i class="far fa-check-circle"></i><span>Check-In</span>
                     </div>
                     <div class="input-content">
-                        <input class="in-out" placeholder="Date" type="date" required />
-                        <input class="in-out" placeholder="Time" type="time" required />
+                        <input class="in-out" placeholder="Date" type="date" name="in_date" required />
+                        <input class="in-out" placeholder="Time" type="time" name="in_time" required />
                     </div>
                     <div class="check">    
                         <i class="fas fa-sign-out-alt"></i><span>Check-Out</span>
                         </div>
                     <div class="input-content">
-                        <input class="in-out" placeholder="Date" type="date" required />
-                        <input class="in-out" placeholder="Time" type="time" required />
+                        <input class="in-out" placeholder="Date" type="date" name="out_date" required />
+                        <input class="in-out" placeholder="Time" type="time" name="out_date" required />
                     </div>
                     <p id="rooms-guest">Rooms & Guests</p>
                     <div class="guest-info">
                             <i class="fas fa-bed"></i>
                             <label>Number Of Rooms </label>
-                            <input class="room-input" type="text" placeholder="00"/>
+                            <input class="room-input" type="text" name="room_count" placeholder="00"/>
                     </div>
                     <div class="guest-info">
                             <i class="fas fa-users"></i>
                             <label>Number Of Guests </label>
-                            <input class="room-input" type="text" placeholder="00" />
+                            <input class="room-input" type="text" name="guest_count" placeholder="00" />
                     </div>
                     <div class="guest" id="adult">
                             <i class="fas fa-user"></i>
                             <label>Adults </label>
-                            <input class="room-input" type="text" placeholder="00"/>
+                            <input class="room-input" type="text" name="adult_count" placeholder="00"/>
                     </div>
                     <div class="guest">
                             <i class="fas fa-child"></i>
                             <label>Children </label>
-                            <input class="room-input" type="text" placeholder="00"/>
+                            <input class="room-input" type="text" name="Children_count" placeholder="00"/>
                     </div>
                     </form>
                     </div>    
@@ -130,7 +131,7 @@
                             <p>Returning Customer ? <a href="#"> Click Here To Login </a> "OR" New To Our Website ! <a href="#">Click Here To SignUp .</a></p>   
                             <div class="form-input-country">
                                 <p>Country</p>
-                                <select>
+                                <select name="country">
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -382,41 +383,49 @@
                         <div class="input-name">
                             <div class="name-field">
                                 <p>First Name </p>
-                                <input class="first-name" type="text">
+                                <input class="first-name" name="fname" type="text">
                                 </div>
                                 <div class="name-field">
                                 <p>Last Name</p>
-                                <input class="last-name" type="text"> 
+                                <input class="last-name" name="lname" type="text"> 
                                 </div>
                                 <div class="name-field">
                                     <p>Phone Number</p>
-                                    <input class="last-name" type="text"> 
+                                    <input class="last-name" name="phonenumber" type="text"> 
                                 </div>      
                         </div>    
                         <div class="input-name">
                                 <div class="name-field">
                                     <p>Town/City</p>
-                                    <input class="first-name" type="text">
+                                    <input type="text" name="Town">
                                 </div>
                                 <div class="name-field">
-                                    <p>Pin Code</p>
-                                    <input class="last-name" type="text"> 
+                                    <p>Gender</p>
+                                    <select name="gender">
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Others</option>
+                                    </select>     
                                 </div>
                                 <div class="name-field">
                                     <p>Email Address</p>
-                                    <input class="last-name" type="email"> 
+                                    <input type="email" name="email"> 
                                 </div>      
                         </div>   
-                            <div class="address">
-                            <p>Address</p>
-                            <input type="text" >
-                            </div>  
-                            <div class="address street">
-                                <p>Street</p>
-                                <input type="text" placeholder="Optional">
-                            </div>
+                            <div class="id-proof">
+                             <p>Identification Proof</p>
+                             <select name="Identification">
+                                 <option value="aadhar">Aadhar Card </option>
+                                 <option value="Indian Passportr">Indian Passport </option>
+                                 <option value="Overseas Passport">Overseas Passport </option>
+                                 <option value="Voter Id">Voter Id</option>
+                                 <option value="PAN Card">PAN Card </option>
+                                 <option value="Driving License">Driving License </option>
+                                 <option value="Ration">Ration Card</option>
+                             </select>  
+                            </div>   
                             <div class="form-submit">
-                            <input class="btn-submit" type="submit" > 
+                            <input class="btn-submit" type="submit"> 
                             </div>         
                        </div>
                     </div>   

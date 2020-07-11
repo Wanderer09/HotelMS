@@ -337,6 +337,19 @@
 .name-field input:focus{
     outline: none;
 }
+.name-field select{
+    width: 70%;
+    height: 33px;
+    padding: 0px 3%;
+    border: 1px solid #c2c2c2;
+}
+.name-field select option{
+    font-family: 'Cabin', sans-serif; 
+    font-size: 16px;
+}
+.name-field select:focus{
+    outline: none;
+}
 .name-field p{
     font-size:16px ;
     padding: 10px 0px;
@@ -348,42 +361,36 @@
     content: '*';
     font-weight: 800;
 }
-.address{
+.id-proof{
     padding: 10px 1%;
 }
-.address input{
+.id-proof select{
     width:100%;
     height: 40px;
     padding: 10px ;
 }
-.address input{
+.id-proof select{
     padding: 5px 1%;
     border: 1px solid #c2c2c2;
 }
-.address input:focus{
+.id-proof select option{
+    font-family: 'Cabin', sans-serif; 
+    font-size: 16px;
+}
+.id-proof select:focus{
      outline: none;
 }
-.address p{
+.id-proof p{
     font-family: 'Cabin', sans-serif;
     font-size:16px;
     color: #0a0a0a;
     margin-bottom: 6px;
 }
-.address p::after{
+.id-proof p::after{
     color: #e32;
     display: inline;
     content: '*';
     font-weight: 800;
-}
-.street p::after{
-    display: none;
-}
-.street{
-    margin-top: 0;
-    padding-top: 0;
-}
-.street p{
-    margin-top: 10px;
 }
 .form-submit{
     text-align: center;
