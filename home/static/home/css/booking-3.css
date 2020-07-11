@@ -189,18 +189,18 @@
     border: 1px solid #cecece;
 }
 #option-2 span{
-    color: #53db61;
-    font-weight: 400;
-}
-#option-2 .option-padding{
-    border: 1px solid #53db61;
-}
-#option-3 span{
     color: #cecece;
     font-weight: 400;
 }
+#option-2 .option-padding{
+    border: 1px solid #cecece;
+}
+#option-3 span{
+    color: #53db61;
+    font-weight: 400;
+}
 #option-3 .option-padding{
-    border: 1px solid #cecece;;
+    border: 1px solid #53db61;;
 }
 #option-4 span{
     color: #cecece;
@@ -260,13 +260,13 @@
     width: 70%;
     font-family: 'Cabin', sans-serif;
     text-transform: uppercase;
-    font-size: 22px;
+    font-size: 18px;
     color: #fafafa;
 }
 .total span{
     width: 30%;
     font-family: 'Cabin', sans-serif;
-    font-size:21px ;
+    font-size:18px ;
     color: #fafafa;
 }
 .total span i{
@@ -367,13 +367,13 @@
 .room-details p{
     color: #8e7037;
     font-family: 'Cabin', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     padding: 9px 0px;
 }
 #room-color{
     color: #000000;
     font-family: 'Cabin', sans-serif;
-    font-size: 20px;
+    font-size: 19px;
 }
 #color-change{
     color: #aeaeae;
@@ -387,7 +387,7 @@
 }
 .room-price-details p{
     color: #8e7037;
-    font-size: 22px;
+    font-size: 19px;
     padding: 9px 0px;
     font-family: 'Cabin', sans-serif;
 }
@@ -400,12 +400,12 @@
 }
 .total-price .dates span{
     font-family: 'Cabin', sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     color: #0a0a0a;
 }
 .total-price .date-total-cost span{
     font-family: 'Cabin', sans-serif;
-    font-size: 20px;
+    font-size: 17px;
     color: #53db61;
     font-weight: 800;
 }
@@ -420,14 +420,18 @@
 .service-row-choosen p{
     width: 80%;
     font-family: 'Cabin', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     color: #0a0a0a;
 }
 .service-row-choosen span{
     font-family: 'Cabin', sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     color: #53db61;
     font-weight: 700;
+    width: 20%;
+}
+.service-row-choosen span i{
+    margin-right: 2%;
 }
 .sum-amount{
     display: flex;
@@ -437,19 +441,25 @@
     border-radius: 2px;
 }
 .sum-amount .total-amount{
-    width: 80%;
+    width: 75%;
 }
 .sum-amount .total-amount p{
     font-family: 'Cabin', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     text-transform: uppercase;
     color:#fafafa;
 }
 .total-price-info p{
     font-family: 'Cabin', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     text-transform: uppercase;
     color:#fafafa;
+}
+.total-price-info{
+    width: 25%;
+}
+.total-price-info p i{
+  margin-right: 4%;
 }
 .cost-section{
     display: flex;
@@ -465,17 +475,18 @@
 }
 .payable-label p{
     font-family: 'Cabin', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
 }
 .payable-price{
     width: 20%;
 }
-.payable-cost{
+.payable-cost p{
     font-family: 'Cabin', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
     color: #53db61;
     font-weight: 700;
 }
+
 .page-btn{
     margin-top: 70px;
     text-align: center;
