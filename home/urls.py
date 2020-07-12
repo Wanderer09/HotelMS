@@ -9,5 +9,6 @@ urlpatterns = [
     path('login/',a.login,name="login"),
     path('booking/',views.booking,name="booking"),
     path('booking2/',views.booking2,name="booking"), 
-    path('booking3/',views.booking3,name="booking"),  
+    path('booking3/',views.booking3,name="booking"), 
+    path('booking4/',views.booking4,name="booking"), 
 ]
