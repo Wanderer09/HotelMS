@@ -76,3 +76,139 @@
    width: 20%;
    text-align: center;
 }
+/**sidebar**/
+.flex-class{
+    display: flex;
+}
+.container-sidebar{
+    margin-top: 110px;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 70%;
+    max-width: 350px;
+    padding: 10px 2%;
+    position: fixed;
+    border-right: 1px solid #cfcfcf;
+}
+.room-select-card{
+    left: 0;
+    top: 0;
+    margin-top: 105px; 
+    margin-left: 27%;
+    width: 78%;
+    padding: 12px 1%;
+  
+}
+.room-heading{
+    padding: 18px 10px;
+    border-bottom: 1px solid #cfcfcf;
+}
+.room-heading p{
+    font-size: 22px;
+    font-family: neutra;
+    text-align: center;
+    color: #707070;
+}
+.enter-info{
+    padding-top: 25px;
+    padding-bottom: 20px;
+}
+.check-info{
+    display: flex;
+    padding: 10px 10px;
+}
+.check-row{
+    width: 70%;
+}
+.check-row i{
+    font-size: 15px ;
+    color: #8e7037;
+    margin-right: 4%;
+}
+.check-row span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: #707070;
+}
+.check-row-2{
+    width: 30%;
+    text-align: center;
+}
+.check-row-2 span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+/**user-navbar**/
+.user-navbar{
+    display: flex;
+    padding: 5px 0px;
+}
+.options{
+    display: flex;
+    width: 25%;
+}
+.option-number{
+    display: inline;
+    color: #53db61;
+    font-size: 15px;
+    padding: 12px 0px;
+    font-weight: 700;
+}
+.option-number span{
+    font-family: 'Cabin', sans-serif;
+}
+.option-padding{
+    border-radius: 50%;
+    border: 2px solid #53db61;
+    padding: 5px 12px;
+}
+.option-row{
+    padding: 17px 4%;
+    color: #53db61;
+    font-family: 'Cabin', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+.option-row span {
+    font-family: 'Cabin', sans-serif;
+}
+.option-color{
+    color: #cecece;
+    font-weight: 400;
+}
+.padding-option-1{
+    padding: 10px 4%;
+}
+#option-1 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-1 .option-padding{
+    border: 1px solid #cecece;
+}
+#option-2 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-2 .option-padding{
+    border: 1px solid #cecece;
+}
+#option-3 span{
+    color: #53db61;
+    font-weight: 400;
+}
+#option-3 .option-padding{
+    border: 1px solid #53db61;;
+}
+#option-4 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-4 .option-padding{
+    border: 1px solid #cecece;;
+}
+.user-navbar{
+    border-bottom: 1px solid #cfcfcf;
+}
