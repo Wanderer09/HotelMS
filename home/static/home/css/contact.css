@@ -16,23 +16,13 @@
 {
     font-family: 'Cabin', sans-serif;
 }
-.contact-header{
-    background-image: url(/static/home/img/contact-us.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    height: 65vh;
-}
-.contact-header h2{
-    padding-top: 210px;
-    text-align: center;
-    font-family: neutra;
-    font-size: 54px;
-}
+
 
 .container-contact{
     background-image: url(/static/home/img/contact.jpg);
     background-size: cover;
     height: 112vh;
+
 }
 .contact-us{
     padding: 110px 80px; 
@@ -91,15 +81,13 @@
     margin-right: auto;
     margin-left: 35%;
     margin-top: 30px;
-}
-.btn-submit{
     padding: 13px 20px ;
     border-radius: 4px;
     background-color: #1e2b31;
     color: #fafafa;
     border: none;
 }
-button .btn-submit:focus{
+button :focus{
     outline: none;
 }
 .footer{
@@ -186,3 +174,68 @@ button .btn-submit:focus{
 .payment i{
     margin-right: 10px;
 }
+/**Pop Up Box **/
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+  }
+  
+  .modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+  
+  .modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    padding: 10px 15px;
+  }
+  
+  #overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }

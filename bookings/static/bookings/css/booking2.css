@@ -1,0 +1,414 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+{
+    font-family: 'Cabin', sans-serif;
+}
+.booking-header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.back-image{
+    display: flex;
+    background-color: #fafafa;
+    padding: 20px 40px;
+    z-index:999;
+}
+.navbar-list{
+    width: 80%;
+    margin: auto;
+    padding-left: 3%;
+}
+.navbar-list ul{
+    list-style: none;
+    text-decoration: none; 
+}
+.navbar-list ul li {
+    color: #3a3434;
+    display: inline;
+    font-size: 18px;
+    padding: 5px 23px;
+   
+}
+#nav-search{
+    border-bottom: 1px solid #484848;
+    padding: 5px 0px;
+}
+.navbar-list ul li input{
+    border: none;
+    width: 15%;
+    background-color: #fafafa;
+    font-family: neutra;
+    font-weight: 300;
+}
+.navbar-list ul li input:focus{
+    outline: none;
+}
+#nav-contact{
+    padding-right: 20px;   
+}
+#nav-login{
+    padding-right: 45px;   
+}
+#nav-login a span{
+    font-family: neutra;
+}
+.navbar-list ul li a{
+    color: #3a3434;
+    text-decoration: none;
+    font-family: neutra;
+}
+.logo-image{
+   width: 20%;
+   text-align: center;
+}
+
+.room-heading{
+    padding: 18px 10px;
+    border-bottom: 1px solid #cfcfcf;
+}
+.room-heading p{
+    font-size: 22px;
+    font-family: neutra;
+    text-align: center;
+    color: #707070;
+}
+.enter-info{
+    padding-top: 25px;
+    padding-bottom: 20px;
+}
+.check-info{
+    display: flex;
+    padding: 10px 10px;
+}
+.check-row{
+    width: 70%;
+}
+.check-row i{
+    font-size: 15px ;
+    color: #8e7037;
+    margin-right: 4%;
+}
+.check-row span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: #707070;
+}
+.check-row-2{
+    width: 30%;
+    text-align: center;
+}
+.check-row-2 span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+.edit-btn{
+    text-align: center;
+    padding-bottom:10px ;
+}
+.btn-edit{
+    padding: 6px 25px;
+    border: none;
+    background-color: #0f1d22;
+    color: #fafafa;
+    font-family: 'Cabin', sans-serif;
+    font-size: 13px;
+    border-radius: 3px;
+    letter-spacing: 0.8px;
+}
+.booking-info{
+    padding: 25px 10px;
+    text-align: center;
+}
+.booking-info p{
+    font-family: neutra;
+    font-size: 19px;
+}
+.booking-info p::after{
+    display: block;
+    width: 80px;
+    height: 2px;
+    content: ' ';
+    margin-top: 8px;
+    background-color: #8e7037;
+    margin-left: auto;
+    margin-right: auto;
+}
+.room-card{
+    border: 1px solid #cfcfcf;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    box-shadow: 0.7px 0.7px 4px 1px #aeaeae;
+}
+.booking-room{
+    display: flex;
+}
+.booking-row{
+    padding: 10px 0px;
+}
+.booking-row span{
+    color: #8e7037;
+    font-family: 'Cabin', sans-serif;
+}
+.booking-row i{
+    color: #53db61;
+}
+#color-guest{
+    font-size: 13px;
+    color: #aeaeae;
+    font-family: 'Cabin', sans-serif;
+    padding: 0px 5%;
+}
+#color-rupee{
+    color: #53db61;
+    padding: 0px 23%;
+}
+#room-color{
+    color: #000000;
+}
+#color-number{
+    color: #aeaeae;
+    font-size: 14px;
+    padding: 0px 3%;
+}
+.services-heading{
+    padding: 20px 10px;
+    text-align: center;
+}
+.services-heading p{
+    font-family: neutra;
+    font-size: 19px;
+}
+.services-heading p::after{
+    display: block;
+    width: 80px;
+    height: 2px;
+    content: ' ';
+    margin-top: 8px;
+    background-color: #8e7037;
+    margin-left: auto;
+    margin-right: auto;
+}
+.services-row{
+    padding: 10px 10px;
+    display: flex;
+}
+.service-name{
+    width: 80%;
+}
+.service-name label{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+}
+.service-cost{
+    width: 20%;
+}
+.service-cost span {
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+.service-cost i{
+    color: #53db61;
+    font-size: 15px;
+}
+.room-select-card{
+    left: 0;
+    top: 0;
+    margin-top: 105px; 
+    width: 78%;
+    padding: 15px 1.5%;
+    border-left: 1px solid #cfcfcf;
+}
+
+.user-navbar{
+    display: flex;
+    padding: 5px 0px;
+}
+.options{
+    display: flex;
+    width: 25%;
+}
+.option-number{
+    display: inline;
+    color: #53db61;
+    font-size: 15px;
+    padding: 12px 0px;
+    font-weight: 700;
+}
+.option-number span{
+    font-family: 'Cabin', sans-serif;
+}
+.option-padding{
+    border-radius: 50%;
+    border: 2px solid #53db61;
+    padding: 5px 12px;
+}
+.option-row{
+    padding: 17px 4%;
+    color: #53db61;
+    font-family: 'Cabin', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+.option-row span {
+    font-family: 'Cabin', sans-serif;
+}
+.option-color{
+    color: #cecece;
+    font-weight: 400;
+}
+.padding-option-1{
+    padding: 10px 4%;
+}
+#option-1 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-1 .option-padding{
+    border: 1px solid #cecece;
+}
+#option-2 span{
+    color: #53db61;
+    font-weight: 400;
+}
+#option-2 .option-padding{
+    border: 1px solid #53db61;
+}
+#option-3 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-3 .option-padding{
+    border: 1px solid #cecece;;
+}
+#option-4 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-4 .option-padding{
+    border: 1px solid #cecece;;
+}
+.user-navbar{
+    border-bottom: 1px solid #cfcfcf;
+}
+.flex-class{
+    display: flex;
+}
+.container-sidebar{
+    margin-top: 110px;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 70%;
+    max-width: 350px;
+    padding: 10px 2%;
+}
+.room-card-row-1{
+    margin-top: 25px;
+    display: flex;
+   
+}
+.card{
+    max-width:313px;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.1);
+    margin-right: 1.8%;
+    
+}
+.room-information-row{
+    padding: 10px 15px;
+    padding-bottom: 20px;
+}
+.room-details{
+    display: flex;
+    padding: 10px 0px;
+    border-bottom: 1px solid #cfcfcf;
+}
+.room-details span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+}
+.room-name{
+    width: 60%;
+    color: #8e7037;
+    padding-left: 3%;
+} 
+.room-price{
+    width: 40%;
+    padding: 0px 5%;
+}
+.room-price span{
+    color:#53db61;
+}
+.room-service{
+    display: flex;
+    padding: 18px 3%;
+}
+.room-service-row-1{
+    width: 50%;
+}
+.room-service-row-1 ul{
+    list-style: none;
+}
+.room-service-row-1 li{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    padding: 7px 3px;
+}
+.room-service-row-1 i{
+    font-size: 6px;
+    margin-right: 6%;
+}
+.select-option input{
+    border: 1px solid #cfcfcf;
+    padding: 10px 5px;
+    padding-right: 15px;
+    width: 55%;
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+}
+.select-option button{
+    padding: 13px 35px;
+    border: none;
+    background-color: #0f1d22;
+    color: #fafafa;
+}
+.select-option input:focus{
+    outline: none;
+}
+.select-option button:focus{
+    outline: none;
+}
+.room-card-row-2{
+    margin-top: 40px;
+}
+.page-btn{
+    margin-top: 70px;
+    text-align: center;
+}
+.page-btn button{
+    padding: 10px 25px;
+    border: none;
+    background-color: #0f1d22;
+    color: #fafafa;
+}
+.page-btn button:focus{
+    outline: none;
+}
