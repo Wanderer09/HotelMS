@@ -196,19 +196,170 @@
     border: 1px solid #cecece;
 }
 #option-3 span{
-    color: #53db61;
-    font-weight: 400;
-}
-#option-3 .option-padding{
-    border: 1px solid #53db61;;
-}
-#option-4 span{
     color: #cecece;
     font-weight: 400;
 }
+#option-3 .option-padding{
+    border: 1px solid #cecece;
+}
+#option-4 span{
+    color: #53db61;
+    font-weight: 400;
+}
 #option-4 .option-padding{
-    border: 1px solid #cecece;;
+    border: 1px solid #53db61;
 }
 .user-navbar{
     border-bottom: 1px solid #cfcfcf;
 }
+/**ROOM BILL**/
+.room-card-row{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cfcfcf;
+}
+.room-bill-heading p{
+     font-size: 21px;
+     text-align: center;
+     font-family: neutra;
+     padding: 10px 0px;
+}
+.room-bill-heading p::after{
+    display: block;
+    width: 80px;
+    height: 2px;
+    content: ' ';
+    margin-top: 8px;
+    background-color: #8e7037;
+    margin-left: auto;
+    margin-right: auto;
+}
+.room-bill-card p{
+    color: #8e7037;
+    font-size: 17px;
+    padding: 5px 0px;
+}
+.room-1-details{
+    display: flex;
+}
+.room-1-details h6{
+    width: 75%;
+    font-size: 16px;
+    padding: 5px 0px;
+    color: #707070;
+    
+}
+.room-1-details p{
+    width: 25%;
+    color: #53db61;
+}
+.room-1-details p i{
+    margin-right: 3%;
+    font-size: 15px;
+}
+.amount-details{
+    display: flex;
+    padding: 25px 0px;
+}
+.flex-total {
+    width: 70%; 
+}
+.flex-total h6{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.flex-total-amount {
+    width: 30%;
+}
+.flex-total-amount p{
+    font-size: 18px ;
+    color: #53db61;
+}
+.flex-total-amount p i{
+    margin-right: 3%;
+    color: #53db61;
+}
+.payment-option-heading p{
+    font-size: 22px;
+    color: #0a0a0a;
+    padding: 25px 0px;
+}
+.payment-option-heading p::after{
+    display: block;
+    width: 80px;
+    height: 2px;
+    content: ' ';
+    margin-top: 8px;
+    background-color: #8e7037;
+}
+.input-options{
+    padding: 15px 3%;
+    background: #ffffff;
+    box-shadow:  20px 20px 60px #f2f2f2, 
+                 -20px -20px 60px #ffffff;
+
+}
+.input-select-method{
+    padding: 15px 0px;
+}
+.payment-icons{
+    text-align: right;
+    font-size: 28px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.payment-icons span{
+    margin-left: 1%;
+    padding-bottom: 4px;
+    color: #000000;
+    font-size: 15px;
+    margin-right: 10%;
+}
+.payment-icons {
+    text-align: right;
+}
+.paytm span{
+    margin-right: 15%;
+}
+/**field Options**/
+.field-1{
+    display: flex;
+    text-align: center;
+}
+.field-1 label{
+    width: 25%;
+    padding: 15px 6%;
+    text-align: left;
+}
+.input-field-name{
+    width: 55%;
+    padding: 10px 0px;
+}
+.input-field-name input{
+    height: 40px;
+    width: 70%;
+    border: 1px solid #cfcfcf;
+    padding: 4px 15px;
+    border-radius: 5px;
+}
+.card-info{
+    margin-top: 10px;
+}
+.input-field-name input:focus{
+    outline: none;
+}
+.page-btn{
+    margin-top: 70px;
+    text-align: center;
+}
+.page-btn button{
+    padding: 10px 25px;
+    border: none;
+    background-color: #0f1d22;
+    color: #fafafa;
+    font-family: 'Montserrat', sans-serif ;
+}
+.page-btn button:focus{
+    outline: none;
+}
+
+

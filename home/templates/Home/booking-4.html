@@ -81,6 +81,35 @@
                                     </div> 
                                 </div>  
                             </div> 
+                            <div class="billing-details-row">
+                                <div class="room-bill-heading">
+                                    <p>Room Details</p>
+                                </div> 
+                                <div class="room-card-row">   
+                                    <div class="room-bill-card">
+                                        <p>Room-1</p>
+                                        <div class="room-1-details">  
+                                            <h6>Luxury Room <span>X 1</span> </h6>
+                                            <p id="rate-cost"><i class="fas fa-rupee-sign"></i>18500</p>
+                                        </div>                                
+                                    </div> 
+                                    <div class="room-bill-card">  
+                                        <p>Room-2</p>
+                                        <div class="room-1-details">  
+                                            <h6>Delux Room <span>X 1</span> </h6>
+                                            <p id="rate-cost"><i class="fas fa-rupee-sign"></i>21500</p>
+                                        </div>                                
+                                    </div> 
+                                </div>        
+                            </div>  
+                                <div class="amount-details">
+                                    <div class="flex-total">
+                                       <h6>Total</h6>
+                                    </div> 
+                                    <div class="flex-total-amount">
+                                        <p><i class="fas fa-rupee-sign"></i>40000</p>
+                                    </div>       
+                                </div>      
                             <div class="billing">
                                <div class="bill-details">
                                  <p></p>
@@ -118,7 +147,7 @@
                                     <span> 3 </span>
                                 </div>
                                 </div>
-                                <div class="option-row option">    
+                                <div class="option-row option-color">    
                                     <span>Confirmation</span>   
                                 </div>    
                             </div>    
@@ -128,13 +157,136 @@
                                     <span> 4 </span>
                                 </div>
                                 </div>
-                                <div class="option-row option-color">    
+                                <div class="option-row option">    
                                     <span>Payment Method </span>   
                                 </div>    
                             </div>    
                         </div>  
                     </div>
+                    <div class="payment-option-heading">
+                        <p>Payment Options</p>
+                    </div>
+                    <form>
+                        <div class="input-select-method">
+                            <div class="input-options">
+                                <input type="radio" name="radio-box" class="check-option" onclick="details(0)">
+                                <span class="payment-icons">
+                                    <span>Credit Card</span>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fa fa-credit-card"></i>
+                                    <i class="fa fa-cc-amex"></i>
+                                </span>
+                            </div> 
+                            <div class="card-info" id="credit-card-info" style="display: none ;">
+                               <div class="field-1">
+                                     <label>Name On Card</label>
+                                     <div class="input-field-name">
+                                       <input type="text" placeholder="Name On Card">
+                                     </div>   
+                                </div>
+                               <div class="field-1">
+                                    <label>Card Number</label>
+                                    <div class="input-field-name">
+                                       <input type="text" placeholder="Card Number"> 
+                                    </div>
+                               </div>
+                               <div class="field-1"> 
+                                    <label>CVV</label> 
+                                    <div class="input-field-name">
+                                      <input type="text" placeholder="CVV">
+                                    </div>  
+                                </div>
+                                <div class="field-1">
+                                    <label>Expiry Date</label>
+                                    <div class="input-field-name">
+                                      <input type="date" placeholder="Expiry">
+                                    </div>  
+                                </div>
+                            </div>    
+                        </div>     
+                        <div class="input-select-method">
+                            <div class="input-options">
+                                <input type="radio" name="radio-box" class="check-option" onclick="details(1)">
+                                <span class="payment-icons">
+                                    <span>Debit Card</span>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fa fa-credit-card"></i>
+                                    <i class="fa fa-cc-amex"></i>
+                                </span>
+                            </div> 
+                            <div class="card-info" id="debit-card-info" style="display: none ;">
+                                <div class="field-1">
+                                      <label>Name On Card</label>
+                                      <div class="input-field-name">
+                                        <input type="text" placeholder="Name On Card">
+                                      </div>   
+                                 </div>
+                                <div class="field-1">
+                                     <label>Card Number</label>
+                                     <div class="input-field-name">
+                                        <input type="text" placeholder="Card Number"> 
+                                     </div>
+                                </div>
+                                <div class="field-1"> 
+                                     <label>CVV</label> 
+                                     <div class="input-field-name">
+                                       <input type="text" placeholder="CVV">
+                                     </div>  
+                                 </div>
+                                 <div class="field-1">
+                                     <label>Expiry Date</label>
+                                     <div class="input-field-name">
+                                       <input type="date" placeholder="Expiry">
+                                     </div>  
+                                 </div>
+                             </div>     
+                        </div>     
+                        <div class="input-select-method">
+                            <div class="input-options">
+                                <input type="radio" name="radio-box" class="check-option" onclick="details(2)">
+                                <span class="payment-icons paytm">
+                                    <span>Paytm</span>
+                                    <i class="fas fa-wallet"></i>
+                                </span>
+                            </div> 
+                        </div>     
+                        <div class="input-select-method">
+                            <div class="input-options">
+                                <input type="radio" name="radio-box" class="check-option">
+                                <span class="payment-icons">
+                                    <span>Pay On Arrival</span>
+                                </span>
+                            </div> 
+                        </div>
+                        <div class="page-btn">  
+                            <button class="prev-btn">BACK</button>
+                            <button class="submit-btn" type="submit">PAY</button>
+                        </div>           
+                    </form>     
                 </section>    
             </div>                  
         </body>
     </html>
+    <script type="text/javascript">
+        function details(x){
+          if(x==0){
+           document.getElementById('credit-card-info').style.display="block";
+          }
+          else{
+              document.getElementById('credit-card-info').style.display="none";
+          }
+          if(x==1){
+           document.getElementById('debit-card-info').style.display="block";
+          }
+          else{
+              document.getElementById('debit-card-info').style.display="none";
+          }
+          if(x==2){
+           document.getElementById('debit-card-info').style.display="none";
+           document.getElementById('credit-card-info').style.display="none";
+          }
+          return false;
+        }
+    </script>    
