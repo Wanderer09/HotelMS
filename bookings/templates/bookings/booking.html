@@ -40,49 +40,63 @@
                         </div> 
                     </div>
             </header>    
-            <form action="#" method="GET">
+            <form action="{% url 'booking2' %}" onsubmit="return validation()" method="POST">
+                {% csrf_token %}
                 <section class="container-sidebar">
                     <div class="sidebar">
                     <h2>Your Reservation's</h2>
                     <p>Your Stay Dates</p>
-                    <form method="POST" action="booking.html">
-                        {% csrf_token %}
                     <div class="check">    
                     <i class="far fa-check-circle"></i><span>Check-In</span>
                     </div>
                     <div class="input-content">
-                        <input class="in-out" placeholder="Date" type="date" name="in_date" required />
-                        <input class="in-out" placeholder="Time" type="time" name="in_time" required />
+                        <input class="in-out" placeholder="Date" name="in_date" type="date" required/>
+                        <input class="in-out" placeholder="Time" name="in_time" type="time" required/>
                     </div>
                     <div class="check">    
                         <i class="fas fa-sign-out-alt"></i><span>Check-Out</span>
                         </div>
                     <div class="input-content">
-                        <input class="in-out" placeholder="Date" type="date" name="out_date" required />
-                        <input class="in-out" placeholder="Time" type="time" name="out_date" required />
+                        <input class="in-out" placeholder="Date" type="date" name="out_date" required/>
+                        <input class="in-out" placeholder="Time" type="time" name="out_time" required/>
                     </div>
                     <p id="rooms-guest">Rooms & Guests</p>
                     <div class="guest-info">
                             <i class="fas fa-bed"></i>
                             <label>Number Of Rooms </label>
-                            <input class="room-input" type="text" name="room_count" placeholder="00"/>
+                            <input class="error" type="text" placeholder="00"  id="number-rooms" name="room_count" required />
+                            <span class="tooltip" id="user-rooms" style="visibility: hidden;">
+                                <i class="fas fa-exclamation"></i>
+                                <span class="tooltiptext">Enter a valid number</span>  
+                            </span>
                     </div>
                     <div class="guest-info">
-                            <i class="fas fa-users"></i>
-                            <label>Number Of Guests </label>
-                            <input class="room-input" type="text" name="guest_count" placeholder="00" />
+                        <i class="fas fa-users"></i>
+                        <label>Number Of Guests </label>
+                        <input class="error" type="text" placeholder="00"  id="number-guests" name="guest_count" required autocomplete="off"/>
+                        <span class="tooltip" id="user-guests" style="visibility: hidden;">
+                            <i class="fas fa-exclamation"></i>
+                            <span class="tooltiptext">Enter a valid number</span>  
+                        </span>     
                     </div>
                     <div class="guest" id="adult">
-                            <i class="fas fa-user"></i>
-                            <label>Adults </label>
-                            <input class="room-input" type="text" name="adult_count" placeholder="00"/>
+                        <i class="fas fa-user"></i>
+                        <label>Adults </label>
+                        <input class="error" type="text" placeholder="00"  id="number-adults" name="adult_count" required autocomplete="off"/>
+                        <span class="tooltip" id="user-adults" style="visibility: hidden;">
+                            <i class="fas fa-exclamation"></i>
+                            <span class="tooltiptext">Enter a valid number</span>  
+                        </span>
                     </div>
                     <div class="guest">
-                            <i class="fas fa-child"></i>
-                            <label>Children </label>
-                            <input class="room-input" type="text" name="Children_count" placeholder="00"/>
+                        <i class="fas fa-child"></i>
+                        <label>Children </label>
+                        <input class="error" type="text" placeholder="00"  id="number-children" name="children_count" required autocomplete="off"/>
+                        <span class="tooltip" id="user-children" style="visibility: hidden;">
+                            <i class="fas fa-exclamation"></i>
+                            <span class="tooltiptext">Enter a valid number</span>  
+                        </span>
                     </div>
-                    </form>
                     </div>    
                     <div class="personal">
                         <div class="user-navbar">
@@ -126,12 +140,12 @@
                                     <span>Payment Method </span>   
                                 </div>    
                             </div>    
-                        </div>
+                        </div>       
                         <div class="personal-form">
-                            <p>Returning Customer ? <a href="#"> Click Here To Login </a> "OR" New To Our Website ! <a href="#">Click Here To SignUp .</a></p>   
+                            <p>Returning Customer ? <a href="#"> Click Here To Login </a> "OR" New To Our Website ! <a href="#">Click Here To SignUp .</a></p>      
                             <div class="form-input-country">
                                 <p>Country</p>
-                                <select name="country">
+                                <select name="country" required>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -378,30 +392,50 @@
                                     <option value="Zaire">Zaire</option>
                                     <option value="Zambia">Zambia</option>
                                     <option value="Zimbabwe">Zimbabwe</option>
-                            </select>    
-                        </div>
-                        <div class="input-name">
-                            <div class="name-field">
-                                <p>First Name </p>
-                                <input class="first-name" name="fname" type="text">
+                               </select>    
+                            </div>
+                            <div class="input-name">
+                                <div class="name-field">
+                                    <p>First Name </p>
+                                    <input class="first-name error-class" type="text" id="first-name" name="fname" required autocomplete="off"/>
+                                    <span class="tooltip" id="user-name-first" style="visibility: hidden;">
+                                        <i class="fas fa-exclamation"></i>
+                                        <span class="tooltiptext">Enter Valid First Name</span>  
+                                    </span>
+                                    <h6 id="user-first"></h6>
                                 </div>
                                 <div class="name-field">
-                                <p>Last Name</p>
-                                <input class="last-name" name="lname" type="text"> 
+                                    <p>Last Name</p>
+                                    <input class="last-name error-class" type="text" name="lname"  id="last-name" required autocomplete="off"/> 
+                                    <span class="tooltip" id="user-name-last"  style="visibility: hidden;">
+                                        <i class="fas fa-exclamation"></i>
+                                        <span class="tooltiptext">Enter Valid Last Name</span>  
+                                    </span>
+                                    <h6 id="user-last"></h6>
                                 </div>
                                 <div class="name-field">
                                     <p>Phone Number</p>
-                                    <input class="last-name" name="phonenumber" type="text"> 
+                                    <input class="last-name error-class" type="text" name="phonenumber"  id="phone-number" required autocomplete="off"/>
+                                    <span class="tooltip" id="user-name-phone" style="visibility: hidden;">
+                                        <i class="fas fa-exclamation"></i>
+                                        <span class="tooltiptext">Enter Valid Phone Number</span>  
+                                    </span>
+                                    <h6 id="user-phone"></h6>
                                 </div>      
-                        </div>    
-                        <div class="input-name">
+                            </div>    
+                            <div class="input-name">
                                 <div class="name-field">
                                     <p>Town/City</p>
-                                    <input type="text" name="Town">
+                                    <input class="error-class" type="text " id="town" name="town" required autocomplete="off"/>
+                                    <span class="tooltip" id="user-name-town" style="visibility: hidden;">
+                                        <i class="fas fa-exclamation"></i>
+                                        <span class="tooltiptext">Enter Valid Town</span>  
+                                    </span>
+                                    <h6 id="user-town"></h6>
                                 </div>
                                 <div class="name-field">
                                     <p>Gender</p>
-                                    <select name="gender">
+                                    <select name="gender" required>
                                         <option>Male</option>
                                         <option>Female</option>
                                         <option>Others</option>
@@ -409,27 +443,133 @@
                                 </div>
                                 <div class="name-field">
                                     <p>Email Address</p>
-                                    <input type="email" name="email"> 
+                                    <input class="error-class" type="email" id="email-address" name="email" required autocomplete="off" /> 
+                                    <span class="tooltip" id="user-name-email" style="visibility: hidden;">
+                                        <i class="fas fa-exclamation"></i>
+                                        <span class="tooltiptext">Enter Valid Email-Address</span>  
+                                    </span>
+                                    <h6 id="user-email"></h6>
                                 </div>      
-                        </div>   
-                            <div class="id-proof">
-                             <p>Identification Proof</p>
-                             <select name="Identification">
-                                 <option value="aadhar">Aadhar Card </option>
-                                 <option value="Indian Passportr">Indian Passport </option>
-                                 <option value="Overseas Passport">Overseas Passport </option>
-                                 <option value="Voter Id">Voter Id</option>
-                                 <option value="PAN Card">PAN Card </option>
-                                 <option value="Driving License">Driving License </option>
-                                 <option value="Ration">Ration Card</option>
-                             </select>  
                             </div>   
-                            <div class="form-submit">
-                            <input class="btn-submit" type="submit"> 
-                            </div>         
+                            <div class="id-proof">
+                                <p>Identification Proof</p>
+                                <select name="identification" required>
+                                    <option value="aadhar">Aadhar Card </option>
+                                    <option value="Indian Passportr">Indian Passport </option>
+                                    <option value="Overseas Passport">Overseas Passport </option>
+                                    <option value="Voter Id">Voter Id</option>
+                                    <option value="PAN Card">PAN Card </option>
+                                    <option value="Driving License">Driving License </option>
+                                    <option value="Ration">Ration Card</option>
+                                </select>  
+                            </div>           
                        </div>
-                    </div>   
-                </section>
+                       <div class="form-submit">
+                          <input class="btn-submit" type="submit"/> 
+                       </div>
+                    </div>  
+                </section> 
+                 
             </form>    
         </body>
 </html>
+<script type="text/javascript">
+    function validation(){
+        var firstname = document.getElementById('first-name').value;
+        var lastname = document.getElementById('last-name').value;
+        var phone = document.getElementById('phone-number').value;
+        var town = document.getElementById('town').value;
+        var email = document.getElementById('email-address').value;
+        var rooms = document.getElementById('number-rooms').value;
+        var guests = document.getElementById('number-guests').value;
+        var adults = document.getElementById('number-adults').value;
+        var children = document.getElementById('number-children').value;
+
+        var firstcheck = /^[A-Za-z. ]{1,}$/;
+        var lastcheck = /^[A-Za-z. ]{1,}$/;
+        var phonecheck=/^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$/;
+        var towncheck =/^[A-za-z ]{1,}$/;
+        var emailcheck=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+        var roomscheck=/^[1-9]$/;
+        var guestscheck=/^[1-9]$/;
+        var adultscheck=/^[1-9]$/;
+        var childrencheck=/^[1-9]$/;
+
+        if (roomscheck.test(rooms)){
+        document.getElementById('user-rooms').style.visibility = "hidden";
+        }else{
+        document.getElementById('user-rooms').style.visibility = "visible";
+        return false;
+        }  
+
+        if (guestscheck.test(guests)){
+        document.getElementById('user-guests').style.visibility = "hidden" ;
+        }else{
+        document.getElementById('user-guests').style.visibility = "visible";
+        return false;
+        }  
+
+        if (adultscheck.test(adults)){
+        document.getElementById('user-adults').style.visibility = "hidden";
+        }else{
+        document.getElementById('user-adults').style.visibility = "visible";
+        return false;
+        }  
+        
+        if (childrencheck.test(children)){
+            document.getElementById('user-children').style.visibility = "hidden";
+        }else{
+            document.getElementById('user-children').style.visibility = "visible";
+            return false;
+        }
+
+
+        if (firstcheck.test(firstname)){
+            document.getElementById('user-first').innerHTML ="";
+            document.getElementById('user-name-first').style.visibility = "hidden";
+        }else{
+            document.getElementById('user-first').innerHTML ="Please Enter Valid Name";
+            document.getElementById('user-name-first').style.visibility = "visible";
+            return false;
+        }
+
+
+        if (lastcheck.test(lastname)){
+             document.getElementById('user-last').innerHTML ="";
+             document.getElementById('user-name-last').style.visibility = "hidden";
+        }else{
+            document.getElementById('user-last').innerHTML ="Please Enter Valid Name";
+            document.getElementById('user-name-last').style.visibility = "visible";
+            return false;
+        }
+
+        if (phonecheck.test(phone)){
+            document.getElementById('user-phone').innerHTML ="";
+            document.getElementById('user-name-phone').style.visibility = "hidden";
+        }else{
+            document.getElementById('user-phone').innerHTML ="Please Enter Valid Phone-Number";
+            document.getElementById('user-name-phone').style.visibility = "visible";
+            return false;
+        }
+
+
+        if (towncheck.test(town)){
+            document.getElementById('user-town').innerHTML ="";
+            document.getElementById('user-name-town').style.visibility = "hidden";
+        }else{
+            document.getElementById('user-town').innerHTML ="Please Enter Valid Town";
+            document.getElementById('user-name-town').style.visibility = "visible";
+            return false;
+        }
+       
+        if (emailcheck.test(email)){
+            document.getElementById('user-email').innerHTML ="";
+            document.getElementById('user-name-email').style.visibility = "hidden";
+         }else{
+             document.getElementById('user-email').innerHTML ="Please Enter Valid Email-Address";
+             document.getElementById('user-name-email').style.visibility = "visible";
+            return false;
+            }
+        return false;    
+    }
+</script>

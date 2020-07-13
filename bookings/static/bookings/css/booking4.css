@@ -1,0 +1,363 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+*{
+    font-family: 'Cabin', sans-serif;
+}
+.booking-header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.back-image{
+    display: flex;
+    background-color: #fafafa;
+    padding: 20px 40px;
+    z-index:999;
+}
+.navbar-list{
+    width: 80%;
+    margin: auto;
+    padding-left: 3%;
+}
+.navbar-list ul{
+    list-style: none;
+    text-decoration: none; 
+}
+.navbar-list ul li {
+    color: #3a3434;
+    display: inline;
+    font-size: 18px;
+    padding: 5px 23px;
+   
+}
+#nav-search{
+    border-bottom: 1px solid #484848;
+    padding: 5px 0px;
+}
+.navbar-list ul li input{
+    border: none;
+    width: 15%;
+    background-color: #fafafa;
+    font-family: neutra;
+    font-weight: 300;
+}
+.navbar-list ul li input:focus{
+    outline: none;
+}
+#nav-contact{
+    padding-right: 20px;   
+}
+#nav-login{
+    padding-right: 45px;   
+}
+#nav-login a span{
+    font-family: neutra;
+}
+.navbar-list ul li a{
+    color: #3a3434;
+    text-decoration: none;
+    font-family: neutra;
+}
+.logo-image{
+   width: 20%;
+   text-align: center;
+}
+/**sidebar**/
+.flex-class{
+    display: flex;
+}
+.container-sidebar{
+    margin-top: 110px;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 70%;
+    max-width: 350px;
+    padding: 10px 2%;
+    position: fixed;
+    border-right: 1px solid #cfcfcf;
+}
+.room-select-card{
+    left: 0;
+    top: 0;
+    margin-top: 105px; 
+    margin-left: 27%;
+    width: 78%;
+    padding: 12px 1%;
+  
+}
+.room-heading{
+    padding: 18px 10px;
+    border-bottom: 1px solid #cfcfcf;
+}
+.room-heading p{
+    font-size: 22px;
+    font-family: neutra;
+    text-align: center;
+    color: #707070;
+}
+.enter-info{
+    padding-top: 25px;
+    padding-bottom: 20px;
+}
+.check-info{
+    display: flex;
+    padding: 10px 10px;
+}
+.check-row{
+    width: 70%;
+}
+.check-row i{
+    font-size: 15px ;
+    color: #8e7037;
+    margin-right: 4%;
+}
+.check-row span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: #707070;
+}
+.check-row-2{
+    width: 30%;
+    text-align: center;
+}
+.check-row-2 span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+/**user-navbar**/
+.user-navbar{
+    display: flex;
+    padding: 5px 0px;
+}
+.options{
+    display: flex;
+    width: 25%;
+}
+.option-number{
+    display: inline;
+    color: #53db61;
+    font-size: 15px;
+    padding: 12px 0px;
+    font-weight: 700;
+}
+.option-number span{
+    font-family: 'Cabin', sans-serif;
+}
+.option-padding{
+    border-radius: 50%;
+    border: 2px solid #53db61;
+    padding: 5px 12px;
+}
+.option-row{
+    padding: 17px 4%;
+    color: #53db61;
+    font-family: 'Cabin', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+.option-row span {
+    font-family: 'Cabin', sans-serif;
+}
+.option-color{
+    color: #cecece;
+    font-weight: 400;
+}
+.padding-option-1{
+    padding: 10px 4%;
+}
+#option-1 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-1 .option-padding{
+    border: 1px solid #cecece;
+}
+#option-2 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-2 .option-padding{
+    border: 1px solid #cecece;
+}
+#option-3 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-3 .option-padding{
+    border: 1px solid #cecece;
+}
+#option-4 span{
+    color: #53db61;
+    font-weight: 400;
+}
+#option-4 .option-padding{
+    border: 1px solid #53db61;
+}
+.user-navbar{
+    border-bottom: 1px solid #cfcfcf;
+}
+/**ROOM BILL**/
+.room-card-row{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cfcfcf;
+}
+.room-bill-heading p{
+     font-size: 21px;
+     text-align: center;
+     font-family: neutra;
+     padding: 10px 0px;
+}
+.room-bill-heading p::after{
+    display: block;
+    width: 80px;
+    height: 2px;
+    content: ' ';
+    margin-top: 8px;
+    background-color: #8e7037;
+    margin-left: auto;
+    margin-right: auto;
+}
+.room-bill-card p{
+    color: #8e7037;
+    font-size: 17px;
+    padding: 5px 0px;
+}
+.room-1-details{
+    display: flex;
+}
+.room-1-details h6{
+    width: 75%;
+    font-size: 16px;
+    padding: 5px 0px;
+    color: #707070;
+    
+}
+.room-1-details p{
+    width: 25%;
+    color: #53db61;
+}
+.room-1-details p i{
+    margin-right: 3%;
+    font-size: 15px;
+}
+.amount-details{
+    display: flex;
+    padding: 25px 0px;
+}
+.flex-total {
+    width: 70%; 
+}
+.flex-total h6{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.flex-total-amount {
+    width: 30%;
+}
+.flex-total-amount p{
+    font-size: 18px ;
+    color: #53db61;
+}
+.flex-total-amount p i{
+    margin-right: 3%;
+    color: #53db61;
+}
+.payment-option-heading p{
+    font-size: 22px;
+    color: #0a0a0a;
+    padding: 25px 0px;
+}
+.payment-option-heading p::after{
+    display: block;
+    width: 80px;
+    height: 2px;
+    content: ' ';
+    margin-top: 8px;
+    background-color: #8e7037;
+}
+.input-options{
+    padding: 15px 3%;
+    background: #ffffff;
+    box-shadow:  20px 20px 60px #f2f2f2, 
+                 -20px -20px 60px #ffffff;
+
+}
+.input-select-method{
+    padding: 15px 0px;
+}
+.payment-icons{
+    text-align: right;
+    font-size: 28px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.payment-icons span{
+    margin-left: 1%;
+    padding-bottom: 4px;
+    color: #000000;
+    font-size: 15px;
+    margin-right: 10%;
+}
+.payment-icons {
+    text-align: right;
+}
+.paytm span{
+    margin-right: 15%;
+}
+/**field Options**/
+.field-1{
+    display: flex;
+    text-align: center;
+}
+.field-1 label{
+    width: 25%;
+    padding: 15px 6%;
+    text-align: left;
+}
+.input-field-name{
+    width: 55%;
+    padding: 10px 0px;
+}
+.input-field-name input{
+    height: 40px;
+    width: 70%;
+    border: 1px solid #cfcfcf;
+    padding: 4px 15px;
+    border-radius: 5px;
+}
+.card-info{
+    margin-top: 10px;
+}
+.input-field-name input:focus{
+    outline: none;
+}
+.page-btn{
+    margin-top: 70px;
+    text-align: center;
+}
+.page-btn button{
+    padding: 10px 25px;
+    border: none;
+    background-color: #0f1d22;
+    color: #fafafa;
+    font-family: 'Montserrat', sans-serif ;
+}
+.page-btn button:focus{
+    outline: none;
+}

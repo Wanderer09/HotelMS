@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html>
+  <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Fouses Bookings </title>
+            <link rel="stylesheet" href="{% static '/bookings/css/booking4.css'%}" >
+            <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        </head>
+        <body>
+            <header class="booking-header">  
+                <div class="back-image">  
+                    <div class="logo-image">
+                      <img src="{% static '/bookings/img/logoimg.png' %}" height="60px" width="200px">
+                    </div>  
+                    <div class="navbar-list">
+                        <ul>  
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About-Us</a></li>
+                            <li><a href="#">Rooms</a></li>
+                            <li><a href="#">Dining</a></li>
+                            <li><a href="#">Gallary</a></li>
+                            <li id="nav-contact"><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                            <li id="nav-login">
+                            {% if user.authenticated %}
+                                <a href="{% url 'logout'%}">Logout</a>
+                            {% else %}
+                                <a href="{% url 'login' %}">Login</a>
+                            {% endif %}
+                            </li>  
+                            <li id="nav-search">
+                                <input type="text" placeholder="Search"></input>
+                                <i class="fas fa-search"></i>
+                            </li>  
+                        </ul> 
+                    </div> 
+                </div>
+            </header> 
+            <div class="flex-class">
+                <section class="container-sidebar">
+                    <div class="sidebar">
+                       <div class="section-book-1"> 
+                            <div class="room-heading">
+                                <p>PAYMENT DETAILS</p>
+                            </div>  
+                            <div class="enter-info">  
+                                <div class="check-info">
+                                    <div class="check-row">
+                                    <i class="far fa-check-circle"></i><span>Check-In</span>
+                                    </div>
+                                    <div class="check-row-2">
+                                    <span>28/07/2020</span>
+                                    </div>  
+                                </div> 
+                                <div class="check-info">
+                                    <div class="check-row">
+                                    <i class="fas fa-sign-out-alt"></i><span>Check-Out</span>
+                                    </div>
+                                    <div class="check-row-2">
+                                    <span>31/07/2020</span>
+                                    </div>
+                                </div>  
+                                <div class="check-info">
+                                    <div class="check-row">
+                                    <i class="fas fa-bed"></i><span>Number Of Rooms</span>
+                                    </div>
+                                    <div class="check-row-2">
+                                    <span>02</span>
+                                    </div> 
+                                </div>  
+                                <div class="check-info">
+                                    <div class="check-row">
+                                    <i class="fas fa-users"></i><span>Number Of Guests</span>
+                                    </div>
+                                    <div class="check-row-2">    
+                                    <span>04</span>
+                                    </div> 
+                                </div>  
+                            </div> 
+                            <div class="billing-details-row">
+                                <div class="room-bill-heading">
+                                    <p>Room Details</p>
+                                </div> 
+                                <div class="room-card-row">   
+                                    <div class="room-bill-card">
+                                        <p>Room-1</p>
+                                        <div class="room-1-details">  
+                                            <h6>Luxury Room <span>X 1</span> </h6>
+                                            <p id="rate-cost"><i class="fas fa-rupee-sign"></i>18500</p>
+                                        </div>                                
+                                    </div> 
+                                    <div class="room-bill-card">  
+                                        <p>Room-2</p>
+                                        <div class="room-1-details">  
+                                            <h6>Delux Room <span>X 1</span> </h6>
+                                            <p id="rate-cost"><i class="fas fa-rupee-sign"></i>21500</p>
+                                        </div>                                
+                                    </div> 
+                                </div>        
+                            </div>  
+                                <div class="amount-details">
+                                    <div class="flex-total">
+                                       <h6>Total</h6>
+                                    </div> 
+                                    <div class="flex-total-amount">
+                                        <p><i class="fas fa-rupee-sign"></i>40000</p>
+                                    </div>       
+                                </div>      
+                            <div class="billing">
+                               <div class="bill-details">
+                                 <p></p>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="room-select-card"> 
+                    <div class="personal">
+                        <div class="user-navbar">
+                            <div class="options">
+                                <div class="option-number" id="option-1">
+                                    <div class="option-padding">
+                                    <span> 1</span>
+                                    </div>  
+                                </div>
+                                <div class="option-row option-color padding-option-1">    
+                                    <span>Choose Date & Personal Information</span>   
+                                </div>    
+                            </div>    
+                            <div class="options">
+                                <div class="option-number" id="option-2">
+                                    <div class="option-padding">
+                                    <span> 2 </span>
+                                    </div> 
+                                </div>
+                                <div class="option-row option-color">    
+                                    <span>Choose Rooms</span>   
+                                </div>    
+                            </div>    
+                            <div class="options">
+                                <div class="option-number" id="option-3">
+                                <div class="option-padding"> 
+                                    <span> 3 </span>
+                                </div>
+                                </div>
+                                <div class="option-row option-color">    
+                                    <span>Confirmation</span>   
+                                </div>    
+                            </div>    
+                            <div class="options">
+                                <div class="option-number" id="option-4">
+                                <div class="option-padding"> 
+                                    <span> 4 </span>
+                                </div>
+                                </div>
+                                <div class="option-row option">    
+                                    <span>Payment Method </span>   
+                                </div>    
+                            </div>    
+                        </div>  
+                    </div>
+                    <div class="payment-option-heading">
+                        <p>Payment Options</p>
+                    </div>
+                    <form>
+                        <div class="input-select-method">
+                            <div class="input-options">
+                                <input type="radio" name="radio-box" class="check-option" onclick="details(0)">
+                                <span class="payment-icons">
+                                    <span>Credit Card</span>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fa fa-credit-card"></i>
+                                    <i class="fa fa-cc-amex"></i>
+                                </span>
+                            </div> 
+                            <div class="card-info" id="credit-card-info" style="display: none ;">
+                               <div class="field-1">
+                                     <label>Name On Card</label>
+                                     <div class="input-field-name">
+                                       <input type="text" placeholder="Name On Card">
+                                     </div>   
+                                </div>
+                               <div class="field-1">
+                                    <label>Card Number</label>
+                                    <div class="input-field-name">
+                                       <input type="text" placeholder="Card Number"> 
+                                    </div>
+                               </div>
+                               <div class="field-1"> 
+                                    <label>CVV</label> 
+                                    <div class="input-field-name">
+                                      <input type="text" placeholder="CVV">
+                                    </div>  
+                                </div>
+                                <div class="field-1">
+                                    <label>Expiry Date</label>
+                                    <div class="input-field-name">
+                                      <input type="date" placeholder="Expiry">
+                                    </div>  
+                                </div>
+                            </div>    
+                        </div>     
+                        <div class="input-select-method">
+                            <div class="input-options">
+                                <input type="radio" name="radio-box" class="check-option" onclick="details(1)">
+                                <span class="payment-icons">
+                                    <span>Debit Card</span>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fa fa-credit-card"></i>
+                                    <i class="fa fa-cc-amex"></i>
+                                </span>
+                            </div> 
+                            <div class="card-info" id="debit-card-info" style="display: none ;">
+                                <div class="field-1">
+                                      <label>Name On Card</label>
+                                      <div class="input-field-name">
+                                        <input type="text" placeholder="Name On Card">
+                                      </div>   
+                                 </div>
+                                <div class="field-1">
+                                     <label>Card Number</label>
+                                     <div class="input-field-name">
+                                        <input type="text" placeholder="Card Number"> 
+                                     </div>
+                                </div>
+                                <div class="field-1"> 
+                                     <label>CVV</label> 
+                                     <div class="input-field-name">
+                                       <input type="text" placeholder="CVV">
+                                     </div>  
+                                 </div>
+                                 <div class="field-1">
+                                     <label>Expiry Date</label>
+                                     <div class="input-field-name">
+                                       <input type="date" placeholder="Expiry">
+                                     </div>  
+                                 </div>
+                             </div>     
+                        </div>     
+                        <div class="input-select-method">
+                            <div class="input-options">
+                                <input type="radio" name="radio-box" class="check-option" onclick="details(2)">
+                                <span class="payment-icons paytm">
+                                    <span>Paytm</span>
+                                    <i class="fas fa-wallet"></i>
+                                </span>
+                            </div> 
+                        </div>     
+                        <div class="input-select-method">
+                            <div class="input-options">
+                                <input type="radio" name="radio-box" class="check-option">
+                                <span class="payment-icons">
+                                    <span>Pay On Arrival</span>
+                                </span>
+                            </div> 
+                        </div>
+                        <div class="page-btn">  
+                            <button class="prev-btn">BACK</button>
+                            <button class="submit-btn" type="submit">PAY</button>
+                        </div>           
+                    </form>     
+                </section>    
+            </div>                  
+        </body>
+    </html>
+    <script type="text/javascript">
+        function details(x){
+          if(x==0){
+           document.getElementById('credit-card-info').style.display="block";
+          }
+          else{
+              document.getElementById('credit-card-info').style.display="none";
+          }
+          if(x==1){
+           document.getElementById('debit-card-info').style.display="block";
+          }
+          else{
+              document.getElementById('debit-card-info').style.display="none";
+          }
+          if(x==2){
+           document.getElementById('debit-card-info').style.display="none";
+           document.getElementById('credit-card-info').style.display="none";
+          }
+          return false;
+        }
+    </script>    
