@@ -89,5 +89,7 @@ def booking2(request):
 def booking3(request):
     return render(request,'home/booking-3.html') 
 def booking4(request):
-    return render(request,'home/booking-4.html')     
+    return render(request,'home/booking-4.html')  
+def reception(request):
+    return render(request,'home/reception.html')     
 
