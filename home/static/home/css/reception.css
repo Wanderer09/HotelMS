@@ -119,25 +119,22 @@
     left: 0;
     margin-left: 27%;
 }
-.current-status{
-    
-}
+
 .flex-boxes{
     display: flex;
-    padding-top: 220px;
+    padding-top: 140px;
     text-align: center;
 }
 .padding-class{
     width: 33.33%;
 }
 .box-row{
-    height: 150px;
-    width: 280px;
+    height: 130px;
+    width: 270px;
     border: none;
     box-shadow:  5px 5px 16px #1c1c21, 
                 -5px -5px 16px #2a2a31;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 18px;
 }
 .box-row i{
     font-size: 32px;
@@ -150,7 +147,7 @@
     color: #ecf0f1;
 }
 #margin-class{
-    padding-top: 60px;
+    padding-top: 50px;
 }
 #arrivals i,p{
     color: #55efc4 ;
@@ -170,6 +167,25 @@
 #service i,p{
     color: #74b9ff;
 }
+#car i{
+   color: #b2bec3;
+}
+#booking i{
+   color: #32ff7e ;
+}
+#phone i{
+   color: #cd84f1 ;
+}
+#car p{
+   color: #b2bec3 ;
+}
+#booking p{
+   color:  #32ff7e;
+}
+#phone p{
+   color: #cd84f1 ;
+}
+
 #service p{
     color: #74b9ff;
 }
