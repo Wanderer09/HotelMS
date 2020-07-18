@@ -39,7 +39,9 @@
                     </ul> 
                     </div> 
                 </div>
-            </header> 
+            </header>
+            <form action="#" method="POST"> 
+                {% csrf_token %}
             <div class="flex-class">
                 <section class="container-sidebar">
                     <div class="sidebar">
@@ -53,7 +55,7 @@
                                     <i class="far fa-check-circle"></i><span>Check-In</span>
                                     </div>
                                     <div class="check-row-2">
-                                    <span>28/07/2020</span>
+                                    <span>{{in_date}}</span>
                                     </div>  
                                 </div> 
                                 <div class="check-info">
@@ -61,7 +63,7 @@
                                     <i class="fas fa-sign-out-alt"></i><span>Check-Out</span>
                                     </div>
                                     <div class="check-row-2">
-                                    <span>31/07/2020</span>
+                                    <span>{{out_date}}</span>
                                     </div>
                                 </div>  
                                 <div class="check-info">
@@ -69,7 +71,7 @@
                                     <i class="fas fa-bed"></i><span>Number Of Rooms</span>
                                     </div>
                                     <div class="check-row-2">
-                                    <span>02</span>
+                                    <span>{{room_count}}</span>
                                     </div> 
                                 </div>  
                                 <div class="check-info">
@@ -77,7 +79,7 @@
                                     <i class="fas fa-users"></i><span>Number Of Guests</span>
                                     </div>
                                     <div class="check-row-2">    
-                                    <span>04</span>
+                                    <span>{{guest_count}}</span>
                                     </div> 
                                 </div>  
                             </div> 
@@ -86,18 +88,16 @@
                                  <p>Additional Services</p>
                                </div>
                                <div class="selected-services">
+                                {% for i,j in service_request_data %}
                                    <div class="selected-services-row">
-                                       <p>Guided Tours</p>
-                                       <span><i class="fas fa-rupee-sign"></i>1500</span>
-                                   </div>
-                                   <div class="selected-services-row">
-                                      <p>Spa & Saloons</p>
-                                      <span><i class="fas fa-rupee-sign"></i>1500</span>
-                                   </div>    
+                                       <p>{{i}}</p>
+                                       <span><i class="fas fa-rupee-sign"></i>{{j}}</span>
+                                   </div>  
+                                {% endfor %}
                                </div> 
                                <div class="total">
                                    <p>Total</p>
-                                   <span><i class="fas fa-rupee-sign"></i>3000</span>
+                                   <span><i class="fas fa-rupee-sign"></i>{{total_service_cost}}</span>
                                </div>           
                             </div>
                        </div>
@@ -163,7 +163,7 @@
                                    <span>First Name :</span>
                                </div>
                                <div class="input-row-response">
-                                   <p>Rahul</p>
+                                   <p>{{fname}}</p>
                                </div>    
                             </div>
                             <div class="input-column">
@@ -171,7 +171,7 @@
                                     <span>Last Name :</span>
                                 </div>
                                 <div class="input-row-response">
-                                    <p>Rajput</p>
+                                    <p>{{lname}}</p>
                                 </div>   
                             </div>        
                         </div>
@@ -181,7 +181,7 @@
                                    <span>Gender :</span>
                                </div>
                                <div class="input-row-response">
-                                   <p>Male</p>
+                                   <p>{{gender}}</p>
                                </div>    
                             </div>
                             <div class="input-column">
@@ -189,7 +189,7 @@
                                     <span>Phone Number :</span>
                                 </div>
                                 <div class="input-row-response">
-                                    <p>1234567890</p>
+                                    <p>{{phonenumber}}</p>
                                 </div>   
                             </div>        
                         </div> 
@@ -199,7 +199,7 @@
                                    <span>Country :</span>
                                </div>
                                <div class="input-row-response">
-                                   <p>India</p>
+                                   <p>{{country}}</p>
                                </div>    
                             </div>
                             <div class="input-column">
@@ -207,7 +207,7 @@
                                     <span>Town/City :</span>
                                 </div>
                                 <div class="input-row-response">
-                                    <p>Delhi</p>
+                                    <p>{{town}}</p>
                                 </div>   
                             </div>        
                         </div> 
@@ -217,7 +217,7 @@
                                    <span>Email-Id :</span>
                                </div>
                                <div class="input-row-response">
-                                   <p>Rahulrajput@gmail.com</p>
+                                   <p>{{email}}</p>
                                </div>    
                             </div>
                             <div class="input-column">
@@ -225,7 +225,7 @@
                                     <span>Choosen Id :</span>
                                 </div>
                                 <div class="input-row-response">
-                                    <p>Aadhar Card</p>
+                                    <p>{{identification}}</p>
                                 </div>   
                             </div>        
                         </div>       
@@ -233,32 +233,33 @@
                     <div class="room-bill-heading">
                         <h2>Selected Rooms</h2>
                     </div>
-                    <div class="cost-section"> 
+                    <div class="cost-section">
+                    {% for room,count,totalcost,tax,amount in total_costs %} 
                         <div class="room-billing">    
                             <div class="room-details">
-                                <p>Room-1</p>
-                                <span id="room-color">Luxury Room </span>
-                                <span id="color-change">x1</span>
+                                <p>Room-{{forloop.counter}}</p>
+                                <span id="room-color">{{room}} </span>
+                                <span id="color-change">x{{count}}</span>
                             </div>    
                             <div class="room-price-details">
                                 <p>Space Price</p>
                                 <div class="total-price">
                                     <div class="dates"> 
-                                        <span>28/07/2020 - 31/07/2020</span>
+                                        <span>{{in_date}} - {{out_date}}</span>
                                     </div>
                                     <div class="date-total-cost">      
-                                        <span><i class="fas fa-rupee-sign"></i>18000</span>
+                                        <span><i class="fas fa-rupee-sign"></i>{{totalcost}}</span>
                                     </div> 
                                 </div>
                             </div>       
                             <div class="addon-prices">
                                 <div class="service-row-choosen">
                                     <p>Additional Services </p>
-                                    <span><i class="fas fa-rupee-sign"></i>3000</span>
+                                    <span><i class="fas fa-rupee-sign"></i>{{total_service_cost}}</span>
                                 </div>   
                                 <div class="service-row-choosen">
                                     <p>Taxes</p>
-                                    <span><i class="fas fa-rupee-sign"></i>500</span>
+                                    <span><i class="fas fa-rupee-sign"></i>{{tax}}</span>
                                 </div>    
                             </div>    
                             <div class="sum-amount">
@@ -266,10 +267,11 @@
                                     <p>Total</p>
                                 </div>    
                                 <div class="total-price-info">
-                                    <p><i class="fas fa-rupee-sign"></i>21500</p>
+                                    <p><i class="fas fa-rupee-sign"></i>{{amount}}</p>
                                 </div>    
                             </div>
-                        </div> 
+                        </div>
+                        {% endfor %} <!-- 
                         <div class="room-billing">  
                             <div class="room-details">
                                 <p>Room-2</p>
@@ -306,19 +308,21 @@
                                 </div>    
                             </div>
                         </div>     
-                    </div> 
+         --> 
+                      </div> 
                     <div class="payable-amount">
                         <div class="payable-label">
                             <p>Total Amount Payable :</p>
                         </div>
                         <div class="payable-cost">
-                            <p><i class="fas fa-rupee-sign"></i>40000</p>
+                            <p><i class="fas fa-rupee-sign"></i>{{total}}</p>
                         </div>        
                     </div>    
                     <div class="page-btn">  
                         <button class="prev-btn">BACK</button>
                         <button class="submit-btn" type="submit">PAY</button>
-                    </div>        
+                    </div> 
+                    </form>       
                 </section>    
             </div>                   
         </body>    

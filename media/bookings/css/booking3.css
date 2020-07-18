@@ -1,0 +1,502 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+{
+    font-family: 'Cabin', sans-serif;
+}
+.booking-header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.back-image{
+    display: flex;
+    background-color: #fafafa;
+    padding: 20px 40px;
+    z-index:999;
+}
+.navbar-list{
+    width: 80%;
+    margin: auto;
+    padding-left: 3%;
+}
+.navbar-list ul{
+    list-style: none;
+    text-decoration: none; 
+}
+.navbar-list ul li {
+    color: #3a3434;
+    display: inline;
+    font-size: 18px;
+    padding: 5px 23px;
+   
+}
+#nav-search{
+    border-bottom: 1px solid #484848;
+    padding: 5px 0px;
+}
+.navbar-list ul li input{
+    border: none;
+    width: 15%;
+    background-color: #fafafa;
+    font-family: neutra;
+    font-weight: 300;
+}
+.navbar-list ul li input:focus{
+    outline: none;
+}
+#nav-contact{
+    padding-right: 20px;   
+}
+#nav-login{
+    padding-right: 45px;   
+}
+#nav-login a span{
+    font-family: neutra;
+}
+.navbar-list ul li a{
+    color: #3a3434;
+    text-decoration: none;
+    font-family: neutra;
+}
+.logo-image{
+   width: 20%;
+   text-align: center;
+}
+/**SIDEBAR**/
+.flex-class{
+    display: flex;
+}
+.container-sidebar{
+    margin-top: 110px;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 70%;
+    max-width: 350px;
+    padding: 10px 2%;
+    position: fixed;
+    border-right: 1px solid #cfcfcf;
+}
+.room-select-card{
+    left: 0;
+    top: 0;
+    margin-top: 105px; 
+    margin-left: 27%;
+    width: 78%;
+    padding: 12px 1%;
+  
+}
+.room-heading{
+    padding: 18px 10px;
+    border-bottom: 1px solid #cfcfcf;
+}
+.room-heading p{
+    font-size: 22px;
+    font-family: neutra;
+    text-align: center;
+    color: #707070;
+}
+.enter-info{
+    padding-top: 25px;
+    padding-bottom: 20px;
+}
+.check-info{
+    display: flex;
+    padding: 10px 10px;
+}
+.check-row{
+    width: 70%;
+}
+.check-row i{
+    font-size: 15px ;
+    color: #8e7037;
+    margin-right: 4%;
+}
+.check-row span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: #707070;
+}
+.check-row-2{
+    width: 30%;
+    text-align: center;
+}
+.check-row-2 span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: #000000;
+}
+/**USER NAVBAR **/
+.user-navbar{
+    display: flex;
+    padding: 5px 0px;
+}
+.options{
+    display: flex;
+    width: 25%;
+}
+.option-number{
+    display: inline;
+    color: #53db61;
+    font-size: 15px;
+    padding: 12px 0px;
+    font-weight: 700;
+}
+.option-number span{
+    font-family: 'Cabin', sans-serif;
+}
+.option-padding{
+    border-radius: 50%;
+    border: 2px solid #53db61;
+    padding: 5px 12px;
+}
+.option-row{
+    padding: 17px 4%;
+    color: #53db61;
+    font-family: 'Cabin', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+.option-row span {
+    font-family: 'Cabin', sans-serif;
+}
+.option-color{
+    color: #cecece;
+    font-weight: 400;
+}
+.padding-option-1{
+    padding: 10px 4%;
+}
+#option-1 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-1 .option-padding{
+    border: 1px solid #cecece;
+}
+#option-2 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-2 .option-padding{
+    border: 1px solid #cecece;
+}
+#option-3 span{
+    color: #53db61;
+    font-weight: 400;
+}
+#option-3 .option-padding{
+    border: 1px solid #53db61;;
+}
+#option-4 span{
+    color: #cecece;
+    font-weight: 400;
+}
+#option-4 .option-padding{
+    border: 1px solid #cecece;;
+}
+.user-navbar{
+    border-bottom: 1px solid #cfcfcf;
+}
+/**ADDITIONAL SERVICES **/
+.selected-services-heading p{
+    font-family: neutra;
+    font-size: 18px;
+    text-align: center;
+    padding: 15px 5%;
+}
+.selected-services-heading p::after{
+    display: block;
+    width: 80px;
+    height: 2px;
+    content: ' ';
+    margin-top: 8px;
+    background-color: #8e7037;
+    margin-left: auto;
+    margin-right: auto;
+}
+.selected-services-row{
+    display: flex;
+    padding: 10px 3%;
+}
+.selected-services-row p{
+    width: 80%;
+    font-size: 16px;
+    font-family: 'Cabin', sans-serif;
+}
+.selected-services-row span{
+    width: 20%;
+    color: #53db61;
+    font-family: 'Cabin', sans-serif;
+}
+.selected-services-row i{
+    margin-right: 5%;
+}
+.selected-services{
+    border-bottom: 1px solid #cfcfcf;
+}
+.total{
+    display: flex;
+    padding: 10px 3%;
+    border: 1px solid #8e7037;
+    margin-top: 20px;
+    background-color: #8e7037;
+}
+.total p{
+    width: 70%;
+    font-family: 'Cabin', sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #fafafa;
+}
+.total span{
+    width: 30%;
+    font-family: 'Cabin', sans-serif;
+    font-size:18px ;
+    color: #fafafa;
+}
+.total span i{
+    margin-right: 5%;
+}
+/**PERSONAL INFORMATION **/
+.personal-entered-info{
+    display: flex;
+    padding: 20px 3%;
+}
+.entered-info-heading{
+    width: 80%;
+    font-size: 18px;
+    font-family: 'Cabin', sans-serif;
+}
+.entered-info-heading h2{
+    font-family: 'Cabin', sans-serif;
+    padding-top: 5px;
+}
+.entered-info-heading h2::after{
+    display: block;
+    width: 100px;
+    height: 2px;
+    content: ' ';
+    margin-top: 8px;
+    background-color: #8e7037;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+.edit-btn{
+    width: 20%;
+}
+.edit-btn-info{
+    padding: 10px 20px ;
+    border: none;
+    background-color: #0f1d22;
+    color: #fafafa;
+    font-family: 'Cabin', sans-serif;
+    border-radius: 2px;
+}
+.edit-btn-info:focus{
+    outline: none;
+}
+.input-field-rows{
+    display: flex;
+    padding: 20px 2%;
+   
+}
+.input-column{
+    width: 50%;
+    display: flex;
+    padding: 10px 0px;
+    margin-right: 5%;
+    border-bottom:1px solid #cfcfcf;
+}
+.input-row{
+   width: 55%;
+}
+.input-row span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+}
+.input-row-response {
+    width: 45%;
+    text-align: right;
+    padding-right: 3%;
+    font-size: 16px;
+}
+.input-row-response p{
+    font-family: 'Cabin', sans-serif;
+    color: #ababab;
+}
+.room-bill-heading{
+    padding: 20px 3%;
+}
+.room-bill-heading h2 {
+    font-family: 'Cabin', sans-serif;
+    font-size: 27px;
+}
+.room-bill-heading h2::after{
+    display: block;
+    width: 100px;
+    height: 2px;
+    content: ' ';
+    margin-top: 8px;
+    background-color: #8e7037;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+.room-billing{
+    width: 50%;
+    padding: 0px 2% ;
+}
+.room-details{
+    padding: 10px 3%;
+    border-bottom: 1px solid #cfcfcf;
+}
+.room-details p{
+    color: #8e7037;
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    padding: 9px 0px;
+}
+#room-color{
+    color: #000000;
+    font-family: 'Cabin', sans-serif;
+    font-size: 19px;
+}
+#color-change{
+    color: #aeaeae;
+    font-family: 'Cabin', sans-serif;
+    font-size: 18px;
+    padding-left: 1%;
+}
+.room-price-details{
+    padding: 10px 3%;
+    border-bottom: 1px solid #cfcfcf;
+}
+.room-price-details p{
+    color: #8e7037;
+    font-size: 19px;
+    padding: 9px 0px;
+    font-family: 'Cabin', sans-serif;
+}
+.total-price{
+    display: flex;
+    padding: 8px 0px;
+}
+.total-price .dates{
+    width: 80%;
+}
+.total-price .dates span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: #0a0a0a;
+}
+.total-price .date-total-cost span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 17px;
+    color: #53db61;
+    font-weight: 800;
+}
+.service-row-choosen {
+    display: flex;
+    padding: 8px 0px;
+}
+.addon-prices{
+    padding: 10px 3%;
+    border-bottom: 1px solid #cfcfcf;
+}
+.service-row-choosen p{
+    width: 80%;
+    font-family: 'Cabin', sans-serif;
+    font-size: 18px;
+    color: #0a0a0a;
+}
+.service-row-choosen span{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    color: #53db61;
+    font-weight: 700;
+    width: 20%;
+}
+.service-row-choosen span i{
+    margin-right: 2%;
+}
+.sum-amount{
+    display: flex;
+    padding: 15px 3%;
+    margin-top: 20px;
+    background-color: #8e7037;
+    border-radius: 2px;
+}
+.sum-amount .total-amount{
+    width: 75%;
+}
+.sum-amount .total-amount p{
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    color:#fafafa;
+}
+.total-price-info p{
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    color:#fafafa;
+}
+.total-price-info{
+    width: 25%;
+}
+.total-price-info p i{
+  margin-right: 4%;
+}
+.cost-section{
+    display: flex;
+}
+.payable-amount{
+    display: flex;
+    margin-top: 50px ;
+    padding: 20px 3%;
+    border: 1px solid #aeaeae;
+}
+.payable-label{
+    width: 80%;
+}
+.payable-label p{
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+}
+.payable-price{
+    width: 20%;
+}
+.payable-cost p{
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    color: #53db61;
+    font-weight: 700;
+}
+
+.page-btn{
+    margin-top: 70px;
+    text-align: center;
+}
+.page-btn button{
+    padding: 10px 25px;
+    border: none;
+    background-color: #0f1d22;
+    color: #fafafa;
+}
+.page-btn button:focus{
+    outline: none;
+}

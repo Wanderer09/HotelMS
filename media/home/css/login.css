@@ -101,6 +101,9 @@ input {
 	margin: 8px 0;
 	width: 100%;
 }
+.bg-color{
+    background-color:linear-gradient(to right,#bdc3c7,#2c3e50);
+}
 
 .container {
 	background-color: #fff;
@@ -167,15 +170,24 @@ input {
 	transition: transform 0.6s ease-in-out;
 	z-index: 100;
 }
+.overlay-panel h6{
+    font-family: 'Cabin', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: #fafafa;
+    text-align: center;
+    margin-top: 20px;
+}
+
 
 .container.right-panel-active .overlay-container{
 	transform: translateX(-100%);
 }
 
 .overlay {
-	background: #FF416C;
+	background: #141e38;
 	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #141e38, #243b55);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -237,29 +249,4 @@ input {
 	margin: 0 5px;
 	height: 40px;
 	width: 40px;
-}
-
-footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;
-}
-
-footer p {
-    margin: 10px 0;
-}
-
-footer i {
-    color: red;
-}
-
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
 }

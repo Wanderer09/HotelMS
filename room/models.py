@@ -8,6 +8,7 @@ class Room_type(models.Model):
 	room_description=models.CharField(max_length=100);
 	number_of_guests=models.PositiveIntegerField();
 	show_on_homepage=models.BooleanField(default=False);
+	room_img=models.CharField(max_length=500,default='/img/bed-4.jpg')
 room_status_choices=[
        ('a','Available'),
        ('na','Not_Available'),
@@ -20,5 +21,9 @@ class Room(models.Model):
 	room_type=models.ForeignKey(Room_type,on_delete=models.CASCADE,to_field='id');
 	room_status=models.CharField(max_length=2,choices=room_status_choices,default='a');
 	room_floor=models.PositiveIntegerField();
+class services(models.Model):
+	service_type=models.CharField(max_length=100);
+	service_cost=models.PositiveIntegerField();
+	service_availability=models.BooleanField(default=True);
 
 

@@ -40,7 +40,8 @@
                     </div> 
                 </div>
             </header> 
-            <form action="#" method="GET">
+            <form action="#" method="POST">
+                {% csrf_token %}
                 <div class="flex-class">
                     <section class="container-sidebar">
                         <div class="sidebar">
@@ -54,7 +55,7 @@
                                         <i class="far fa-check-circle"></i><span>Check-In</span>
                                         </div>
                                         <div class="check-row-2">
-                                        <span>28/07/2020</span>
+                                        <span>{{in_date}}</span>
                                         </div>  
                                     </div> 
                                     <div class="check-info">
@@ -62,7 +63,7 @@
                                         <i class="fas fa-sign-out-alt"></i><span>Check-Out</span>
                                         </div>
                                         <div class="check-row-2">
-                                        <span>31/07/2020</span>
+                                        <span>{{out_date}}</span>
                                         </div>
                                     </div>  
                                     <div class="check-info">
@@ -70,7 +71,7 @@
                                         <i class="fas fa-bed"></i><span>Number Of Rooms</span>
                                         </div>
                                         <div class="check-row-2">
-                                        <span>02</span>
+                                        <span>{{ room_count }}</span>
                                         </div> 
                                     </div>  
                                     <div class="check-info">
@@ -78,7 +79,7 @@
                                         <i class="fas fa-users"></i><span>Number Of Guests</span>
                                         </div>
                                         <div class="check-row-2">    
-                                        <span>04</span>
+                                        <span>{{ guest_count }}</span>
                                         </div> 
                                     </div>  
                                 </div>    
@@ -114,63 +115,19 @@
                                 <p>Additional Services</p>
                             </div>
                             <div class="addons">
+                          {% for service,service_cost,service_av in service_list %}
+                                  {% if service_av %}
+
                                     <div class="services-row">
                                     <div class="service-name">
-                                        <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Spa & Saloon </label>
+                                        <input type="checkbox" id="{{service}}" name="service_check" value="{{service}}"> <label for="{{service}}">{{service}}</label>
                                     </div>
                                     <div class="service-cost">  
-                                        <span><i class="fas fa-rupee-sign"></i> 1500</span>
+                                        <span><i class="fas fa-rupee-sign"></i>{{service_cost}}</span>
                                     </div>  
                                     </div>
-                                    <div class="services-row">
-                                        <div class="service-name">
-                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Gym </label>
-                                        </div>
-                                        <div class="service-cost">  
-                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
-                                        </div> 
-                                    </div>   
-                                    <div class="services-row">
-                                        <div class="service-name">
-                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Private Chef </label>
-                                        </div>
-                                        <div class="service-cost">  
-                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
-                                        </div> 
-                                    </div>   
-                                    <div class="services-row">
-                                        <div class="service-name">
-                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Laundary </label>
-                                        </div>
-                                        <div class="service-cost">  
-                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
-                                        </div>
-                                    </div>   
-                                    <div class="services-row">
-                                        <div class="service-name">
-                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Pick & Drop </label>
-                                        </div>
-                                        <div class="service-cost">  
-                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
-                                        </div>
-                                    </div> 
-                                    <div class="services-row">
-                                        <div class="service-name">
-                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Guided Tour </label>
-                                        </div>
-                                        <div class="service-cost">  
-                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
-                                        </div>
-                                    </div> 
-                                    <div class="services-row">
-                                        <div class="service-name">
-                                            <input type="checkbox" id="service-1" name="service-1"> <label for="service-1"> Dry Cleaning</label>
-                                        </div>
-                                        <div class="service-cost">  
-                                            <span><i class="fas fa-rupee-sign"></i> 1500</span>
-                                        </div>
-                                    </div>        
-                            </div>      
+                                  {% endif %}
+                            {% endfor %}                            </div>      
                         </div>                 
                         </div>    
                     </section>    
@@ -221,6 +178,7 @@
                         </div>
                         <div class="room-cards ">
                             <div class="room-card-row-1">
+                          {% for style,price,rating,room_available_count,img in mylist %}
                                 <div class="card">
                                     <div class="card-image">
                                     <img src="{% static '/bookings/img/bed-2.jpg' %}" width="310px" height="230px">
@@ -228,10 +186,10 @@
                                     <div class="room-information-row">
                                         <div class="room-details">
                                             <div class="room-name">
-                                                <span>LUXURY ROOM</span>
+                                                <span>{{ style }}</span>
                                             </div> 
                                             <div class="room-price">
-                                                <span><i class="fas fa-rupee-sign"></i> 6000</span>
+                                                <span><i class="fas fa-rupee-sign"></i>{{ price }}</span>
                                             </div>       
                                         </div> 
                                         <div class="room-service">
@@ -249,12 +207,17 @@
                                             </div>        
                                         </div> 
                                         <div class="select-option">
-                                            <input class="input-rooms" placeholder="No. Of Rooms" />
-                                            <button class="select-btn">SELECT</button>
+                                            <input class="input-rooms" placeholder="No. Of Rooms" name="count-{{ style }}" />
+                                            <label for="check-{{ forloop.counter }}">
+                                            <input type="checkbox" id="check-{{ forloop.counter }}" name="{{ style }}" hidden/>
+                                            <span class='select-check'>SELECT</span>
+                                            </label>
                                         </div>  
                                     </div>               
-                                </div>  
-                                <div class="card">
+                                </div> 
+                             {% endfor %}
+
+                                <!-- <div class="card">
                                     <div class="card-image">
                                     <img src="{% static '/home/img/bed-3.jpg' %}" width="310px" height="230px">
                                     </div>
@@ -422,12 +385,13 @@
                                             <button class="select-btn">SELECT</button>
                                         </div>  
                                     </div>               
-                                </div>    
+                                </div>     -->
                             </div>    
                         </div>  
                         <div class="page-btn">  
                             <button class="prev-btn">BACK</button>
-                            <button class="submit-btn" type="submit">NEXT</button>
+                            <button class="submit-btn" type="submit">NEXT</button><br>
+                            <input type="submit" value="submit" class="submit-btn">    
                         </div>     
                     </section> 
                 </div>

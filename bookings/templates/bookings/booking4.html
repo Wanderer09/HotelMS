@@ -53,7 +53,7 @@
                                     <i class="far fa-check-circle"></i><span>Check-In</span>
                                     </div>
                                     <div class="check-row-2">
-                                    <span>28/07/2020</span>
+                                    <span>{{in_date}}</span>
                                     </div>  
                                 </div> 
                                 <div class="check-info">
@@ -61,7 +61,7 @@
                                     <i class="fas fa-sign-out-alt"></i><span>Check-Out</span>
                                     </div>
                                     <div class="check-row-2">
-                                    <span>31/07/2020</span>
+                                    <span>{{out_date}}</span>
                                     </div>
                                 </div>  
                                 <div class="check-info">
@@ -69,7 +69,7 @@
                                     <i class="fas fa-bed"></i><span>Number Of Rooms</span>
                                     </div>
                                     <div class="check-row-2">
-                                    <span>02</span>
+                                    <span>{{room_count}}</span>
                                     </div> 
                                 </div>  
                                 <div class="check-info">
@@ -77,7 +77,7 @@
                                     <i class="fas fa-users"></i><span>Number Of Guests</span>
                                     </div>
                                     <div class="check-row-2">    
-                                    <span>04</span>
+                                    <span>{{guests_count}}</span>
                                     </div> 
                                 </div>  
                             </div> 
@@ -85,21 +85,23 @@
                                 <div class="room-bill-heading">
                                     <p>Room Details</p>
                                 </div> 
-                                <div class="room-card-row">   
+                                <div class="room-card-row">
+                    {% for room,count,totalcost,tax,amount in total_costs %}    
                                     <div class="room-bill-card">
                                         <p>Room-1</p>
                                         <div class="room-1-details">  
-                                            <h6>Luxury Room <span>X 1</span> </h6>
-                                            <p id="rate-cost"><i class="fas fa-rupee-sign"></i>18500</p>
+                                            <h6>{{room}}<span>X {{count}}</span> </h6>
+                                            <p id="rate-cost"><i class="fas fa-rupee-sign"></i>{{amount}}</p>
                                         </div>                                
                                     </div> 
-                                    <div class="room-bill-card">  
+                                    {% endfor %}
+                                   <!--  <div class="room-bill-card">  
                                         <p>Room-2</p>
                                         <div class="room-1-details">  
                                             <h6>Delux Room <span>X 1</span> </h6>
                                             <p id="rate-cost"><i class="fas fa-rupee-sign"></i>21500</p>
                                         </div>                                
-                                    </div> 
+                                    </div>  -->
                                 </div>        
                             </div>  
                                 <div class="amount-details">
@@ -107,7 +109,7 @@
                                        <h6>Total</h6>
                                     </div> 
                                     <div class="flex-total-amount">
-                                        <p><i class="fas fa-rupee-sign"></i>40000</p>
+                                        <p><i class="fas fa-rupee-sign"></i>{{total}}</p>
                                     </div>       
                                 </div>      
                             <div class="billing">

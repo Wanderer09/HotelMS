@@ -40,7 +40,7 @@
                         </div> 
                     </div>
             </header>    
-            <form action="{% url 'booking2' %}" onsubmit="return validation()" method="POST">
+            <form action="#"  method="POST">
                 {% csrf_token %}
                 <section class="container-sidebar">
                     <div class="sidebar">
@@ -473,7 +473,7 @@
             </form>    
         </body>
 </html>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function validation(){
         var firstname = document.getElementById('first-name').value;
         var lastname = document.getElementById('last-name').value;
@@ -572,4 +572,5 @@
             }
         return false;    
     }
-</script>
+</script> -->
+<!-- onsubmit="return validation()" -->
