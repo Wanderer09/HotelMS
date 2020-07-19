@@ -135,6 +135,7 @@
     box-shadow:  5px 5px 16px #1c1c21, 
                 -5px -5px 16px #2a2a31;
     padding-top: 18px;
+    border-radius: 15px;
 }
 .box-row i{
     font-size: 32px;
