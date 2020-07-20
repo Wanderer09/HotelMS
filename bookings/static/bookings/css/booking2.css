@@ -93,10 +93,10 @@
 }
 .check-info{
     display: flex;
-    padding: 10px 10px;
+    padding: 15px 1.5%;
 }
 .check-row{
-    width: 70%;
+    width: 60%;
 }
 .check-row i{
     font-size: 15px ;
@@ -109,7 +109,7 @@
     color: #707070;
 }
 .check-row-2{
-    width: 30%;
+    width: 40%;
     text-align: center;
 }
 .check-row-2 span{
@@ -119,10 +119,10 @@
 }
 .edit-btn{
     text-align: center;
-    padding-bottom:10px ;
+    padding-bottom:15px ;
 }
 .btn-edit{
-    padding: 6px 25px;
+    padding: 8px 25px;
     border: none;
     background-color: #0f1d22;
     color: #fafafa;
@@ -130,9 +130,10 @@
     font-size: 13px;
     border-radius: 3px;
     letter-spacing: 0.8px;
+    margin-top: 15px;
 }
 .booking-info{
-    padding: 25px 10px;
+    padding: 45px 10px;
     text-align: center;
 }
 .booking-info p{
@@ -151,8 +152,8 @@
 }
 .room-card{
     border: 1px solid #cfcfcf;
-    padding: 10px 10px;
-    margin-bottom: 20px;
+    padding: 12px 2%;
+    margin-bottom: 35px;
     box-shadow: 0.7px 0.7px 4px 1px #aeaeae;
 }
 .booking-room{
@@ -168,11 +169,16 @@
 .booking-row i{
     color: #53db61;
 }
+#booking-room{
+    width: 65%;
+}
 #color-guest{
     font-size: 13px;
     color: #aeaeae;
     font-family: 'Cabin', sans-serif;
-    padding: 0px 5%;
+    padding: 0px 2%;
+    width: 35%;
+    margin-left: 3%;
 }
 #color-rupee{
     color: #53db61;
@@ -187,7 +193,7 @@
     padding: 0px 3%;
 }
 .services-heading{
-    padding: 20px 10px;
+    padding: 30px 10px;
     text-align: center;
 }
 .services-heading p{
@@ -205,7 +211,7 @@
     margin-right: auto;
 }
 .services-row{
-    padding: 9px 9px;
+    padding: 19px 3%;
     display: flex;
 }
 .service-name{
@@ -213,19 +219,20 @@
 }
 .service-name label{
     font-family: 'Cabin', sans-serif;
-    font-size: 16px;
+    font-size: 17px;
 }
 .service-cost{
-    width: 10%;
+    width: 30%;
 }
 .service-cost span {
     font-family: 'Cabin', sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     font-weight:300;
 }
 .service-cost i{
     color: #53db61;
-    font-size: 15px;
+    font-size: 16px;
+    margin-right: 4%;
 }
 .room-select-card{
     left: 0;
@@ -316,7 +323,7 @@
     left: 0;
     height:100%;
     width: 70%;
-    max-width: 350px;
+    max-width: 330px;
     padding: 10px 2%;
 }
 .room-card-row-1{
@@ -326,12 +333,12 @@
    
 }
 .card{
-    max-width:313px;
+    max-width:308px;
     border: 1px solid #cfcfcf;
     border-radius: 2px;
     box-shadow: 0 6px 10px 0 rgba(0,0,0,0.1);
     margin-right: 1.8%;
-    
+    margin-bottom: 60px;
 }
 .room-information-row{
     padding: 10px 15px;
@@ -386,10 +393,12 @@
     font-size: 16px;
 }
 .select-check{
-    padding: 10px 10px;
+    padding: 11px 20px;
     border: none;
     background-color: #0f1d22;
     color: #fafafa;
+    font-size: 14px;
+    border-radius: 2px;
 }
 .select-option input:focus{
     outline: none;
@@ -401,10 +410,16 @@
     margin-top: 40px;
 }
 .page-btn{
-    margin-top: 70px;
+    margin-top: 15px;
     text-align: center;
 }
 .page-btn button{
+    padding: 10px 25px;
+    border: none;
+    background-color: #0f1d22;
+    color: #fafafa;
+}
+.submit-btn{
     padding: 10px 25px;
     border: none;
     background-color: #0f1d22;
