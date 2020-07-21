@@ -1,12 +1,12 @@
 import datetime
 from django.shortcuts import render,redirect
-from .models import booking
+from .models import booking_guest_details,booking_room_details,booking
 from room.models import Room_type as Room_types
 from room.models import Room as Rooms
 from room.models import services 
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-@login_required
+#@login_required
 def bookings(request):
 	if(request.method=='POST'):
 		#data_from_FORM
@@ -33,6 +33,8 @@ def bookings(request):
 		StayDuration = timedeltaSum.days
 		#Setting_sessions
 		request.session['StayDuration']=StayDuration
+		request.session['in_time']=in_time
+		request.session['out_time']=out_time
 		request.session['in_date']=in_date
 		request.session['out_date']=out_date
 		request.session['room_count']=room_count
@@ -52,7 +54,7 @@ def bookings(request):
 		# data={'in_date':in_date,'in_time':in_time,'out_date':out_date,'out_time':out_time,'room_count':room_count,'guest_count':guest_count,'adult_count':adult_count,'children_count':children_count,'country':country,'fname':fname,'lname':lname,'phonenumber':phonenumber,'town':town,'gender':gender,'email':email,'identification':identification}
 		return redirect('booking2')
 	return render(request,'bookings/booking.html',{})
-@login_required
+#@login_required
 def booking2(request):
 	#Taking_session_Values
 	in_date=request.session['in_date']
@@ -80,20 +82,20 @@ def booking2(request):
 		price.append(i.room_price)
 		rating.append(i.room_rating)
 		img.append(i.room_img)
-	mylist=zip(style,price,rating,room_available_count,img)
+
+	mylist=list(zip(style,price,rating,room_available_count,img))
+	print(mylist)
 	services_all=services.objects.all()
 	for i in services_all:
 		service.append(i.service_type)
 		service_cost.append(i.service_cost)
 		service_av.append(i.service_availability)
 	if(request.method=='POST'):
-		room_data={}
 		service_request=[]
-		for j in request.POST.getlist('service_check'):
-			service_request.append(j)
-		room_data['additional_sevices']=service_request;
 		booked_rooms=[]
 		booked_rooms_count=[]
+		for j in request.POST.getlist('service_check'):
+			service_request.append(j)
 		for i in style:
 			if request.POST.get(i,False):
 			   counter=request.POST.get('count-'+i,False)
@@ -105,7 +107,7 @@ def booking2(request):
 		return redirect('booking3')
 	mydata={}
 	mydata["mylist"]=mylist
-	mydata['service_list']=zip(service,service_cost,service_av)
+	mydata['service_list']=list(zip(service,service_cost,service_av))
 	in_date=request.session['in_date']
 	out_date=request.session['out_date']
 	room_count=request.session['room_count']
@@ -115,7 +117,7 @@ def booking2(request):
 	mydata['room_count']=room_count
 	mydata['guest_count']=guest_count
 	return render(request,'bookings/booking2.html',mydata)
-@login_required
+#@login_required
 def booking3(request):
 	in_date=request.session['in_date']
 	out_date=request.session['out_date']
@@ -146,6 +148,7 @@ def booking3(request):
 		service_request_cost.append(cost_service)
 		total_service_cost+=cost_service
 	total=0
+	#Service__Amounts
 	service_request_data=list(zip(service_request,service_request_cost))
 	for i,j in my_rooms:
 		a=Room_types.objects.filter(room_type=i).values_list('room_price',flat=True)
@@ -166,7 +169,7 @@ def booking3(request):
 	total=0
 	for i in total_amount:
 		total+=i
-
+    #total__Room__Amounts
 	total_costs=list(zip(booked_rooms,booked_rooms_count,total_price_rooms,total_tax,total_amount))
 	request.session['total_costs']=total_costs
 	request.session['service_request_data']=service_request_data
@@ -193,15 +196,43 @@ def booking3(request):
 	if(request.POST):
 		return redirect('booking4')
 	return render(request,'bookings/booking3.html',data)
-@login_required
+#@login_required
 def booking4(request):
+	in_time=request.session['in_time']
+	out_time=request.session['out_time']
 	in_date=request.session['in_date']
 	out_date=request.session['out_date']
 	room_count=request.session['room_count']
+	guest_count=request.session['guest_count']
+	adult_count=request.session['adult_count']
+	children_count=request.session['children_count']
+	country=request.session['country']
+	fname=request.session['fname']
+	lname=request.session['lname']
+	StayDuration=request.session['StayDuration']
+	phonenumber=request.session['phonenumber']
+	town=request.session['town']
+	gender=request.session['gender']
+	email=request.session['email']
+	identification=request.session['identification']
+	booked_rooms=request.session['booked_rooms']
+	booked_rooms_count=request.session['booked_rooms_count']
+	service_request=request.session['service_request']
 	total_costs=request.session['total_costs']
 	service_request_data=request.session['service_request_data']
 	total=request.session['total']
 	total_service_cost=request.session['total_service_cost']
+	if(request.POST):
+		user=request.user
+		payment_type=request.POST.get('radio-box',False)
+		print(payment_type)
+		guests=booking_guest_details(user=user,in_date=in_date,in_time=in_time,out_date=out_date,out_time=out_time,room_count=room_count,guest_count=guest_count,adult_count=adult_count,children_count=children_count,country=country,fname=fname,lname=lname,phonenumber=phonenumber,town=town,gender=gender,email=email,identification=identification)
+		guests.save()
+		room=booking_room_details(user=user,booking_guest_details=guests,Room_details=total_costs,service_details=service_request_data,payment_type=payment_type)
+		room.save()
+		bookings=booking(amount=total,booking_guest_details=guests,booking_room_details=room,user=user)
+		bookings.save()
+
 	mydata={}
 	mydata['in_date']=in_date
 	mydata['out_date']=out_date

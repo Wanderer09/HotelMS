@@ -168,7 +168,8 @@
                     <div class="payment-option-heading">
                         <p>Payment Options</p>
                     </div>
-                    <form>
+                    <form method="POST" action="#">
+                        {% csrf_token %}
                         <div class="input-select-method">
                             <div class="input-options">
                                 <input type="radio" name="radio-box" class="check-option" onclick="details(0)">

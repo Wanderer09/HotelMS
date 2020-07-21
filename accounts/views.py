@@ -78,7 +78,7 @@ def activate_account(request, uidb64, token, backend='django.contrib.auth.backen
 		# user.profile.email_confirmed = True
 		user.save()
 		auth_login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-		return redirect('home')
+		return redirect('login')
 	else:
 		return HttpResponse("invalid mail")
 @login_required

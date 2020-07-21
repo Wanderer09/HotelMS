@@ -238,7 +238,7 @@
 
 /*-----------ROOMS--------*/
 .rooms{
-    /*background-image: url("/static/home/img/bed-1.jpg");*/
+    background-image: url("/static/home/img/bed-1.jpg");
     background-size: cover;
     
 }
@@ -264,7 +264,7 @@
 .rooms-row{
     width: 33.33%;
 }
-/*.module{
+.module{
     background-image: 
     linear-gradient(
       rgba(0, 0, 0, 0.2),
@@ -278,7 +278,7 @@
   position: relative;
   float: left;
   margin-top: 50px;
-}*/
+}
 
 .row-content .heading{
     text-align: center;
