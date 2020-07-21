@@ -1,10 +1,14 @@
 import datetime
 from django.shortcuts import render,redirect
+from django.http import HttpResponse
 from .models import booking_guest_details,booking_room_details,booking
 from room.models import Room_type as Room_types
 from room.models import Room as Rooms
 from room.models import services 
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from PayTm import Checksum
+MERCHANT_KEY = 'kbzk1DSbJiV_O3p5';
 # Create your views here.
 @login_required
 def bookings(request):
@@ -198,6 +202,7 @@ def booking3(request):
 	if(request.POST):
 		return redirect('booking4')
 	return render(request,'bookings/booking3.html',data)
+
 @login_required
 def booking4(request):
 	in_time=request.session['in_time']
@@ -234,7 +239,6 @@ def booking4(request):
 		room.save()
 		bookings=booking(amount=total,booking_guest_details=guests,booking_room_details=room,user=user)
 		bookings.save()
-
 	mydata={}
 	mydata['in_date']=in_date
 	mydata['out_date']=out_date
@@ -242,4 +246,42 @@ def booking4(request):
 	mydata['total_costs']=total_costs
 	mydata['total_service_cost']=total_service_cost
 	mydata['total']=total
-	return render(request,'bookings/booking4.html',mydata)
+	param_dict={
+			'MID':'WorldP64425807474247',
+            'ORDER_ID':str(1),
+            'TXN_AMOUNT':str(total),
+            'CUST_ID':'email',
+            'INDUSTRY_TYPE_ID':'Retail',
+            'WEBSITE':'worldpressplg',
+            'CHANNEL_ID':'WEB',
+            'CALLBACK_URL':'http://127.0.0.1:8000/bookings/handlerequest/',
+	}
+	param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
+	#return render(request,'bookings/booking4.html',mydata)
+	return render(request, 'bookings/paytm.html', {'param_dict': param_dict})
+
+	
+	#return render(request,'bookings/booking4.html',mydata)
+
+
+
+@csrf_exempt
+def handlerequest(request):
+	# paytm will send post request here
+    form = request.POST
+    response_dict = {}
+    for i in form.keys():
+        response_dict[i] = form[i]
+        if i == 'CHECKSUMHASH':
+            checksum = form[i]
+
+    verify = Checksum.verify_checksum(response_dict, MERCHANT_KEY, checksum)
+    if verify:
+        if response_dict['RESPCODE'] == '01':
+            print('Order Successful')
+        else:
+            print('order was not successful because' + response_dict['RESPMSG'])
+    return render(request, 'bookings/paymentstatus.html', {'response': response_dict})
+	
+	#return HttpResponse("done")
+	#pass
