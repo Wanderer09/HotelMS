@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="room-card">
                                     <div class="booking-row">
-                                        <span>BOOKING ROOM - 1</span>
+                                        <span id="booking-room">BOOKING ROOM - 1</span>
                                         <span id="color-guest">1 Adult & 2 Child </span>
                                     </div> 
                                     <div class="booking-row">
@@ -101,7 +101,7 @@
                                 </div>
                                 <div class="room-card">
                                     <div class="booking-row">
-                                        <span>BOOKING ROOM - 2</span>
+                                        <span id="booking-room">BOOKING ROOM - 2</span>
                                         <span id="color-guest">1 Adult & 2 Child</span>
                                     </div> 
                                     <div class="booking-row">
@@ -119,12 +119,12 @@
                                   {% if service_av %}
 
                                     <div class="services-row">
-                                    <div class="service-name">
-                                        <input type="checkbox" id="{{service}}" name="service_check" value="{{service}}"> <label for="{{service}}">{{service}}</label>
-                                    </div>
-                                    <div class="service-cost">  
-                                        <span><i class="fas fa-rupee-sign"></i>{{service_cost}}</span>
-                                    </div>  
+                                        <div class="service-name">
+                                            <input type="checkbox" id="{{service}}" name="service_check" value="{{service}}"> <label for="{{service}}">{{service}}</label>
+                                        </div>
+                                        <div class="service-cost">  
+                                            <span><i class="fas fa-rupee-sign"></i>{{service_cost}}</span>
+                                        </div>  
                                     </div>
                                   {% endif %}
                             {% endfor %}                            </div>      
@@ -181,7 +181,7 @@
                           {% for style,price,rating,room_available_count,img in mylist %}
                                 <div class="card">
                                     <div class="card-image">
-                                    <img src="{% static '/bookings/img/bed-2.jpg' %}" width="310px" height="230px">
+                                    <img src="{% static '/bookings/img/bed-2.jpg' %}" width="307px" height="230px">
                                     </div>
                                     <div class="room-information-row">
                                         <div class="room-details">
@@ -390,8 +390,7 @@
                         </div>  
                         <div class="page-btn">  
                             <button class="prev-btn">BACK</button>
-                            <button class="submit-btn" type="submit">NEXT</button><br>
-                            <input type="submit" value="submit" class="submit-btn">    
+                            <input type="submit" value="SUBMIT" class="submit-btn">   
                         </div>     
                     </section> 
                 </div>

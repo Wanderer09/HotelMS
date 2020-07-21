@@ -6,7 +6,7 @@ from room.models import Room as Rooms
 from room.models import services 
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-#@login_required
+@login_required
 def bookings(request):
 	if(request.method=='POST'):
 		#data_from_FORM
@@ -54,7 +54,8 @@ def bookings(request):
 		# data={'in_date':in_date,'in_time':in_time,'out_date':out_date,'out_time':out_time,'room_count':room_count,'guest_count':guest_count,'adult_count':adult_count,'children_count':children_count,'country':country,'fname':fname,'lname':lname,'phonenumber':phonenumber,'town':town,'gender':gender,'email':email,'identification':identification}
 		return redirect('booking2')
 	return render(request,'bookings/booking.html',{})
-#@login_required
+
+@login_required
 def booking2(request):
 	#Taking_session_Values
 	in_date=request.session['in_date']
@@ -117,7 +118,8 @@ def booking2(request):
 	mydata['room_count']=room_count
 	mydata['guest_count']=guest_count
 	return render(request,'bookings/booking2.html',mydata)
-#@login_required
+
+@login_required
 def booking3(request):
 	in_date=request.session['in_date']
 	out_date=request.session['out_date']
@@ -196,7 +198,7 @@ def booking3(request):
 	if(request.POST):
 		return redirect('booking4')
 	return render(request,'bookings/booking3.html',data)
-#@login_required
+@login_required
 def booking4(request):
 	in_time=request.session['in_time']
 	out_time=request.session['out_time']
