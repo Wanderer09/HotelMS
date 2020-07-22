@@ -93,5 +93,7 @@ def booking4(request):
 def reception(request):
     return render(request,'home/reception.html')
 def guestlist(request):
-    return render(request,'home/guestlist.html')     
+    return render(request,'home/guestlist.html')    
+def rooms(request):
+    return render(request,'home/rooms.html')         
 

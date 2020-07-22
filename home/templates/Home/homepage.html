@@ -10,6 +10,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+
+<!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- Magnific Popup core JS file -->
+        <script src="magnific-popup/jquery.magnific-popup.js"></script>
+        <script src="{% static '/home/js/homepage.js' %}"></script>
           
       </head>    
          <body>
@@ -220,31 +228,34 @@
                 </div>
                 <div class="gallery-content">
                   <div id="ground" class="tabcontent">
-                    <img src="{% static '/home/img/pool.jpg'%}" height="300px" width="290px">
-                    <img src="{% static '/home/img/1.jpg'%}" height="300px" width="290px">
-                    <img src="{% static '/home/img/2.jpg'%}"  height="300px" width="290px">
-                    <img src="{% static '/home/img/3.jpg'%}"  height="300px" width="290px">
+                    <img src="{% static '/home/img/pool.jpg'%}"  height="290px" width="320px">
+                    <img src="{% static '/home/img/1.jpg'%}"   height="290px" width="320px" id="img2">
+                    <img src="{% static '/home/img/2.jpg'%}"    height="290px" width="320px" id="img3">
+                    <img src="{% static '/home/img/3.jpg'%}"    height="290px" width="320px" id="img4">
                   </div>
-                </div>
+                </div> 
                 <div  class="gallery-content">
                   <div id="suite" class="tabcontent">
-                    <img src="{% static '/home/img/bed-6.jpg'%}" height="300px" width="290px">
-                    <img src="{% static '/home/img/bed-5.jpg'%}" height="300px" width="290px">
-                    <img src="{% static '/home/img/bed-3.jpg'%}" height="300px" width="290px">
-                    <img src="{% static '/home/img/bed-4.jpg'%}" height="300px" width="290px">
+                    <img src="{% static '/home/img/bed-6.jpg'%}"  height="290px" width="320px" id="img5">
+                    <img src="{% static '/home/img/bed-5.jpg'%}"  height="290px" width="320px" id="img6">
+                    <img src="{% static '/home/img/bed-3.jpg'%}"  height="290px" width="320px" id="img7">
+                    <img src="{% static '/home/img/bed-4.jpg'%}"  height="290px" width="320px" id="img8">
                   </div>
                 </div>  
                 <div  class="gallery-content">
                   <div id="dining" class="tabcontent">
-                    <img src="{% static '/home/img/pool.jpg'%}" height="300px" width="290px">
-                    <img src="{% static '/home/img/1.jpg'%}" height="300px" width="290px">
-                    <img src="{% static '/home/img/2.jpg'%}"  height="300px" width="290px">
-                    <img src="{% static '/home/img/3.jpg'%}"  height="300px" width="290px">
+                    <img src="{% static '/home/img/pool.jpg'%}"  height="290px" width="320px" id="img9">
+                    <img src="{% static '/home/img/1.jpg'%}"     height="290px" width="320px" id="img010">
+                    <img src="{% static '/home/img/2.jpg'%}"     height="290px" width="320px" id="img011">
+                    <img src="{% static '/home/img/3.jpg'%}"     height="290px" width="320px" id="img012">
                   </div>
                 </div> 
                 <button class="view-btn">View More </button> 
               </div>  
+              <!-- modal html for images  -->
+                
             </section> 
+            <!-- BOOKING OPTIONS -->
             <section class="book-now">
               <div class="book-heading">
                 <h2>Choose How To Book</h2>
@@ -306,20 +317,21 @@
           </footer>
             <!--*Java Script For Gallery*-->
             <script>
-               function openCity(evt, cityName) {
-                var i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                  tabcontent[i].style.display = "none";
-                }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                  tablinks[i].className = tablinks[i].className.replace(" active", "");
-                }
-                document.getElementById(cityName).style.display = "block";
-                evt.currentTarget.className += " active";
+              function openCity(evt, cityName) {
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent");
+              for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
               }
-               document.getElementById("defaultOpen").click();
-            </script>
+              tablinks = document.getElementsByClassName("tablinks");
+              for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+              }
+              document.getElementById(cityName).style.display = "block";
+              evt.currentTarget.className += " active";
+            }
+            document.getElementById("defaultOpen").click();
+            </script> 
+            
           </body>   
    </html>    

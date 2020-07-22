@@ -20,7 +20,8 @@ body{
     background-color: #232329;
 }
 .section-heading {
-    padding: 25px 2%;
+    padding: 0px 2%;
+    padding-top: 25px;
  }
  .section-heading h2{
      font-size: 24px;
@@ -77,7 +78,7 @@ body{
  .row-find input:focus{
      outline: none;
  }
-/**NAVBAR STYLING**/
+/**NAVBAR **/
 .user-info{
     padding: 5px 0px;
     width: 100%;
@@ -122,63 +123,11 @@ body{
     color: #ecf0f1;
     font-family: neutra;
 }
-/**TABLE STYLING**/
-.guest-table{
-    padding-top: 120px;
-    padding: 40px 2%;
-}
-.guest-list{
-    text-align: center;
-    box-shadow:  5px 5px 16px #0f0f12, 
-    -5px -5px 16px #373740;
-    color: #b2bec3;
-}
-table{
-    border-collapse: collapse;
-}
-th, td {
-    border-bottom: 1px solid #2f2f30;
-    border-right: 1px solid #2f2f30;
-   
-}
-th{
-    padding: 30px 10px;
-    font-size: 17px;
-    color: #fab1a0;
-}
-td{
-    height: 20vh;
-    padding: 12px 5px;
-}
-tr:nth-child(even) {background-color: #2f2f37;}
-tr:last-child {border-bottom:none;}
-.input-action{
-    border-right: none;
-}
-.select-input{
-    border-right: none;
-}
-th .room{
-    width: 10px
-}
-td p{
-    margin-bottom: 8px;
-}
-.contact-info{
-    max-width: 15%;
-}
-.contact-row{
-    max-width: 15%;
-}
-.input-action select:focus{
-    outline: none;
-}
 .hamburger{
     margin-left: 40px;
     font-size: 23px;
     cursor: pointer;
 }
-/**OVERLAY MENU**/
 
 .overlay {  
     height: 100%;
@@ -245,3 +194,86 @@ td p{
       right: 35px;
     }
   }
+  /**Rooms Tabels**/
+  .guest-table{
+    padding-top: 120px;
+    padding: 40px 2%;
+}
+.guest-list{
+    text-align: center;
+    box-shadow:  5px 5px 16px #0f0f12, 
+    -5px -5px 16px #373740;
+    color: #b2bec3;
+}
+table{
+    border-collapse: collapse;
+}
+th, td {
+    border-bottom: 1px solid #2f2f30;
+    border-right: 1px solid #2f2f30;
+   
+}
+th{
+    padding: 30px 10px;
+    font-size: 17px;
+    color: #fab1a0;
+}
+td{
+    height: 20vh;
+    padding: 12px 5px;
+}
+tr:nth-child(even) {background-color: #2f2f37;}
+tr:last-child {border-bottom:none;}
+.input-action{
+    border-right: none;
+}
+.select-input{
+    border-right: none;
+}
+th .room{
+    width: 10px
+}
+td p{
+    margin-bottom: 8px;
+}
+.contact-info{
+    max-width: 15%;
+}
+.contact-row{
+    max-width: 15%;
+}
+.input-action select:focus{
+    outline: none;
+}
+.room-status{
+    padding: 5px 5px;
+    width: 80%;
+    background-color: transparent;
+    color: #b2bec3;
+    border-radius: 5px;
+}
+.room-status option{
+    color: #b2bec3;
+    padding: 20px 0px;
+    font-size: 14px;
+    background-color: #232329;
+}
+.room-status:focus{
+    outline: none;
+}
+.housekeeping{
+    width: 90%;
+    padding: 5px 5px;
+    background-color: transparent;
+    color: #b2bec3;
+    border-radius: 5px;
+}
+.housekeeping option{
+    color: #b2bec3;
+    padding: 20px 0px;
+    font-size: 14px;
+    background-color: #232329;
+}
+.housekeeping:focus{
+    outline: none;
+}

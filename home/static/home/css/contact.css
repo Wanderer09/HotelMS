@@ -91,7 +91,7 @@ button :focus{
 }
 .footer{
     text-align: center;
-    background-color: #3a3434;
+    background-color: #1e2431;
     
 }
 .footer-bg{
@@ -118,7 +118,7 @@ button :focus{
 
 .footer-bg input{
     border: none;
-    background-color: #3a3434;
+    background-color: transparent;
     width: 25%;
 }
 .footer-bg i{
