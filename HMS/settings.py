@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'room',
     'accounts',
     'bookings',
+    'reception',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -89,7 +90,8 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PORT': '4646',
+        'OPTIONS'  : { 'init_command' : 'SET storage_engine=MyISAM', },
     }
 }
 
