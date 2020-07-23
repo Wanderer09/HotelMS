@@ -29,26 +29,68 @@
                 </div>     
             </div>    
         </header>
-      
-        <section class="dashboard">
-            <div class="padding">
-                <div class="dashboard-heading">
-                    <p>DASHBOARD</p>
-                </div>
-                <div class="dashboard-links">
-                    <ul>
-                        <li><a href="#" ><i class="fas fa-person-booth"></i> Room Status</a></li>
-                        <li><a href="#" ><i class="fas fa-luggage-cart"></i> Guest List</a></li>
-                        <li><a href="#" ><i class="fas fa-broom"></i> Maintenance</a></li>
-                        <li><a href="#" ><i class="fas fa-plus"></i> Book Room</a> </li>
-                        <li><a href="#" ><i class="fas fa-user-check"></i> Customer Authorization</a></li>
-                        <li><a href="#" ><i class="fas fa-sign-out-alt"></i> Enquiry Request's </a></li>
-                    </ul>
-                </div>
-            </div>    
-        </section>    
-        <section class="info-form">
-            <form action="/" onsubmit="return validation()" >
+        <form action="/" onsubmit="return validation()" >
+           <section class="dashboard">
+               <div class="padding">
+                    <div class="sidebar">
+                        <p>Stay Dates</p>
+                        <div class="check">    
+                        <i class="far fa-check-circle"></i><span>Check-In</span>
+                        </div>
+                        <div class="input-content">
+                            <input class="in-out" placeholder="Date" type="date" required/>
+                            <input class="in-out" placeholder="Time" type="time" required/>
+                        </div>
+                        <div class="check">    
+                            <i class="fas fa-sign-out-alt"></i><span>Check-Out</span>
+                        </div>
+                        <div class="input-content">
+                            <input class="in-out" placeholder="Date" type="date" required/>
+                            <input class="in-out" placeholder="Time" type="time" required/>
+                        </div>
+                        <div class="new-div">
+                        <p id="rooms-guest">Rooms & Guests</p>
+                        </div>
+                        <div class="guest-info">
+                                <i class="fas fa-bed"></i>
+                                <label>Number Of Rooms </label>
+                                <input class="error" type="text" placeholder="00"  id="number-rooms" required autocomplete="off"/>
+                                <span class="tooltip" id="user-rooms" style="visibility: hidden;">
+                                    <i class="fas fa-exclamation"></i>
+                                    <span class="tooltiptext">Enter a valid number</span>  
+                                </span>
+                        </div>
+                        <div class="guest-info">
+                            <i class="fas fa-users"></i>
+                            <label>Number Of Guests </label>
+                            <input class="error" type="text" placeholder="00"  id="number-guests" required autocomplete="off"/>
+                            <span class="tooltip" id="user-guests" style="visibility: hidden;">
+                                <i class="fas fa-exclamation"></i>
+                                <span class="tooltiptext">Enter a valid number</span>  
+                            </span>     
+                        </div>
+                        <div class="guest" id="adult">
+                            <i class="fas fa-user"></i>
+                            <label>Adults </label>
+                            <input class="error" type="text" placeholder="00"  id="number-adults" required autocomplete="off"/>
+                            <span class="tooltip" id="user-adults" style="visibility: hidden;">
+                                <i class="fas fa-exclamation"></i>
+                                <span class="tooltiptext">Enter a valid number</span>  
+                            </span>
+                        </div>
+                        <div class="guest">
+                            <i class="fas fa-child"></i>
+                            <label>Children </label>
+                            <input class="error" type="text" placeholder="00"  id="number-children" required autocomplete="off"/>
+                            <span class="tooltip" id="user-children" style="visibility: hidden;">
+                                <i class="fas fa-exclamation"></i>
+                                <span class="tooltiptext">Enter a valid number</span>  
+                            </span>
+                        </div>
+                    </div>    
+                </div>    
+            </section>    
+            <section class="info-form">
                     <div class="personal-form">      
                            <div class="form-input-country">
                                 <p>Country</p>
@@ -378,8 +420,8 @@
                         <input class="btn-submit" type="submit"/> 
                     </div>
                 </div>  
-            </form> 
-        </section>     
+            </section>  
+        </form>       
     </body>
     <script src="{% static '/home/js/bookroom.js' %}"> </script> 
 </html>      

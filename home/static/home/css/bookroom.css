@@ -325,3 +325,132 @@
   .last p::after{
       display: none;
   }
+
+
+.sidebar p{
+    text-align: center;
+    font-family: neutra;
+    font-size: 18px;
+    color: #b2bec3;
+    padding: 20px 3%;
+    font-weight: 300;
+    /* margin-top: 12px; */
+}
+.sidebar p::after{
+    display: block;
+    width: 60px;
+    height: 2px;
+    content: ' ';
+    margin-top: 8px;
+    background-color: #fdcb6e;
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-content .in-out{
+    border: none;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #cfcfcf;
+    font-family: 'Cabin', sans-serif;
+    color: #b2bec3;
+    
+}
+.in-out::-webkit-calendar-picker-indicator {   
+    font-size: 16px;
+  
+ }
+ .in-out:focus{
+     outline: none;
+ }
+.input-content {
+   text-align: center;
+}
+.input-content input{
+    margin-right: 3%;
+}
+.check{
+    padding: 15px 3%;
+    
+}
+.check span {
+    font-family: 'Cabin', sans-serif;
+    color: #b2bec3;
+}
+.check i{
+    margin-right: 2%;
+    color: #fab1a0;
+}
+
+.guest-info{
+    text-align: center;
+    padding: 12px 0px;
+}
+.guest-info input{
+    border: none;
+    width: 20%;
+    border-bottom: 1px solid #b2bec3;
+    margin-left: 7%;
+    padding: 0;
+    text-align: center;
+}
+.guest-info input:focus{
+    outline: none;
+}
+.guest-info i{
+    color: #fab1a0;
+    font-size: 20px;
+    margin-right: 4%;
+}
+.guest-info label{
+    font-family: 'Cabin', sans-serif;
+    font-size: 15px;
+    color: #b2bec3;
+    font-weight: 300;
+}
+.guest{
+    padding: 9px 0px;
+    padding-left: 18%;
+}
+.guest input{
+    border: none;
+    width: 20%;
+    border-bottom: 1px solid #b2bec3;
+    margin-left: 7%;
+    padding: 0;
+    text-align: center;
+}
+#adult input{
+    margin-left:12% ;
+}
+.guest i{
+    color: #fab1a0;
+    font-size: 16px;
+    margin-right: 4%;
+}
+.guest label{
+    font-family: 'Cabin', sans-serif;
+    font-size: 13px;
+    color: #b2bec3;
+    font-weight: 300;
+}
+.guest input:focus{
+    outline: none;
+}
+.new-div{
+    margin-top:30px;
+}   
+input[type="date"] { 
+    background: transparent;
+    color: white;
+  }
+  
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+  }
+  input[type="time"] { 
+    background: transparent;
+    color: white;
+  }
+  
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+  }

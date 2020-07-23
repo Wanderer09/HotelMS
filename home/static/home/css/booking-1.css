@@ -125,6 +125,9 @@
     color: #ababab;
     
 }
+.input-content {
+   padding: 15px;
+}
 .in-out::-webkit-calendar-picker-indicator {   
     font-size: 16px;
     color:#8e7037 ;
