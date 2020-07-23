@@ -8,6 +8,7 @@
         <title>Fouses Bookings </title>
             <!-- <link rel="stylesheet" href="{% static '/home/css/reception.css'%}" > -->
             <link rel="stylesheet" href="{% static '/home/css/bookroom.css' %}">
+            <script src="{% static '/home/js/guestlist.js' %}"></script>
             <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -25,10 +26,52 @@
                     </div>
                     <div class="welcome-user">
                         <span>Rahul Singh </span>
+                        <span onclick="openNav()" class="hamburger"><i class="fas fa-bars"></i></span>
                     </div>      
                 </div>     
             </div>    
         </header>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="#">
+                    <div class="nav-flex">
+                        <i class="fas fa-home"></i>
+                        <p>Home</p>
+                    </div>        
+                </a>
+                <a href="#">
+                    <div class="nav-flex">
+                        <i class="fas fa-luggage-cart"></i>
+                        <p>Guest List</p>
+                    </div>        
+                </a>
+                <a href="#">
+                    <div class="nav-flex">
+                        <i class="fas fa-person-booth"></i> 
+                        <p>Room Status</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="nav-flex">
+                        <i class="fas fa-broom"></i>
+                        <p> Maintenance </p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="nav-flex">
+                        <i class="fas fa-user-check"></i> 
+                        <p>Customer Authorization</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="nav-flex">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <p>Enquiry Request's</p>
+                    </div>    
+                </a>
+            </div>
+        </div> 
         <form action="/" onsubmit="return validation()" >
            <section class="dashboard">
                <div class="padding">
@@ -373,9 +416,9 @@
                                 </div>      
                             </div>    
                             <div class="input-name">
-                                <div class="name-field">
+                                <div class="name-field" id="city">
                                     <p>Town/City</p>
-                                    <input class="error-class" type="text " id="town" required autocomplete="off"/>
+                                    <input class="error-class" type="text " id="town"  autocomplete="off"/>
                                     <span class="tooltip" id="user-name-town" style="visibility: hidden;">
                                         <i class="fas fa-exclamation"></i>
                                         <span class="tooltiptext">Enter Valid Town</span>  
