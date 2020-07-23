@@ -15,6 +15,7 @@ urlpatterns = [
     path('guestlist/',views.guestlist,name="booking"),
     path('rooms/',views.rooms,name="booking"), 
     path('maintain/',views.maintain,name="booking"), 
-    path('bookroom/',views.bookroom,name="booking")
+    path('bookroom/',views.bookroom,name="booking"),
+    path('enquiry/',views.enquiry,name="booking"),
 ]
 

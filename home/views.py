@@ -99,5 +99,7 @@ def rooms(request):
 def maintain(request):
     return render(request,'home/reception-maintain.html')  
 def bookroom(request):
-    return render(request,'home/bookroom.html')               
+    return render(request,'home/bookroom.html')
+def enquiry(request):
+    return render(request,'home/enquiry.html')                   
 
