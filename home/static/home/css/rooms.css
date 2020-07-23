@@ -59,6 +59,9 @@ body{
      text-align: center;
      padding: 10px 0px;
  }
+ .row-find button:focus{
+    outline: none;
+}
  .row-update input{
      padding: 12px 25px;
      border: none;
