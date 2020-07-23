@@ -97,5 +97,7 @@ def guestlist(request):
 def rooms(request):
     return render(request,'home/rooms.html')   
 def maintain(request):
-    return render(request,'home/reception-maintain.html')            
+    return render(request,'home/reception-maintain.html')  
+def bookroom(request):
+    return render(request,'home/bookroom.html')               
 
