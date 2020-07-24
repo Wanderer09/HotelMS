@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <title>Fouses Bookings </title>
+            <link rel="stylesheet" href="{% static '/home/css/customer.css'%}" >
+            <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="user-info">
+            <div class="user-auth">
+                <div class="logo-hotel">
+                    <img src="{% static 'home/img/logoimg.png'%}" height="75px" width="200px">
+                </div>   
+                <div class="profile-user-info">
+                    <div class="profile-img">
+                      <img src="{% static 'home/img/avatar.png' %}" class="user-image" height="50px" width="50px">
+                    </div>
+                    <div class="welcome-user">
+                        <span>Rahul Singh </span>
+                    </div>      
+                </div>     
+            </div>    
+        </header>
+      
+        <section class="dashboard">
+            <div class="padding">
+                <div class="dashboard-heading">
+                    <a href="#"><p>DASHBOARD</p></a>
+                </div>
+                <div class="dashboard-links">
+                    <ul>
+                        <li><a href="#" ><i class="fas fa-person-booth"></i> Room Status</a></li>
+                        <li><a href="#" ><i class="fas fa-luggage-cart"></i> Guest List</a></li>
+                        <li><a href="#" ><i class="fas fa-broom"></i> Maintenance</a></li>
+                        <li><a href="#" ><i class="fas fa-plus"></i> Book Room</a> </li>
+                        <li><a href="#" ><i class="fas fa-user-check"></i> Customer Authorization</a></li>
+                        <li><a href="#" ><i class="fas fa-sign-out-alt"></i> Enquiry Request's </a></li>
+                    </ul>
+                </div>
+            </div>    
+        </section>  
+        <section class="current-status">
+            <div class="section-heading">
+                <h2>Customer Authorization</h2>
+            </div>   
+            <div class="row-search">
+                <div class="row-find">
+                    <input class="search-bar" placeholder="Search By Name/Phone/Email" type="text" />
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="row-update">
+                    <input type="submit" class="update-btn" value="Update">
+                </div>        
+            </div> 
+            <div class="input-field-rows">
+                <div class="input-column">
+                   <div class="input-row">
+                       <span>First Name :</span>
+                   </div>
+                   <div class="input-row-response">
+                       <p>Rahul</p>
+                   </div>    
+                </div>
+                <div class="input-column">
+                    <div class="input-row">
+                        <span>Last Name :</span>
+                    </div>
+                    <div class="input-row-response">
+                        <p>Rajput</p>
+                    </div>   
+                </div>        
+            </div>
+            <div class="input-field-rows">
+                <div class="input-column">
+                   <div class="input-row">
+                       <span>Gender :</span>
+                   </div>
+                   <div class="input-row-response">
+                       <p>Male</p>
+                   </div>    
+                </div>
+                <div class="input-column">
+                    <div class="input-row">
+                        <span>Phone Number :</span>
+                    </div>
+                    <div class="input-row-response">
+                        <p>1234567890</p>
+                    </div>   
+                </div>        
+            </div> 
+            <div class="input-field-rows">
+                <div class="input-column">
+                   <div class="input-row">
+                       <span>Country :</span>
+                   </div>
+                   <div class="input-row-response">
+                       <p>India</p>
+                   </div>    
+                </div>
+                <div class="input-column">
+                    <div class="input-row">
+                        <span>Town/City :</span>
+                    </div>
+                    <div class="input-row-response">
+                        <p>Delhi</p>
+                    </div>   
+                </div>        
+            </div> 
+            <div class="input-field-rows">
+                <div class="input-column">
+                   <div class="input-row">
+                       <span>Email-Id :</span>
+                   </div>
+                   <div class="input-row-response">
+                       <p>Rahulrajput@gmail.com</p>
+                   </div>    
+                </div>
+                <div class="input-column">
+                    <div class="input-row">
+                        <span>Choosen Id :</span>
+                    </div>
+                    <div class="input-row-response">
+                        <p>Aadhar Card</p>
+                    </div>   
+                </div>        
+            </div>  
+            <div class="input-field-rows">
+                <div class="input-column">
+                   <div class="input-row">
+                       <span>Number Of Rooms:</span>
+                   </div>
+                   <div class="input-row-response">
+                       <p>01</p>
+                   </div>    
+                </div>
+                <div class="input-column">
+                    <div class="input-row" id="special-row">
+                        <span>Room Type:</span>
+                    </div>
+                    <div class="input-row-response" id="special-response">
+                        <p>Luxury Room,Delux Room,Triple Room </p>
+                    </div>   
+                </div>        
+            </div>          
+        </div> 
+        <form action="/" method="GET">
+              
+            <div class="input-types">
+                <div class="select-option-1">
+                <label for="room-types">Room Type :</label>
+                <select class="room-types">
+                    <option>Luxury Room</option>
+                    <option>Delux Room</option>
+                    <option>Kings Room</option>
+                    <option>Queens Room</option>
+                    <option>Suite</option>
+                </select>
+                </div>
+                <div class="select-option-2"> 
+                <label for="room-number">Allocate Room :</label>
+                <select class="room-number">
+                    <option>L-101</option>
+                    <option>L-102</option>
+                    <option>L-103</option>
+                    <option>L-104</option>
+                    <option>L-105</option>
+                    <option>L-106</option>
+                    <option>L-107</option>
+                    <option>L-108</option>
+                    <option>L-109</option>
+                    <option>L-110</option>
+                    <option>L-111</option>
+                </select>
+                </div>               
+            </div>
+            <div class="file-upload">
+                <label for="input-field-file"> Upload Selected Id : </label>
+                <input type="file" class="input-field-file" >
+            </div>    
+        </form>  
+        </section>  
+    </body>
+</html>          

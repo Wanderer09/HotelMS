@@ -101,5 +101,7 @@ def maintain(request):
 def bookroom(request):
     return render(request,'home/bookroom.html')
 def enquiry(request):
-    return render(request,'home/enquiry.html')                   
+    return render(request,'home/enquiry.html') 
+def customer(request):
+    return render(request,'home/customer.html')                  
 
