@@ -82,11 +82,15 @@
     border-bottom: 1px solid #2f2f30; 
     padding: 0px 3%; 
 }
+.dashboard-heading p a{
+    text-decoration: none;
+}
 .dashboard-heading p{
     color: #ecf0f1;
     text-align: center;
     padding: 30px 0px;
     font-family: neutra;
+    text-decoration: none;
 }
 .dashboard-links{
     padding: 30px 0%;

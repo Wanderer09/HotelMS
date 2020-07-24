@@ -88,6 +88,9 @@
     padding: 30px 0px;
     font-family: neutra;
 }
+.dashboard-heading p a{
+    text-decoration: none;
+}
 .dashboard-links{
     padding: 30px 0%;
    
@@ -122,21 +125,33 @@
 }
 
 .guest-tabel{
-    padding-top: 140px;
+    padding: 0px 3%;
+    padding-top: 115px;
+}
+.guest-tabel h2{
+    color: #b2bec3;
+    padding: 35px 0px;
+}
+.guest-tabel h2::after{
+    display: block;
+    width: 70px;
+    height: 2px;
+    content: ' ';
+    margin-top: 11px;
+    background-color: #fdcb6e;
 }
 .guest-list{
     text-align: center;
-    /* box-shadow:  5px 5px 16px #0f0f12, 
-    -5px -5px 16px #373740; */
+     box-shadow:  5px 5px 16px #0f0f12, 
+    -1px -2px 13px #373740;
     color: #b2bec3;
 }
 table{
     border-collapse: collapse;
 }
 th, td {
-    border-bottom: 1px solid #2f2f30;
-    border-right: 1px solid #2f2f30;
-   
+  border-right: 1px solid #2f2f30;
+  border-bottom: 1px solid #2f2f30;
 }
 th{
     padding: 30px 10px;
