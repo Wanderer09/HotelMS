@@ -474,6 +474,7 @@
 .tab {
     overflow: hidden;
     /* background-color: #f1f1f1; */
+    padding: 0px 30px;
   }
   
   .tab button {
@@ -513,7 +514,7 @@
   }
   .gallery-container{
       
-      margin: 0px 50px;
+      margin: 0px 5px;
       padding: 60px 0px;
   }
   .gallery-container .view-btn{
@@ -521,9 +522,6 @@
       border: 1px solid #c9ab81;
       font-size: 14px;
       background: #0f1d22;
-  }
-  .gallery-content{
-      padding-left: 20px;
   }
   @keyframes fadeEffect {
      from {opacity: 0;}
