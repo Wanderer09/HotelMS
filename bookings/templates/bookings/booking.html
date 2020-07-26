@@ -40,7 +40,7 @@
                         </div> 
                     </div>
             </header>    
-            <form action="#"  method="POST">
+            <form action="#"  method="POST" onsubmit="return validation()">
                 {% csrf_token %}
                 <section class="container-sidebar">
                     <div class="sidebar">
@@ -470,7 +470,8 @@
                     </div>  
                 </section> 
                  
-            </form>    
+            </form> 
+            <script src="{% static '/bookings/js/booking1.js' %}"> </script>    
         </body>
 </html>
 <!-- <script type="text/javascript">

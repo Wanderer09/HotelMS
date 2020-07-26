@@ -90,7 +90,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
-        'PORT': '4646',
+        'PORT': '3306',
         'OPTIONS'  : { 'init_command' : 'SET storage_engine=MyISAM', },
     }
 }
@@ -161,6 +161,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
+LANGUAGE_CODE = 'en-us'
 
 LOGIN_REDIRECT_URL= '/'
 
@@ -182,3 +183,18 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 
+STATIC_URL = '/static/'
+
+PAYTM_MERCHANT_KEY = ""
+PAYTM_MERCHANT_ID = ""
+HOST_URL = "http://localhost:8000"
+PAYTM_CALLBACK_URL = "/bookings/response/"
+
+if DEBUG:
+    PAYTM_MERCHANT_KEY = "lLmHeb11zEAlJbKs"
+    PAYTM_MERCHANT_ID = "yQeYYC78198459300877"
+    PAYTM_WEBSITE = 'worldpressplg'
+    HOST_URL = 'http://localhost:8000'
+
+# WorldP64425807474247
+# kbzk1DSbJiV_O3p5

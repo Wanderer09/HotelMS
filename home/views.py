@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Contact,Restaurant_Booking
 from room.models import Room,Room_type,services
 def index(request):
@@ -14,36 +14,36 @@ def index(request):
         Room_type.objects.create(room_type='Double-double',room_price='6000',smoking_status=True,room_rating=3,room_description="A room with two double (or perhaps queen) beds. May be occupied by one or more people.",number_of_guests=7,show_on_homepage=False,room_img='/img/bed-4.jpg')
     count_of_rooms=Room.objects.all().count()
     if (count_of_rooms==0):
-        Room.objects.create(room_number=101,room_type_id=4,room_status='a',room_floor=1)
-        Room.objects.create(room_number=102,room_type_id=3,room_status='a',room_floor=1)
-        Room.objects.create(room_number=103,room_type_id=2,room_status='na',room_floor=1)
-        Room.objects.create(room_number=104,room_type_id=1,room_status='a',room_floor=1)
-        Room.objects.create(room_number=105,room_type_id=5,room_status='a',room_floor=1)
-        Room.objects.create(room_number=106,room_type_id=7,room_status='a',room_floor=1)
-        Room.objects.create(room_number=107,room_type_id=4,room_status='a',room_floor=1)
-        Room.objects.create(room_number=108,room_type_id=4,room_status='a',room_floor=1)
-        Room.objects.create(room_number=109,room_type_id=6,room_status='o',room_floor=1)
-        Room.objects.create(room_number=110,room_type_id=6,room_status='a',room_floor=1)
-        Room.objects.create(room_number=201,room_type_id=1,room_status='a',room_floor=2)
-        Room.objects.create(room_number=202,room_type_id=2,room_status='a',room_floor=2)
-        Room.objects.create(room_number=203,room_type_id=3,room_status='na',room_floor=2)
-        Room.objects.create(room_number=204,room_type_id=4,room_status='a',room_floor=2)
-        Room.objects.create(room_number=205,room_type_id=4,room_status='a',room_floor=2)
-        Room.objects.create(room_number=206,room_type_id=5,room_status='na',room_floor=2)
-        Room.objects.create(room_number=207,room_type_id=5,room_status='a',room_floor=2)
-        Room.objects.create(room_number=208,room_type_id=6,room_status='a',room_floor=2)
-        Room.objects.create(room_number=209,room_type_id=4,room_status='m',room_floor=2)
-        Room.objects.create(room_number=210,room_type_id=2,room_status='a',room_floor=2)
-        Room.objects.create(room_number=301,room_type_id=1,room_status='a',room_floor=3)
-        Room.objects.create(room_number=302,room_type_id=3,room_status='na',room_floor=3)
-        Room.objects.create(room_number=303,room_type_id=5,room_status='a',room_floor=3)
-        Room.objects.create(room_number=304,room_type_id=5,room_status='a',room_floor=3)
-        Room.objects.create(room_number=305,room_type_id=4,room_status='na',room_floor=3)
-        Room.objects.create(room_number=306,room_type_id=2,room_status='a',room_floor=3)
-        Room.objects.create(room_number=307,room_type_id=2,room_status='a',room_floor=3)
-        Room.objects.create(room_number=308,room_type_id=3,room_status='na',room_floor=3)
-        Room.objects.create(room_number=309,room_type_id=7,room_status='a',room_floor=3)
-        Room.objects.create(room_number=310,room_type_id=6,room_status='a',room_floor=3)
+        Room.objects.create(room_number=101,room_type_id=4,room_status='available',room_floor=1)
+        Room.objects.create(room_number=102,room_type_id=3,room_status='available',room_floor=1)
+        Room.objects.create(room_number=103,room_type_id=2,room_status='booked',room_floor=1)
+        Room.objects.create(room_number=104,room_type_id=1,room_status='available',room_floor=1)
+        Room.objects.create(room_number=105,room_type_id=5,room_status='available',room_floor=1)
+        Room.objects.create(room_number=106,room_type_id=7,room_status='available',room_floor=1)
+        Room.objects.create(room_number=107,room_type_id=4,room_status='available',room_floor=1)
+        Room.objects.create(room_number=108,room_type_id=4,room_status='available',room_floor=1)
+        Room.objects.create(room_number=109,room_type_id=6,room_status='occupied',room_floor=1)
+        Room.objects.create(room_number=110,room_type_id=6,room_status='available',room_floor=1)
+        Room.objects.create(room_number=201,room_type_id=1,room_status='available',room_floor=2)
+        Room.objects.create(room_number=202,room_type_id=2,room_status='available',room_floor=2)
+        Room.objects.create(room_number=203,room_type_id=3,room_status='booked',room_floor=2)
+        Room.objects.create(room_number=204,room_type_id=4,room_status='available',room_floor=2)
+        Room.objects.create(room_number=205,room_type_id=4,room_status='available',room_floor=2)
+        Room.objects.create(room_number=206,room_type_id=5,room_status='booked',room_floor=2)
+        Room.objects.create(room_number=207,room_type_id=5,room_status='available',room_floor=2)
+        Room.objects.create(room_number=208,room_type_id=6,room_status='available',room_floor=2)
+        Room.objects.create(room_number=209,room_type_id=4,room_status='house_use',room_floor=2)
+        Room.objects.create(room_number=210,room_type_id=2,room_status='available',room_floor=2)
+        Room.objects.create(room_number=301,room_type_id=1,room_status='available',room_floor=3)
+        Room.objects.create(room_number=302,room_type_id=3,room_status='booked',room_floor=3)
+        Room.objects.create(room_number=303,room_type_id=5,room_status='available',room_floor=3)
+        Room.objects.create(room_number=304,room_type_id=5,room_status='available',room_floor=3)
+        Room.objects.create(room_number=305,room_type_id=4,room_status='booked',room_floor=3)
+        Room.objects.create(room_number=306,room_type_id=2,room_status='available',room_floor=3)
+        Room.objects.create(room_number=307,room_type_id=2,room_status='available',room_floor=3)
+        Room.objects.create(room_number=308,room_type_id=3,room_status='booked',room_floor=3)
+        Room.objects.create(room_number=309,room_type_id=7,room_status='available',room_floor=3)
+        Room.objects.create(room_number=310,room_type_id=6,room_status='available',room_floor=3)
     count_of_services=services.objects.all().count()
     if(count_of_services==0):
         services.objects.create(service_type='Spa & Saloon',service_cost=1500,service_availability=True)
@@ -68,7 +68,7 @@ def index(request):
         time=request.POST['time']
         Restaurant_Booking.objects.create(name=name,phonenumber=phonenumber,Number_of_persons=number_of_persons,date=date,time=time)
     for i in range(1,count+1):
-        a=Room.objects.filter(room_status='a',room_type_id=i).count()
+        a=Room.objects.filter(room_status='available',room_type_id=i).count()
         room_available_count.append(a)
     for i in room_type:
         style.append(i.room_type)
@@ -92,7 +92,10 @@ def contact(request):
         contact = Contact(name=name, email=email, phone=phone, desc=desc)
         contact.save()
         thank=True
+        return redirect('Home',permanent=True)
     return render(request, 'home/contact.html',{"thank":thank})
 
 def login(request):
     return render(request,'home/login.html',{})
+def about(request):
+    return render(request,'home/about.html',{})

@@ -4,11 +4,13 @@ from django.http import HttpResponse
 from .models import booking_guest_details,booking_room_details,booking
 from room.models import Room_type as Room_types
 from room.models import Room as Rooms
+from django.utils.translation import get_language
 from room.models import services 
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from PayTm import Checksum
-MERCHANT_KEY = 'kbzk1DSbJiV_O3p5';
+from django.conf import settings
+import json
 # Create your views here.
 @login_required
 def bookings(request):
@@ -78,9 +80,10 @@ def booking2(request):
 	service=[]
 	service_cost=[]
 	service_av=[]
+	available_room_numbers=[]
 	#accessing_rooms_data
 	for i in range(1,count+1):
-		a=Rooms.objects.filter(room_status='a',room_type_id=i).count()
+		a=Rooms.objects.filter(room_status='available',room_type_id=i).count()
 		room_available_count.append(a)
 	for i in room_types:
 		style.append(i.room_type)
@@ -89,7 +92,6 @@ def booking2(request):
 		img.append(i.room_img)
 
 	mylist=list(zip(style,price,rating,room_available_count,img))
-	print(mylist)
 	services_all=services.objects.all()
 	for i in services_all:
 		service.append(i.service_type)
@@ -99,16 +101,29 @@ def booking2(request):
 		service_request=[]
 		booked_rooms=[]
 		booked_rooms_count=[]
+		booked_rooms_numbers=[]
 		for j in request.POST.getlist('service_check'):
 			service_request.append(j)
 		for i in style:
+			style_data=Room_types.objects.get(room_type=i)
 			if request.POST.get(i,False):
-			   counter=request.POST.get('count-'+i,False)
+			   counter=int(request.POST.get('count-'+i,False))
+			   available_room_numbers=[]
+			   booked_room_numbers=[]
+			   available=Rooms.objects.filter(room_status='available',room_type_id=style_data.id)
+			   for t in available:
+			   	available_room_numbers.append(t.room_number)
+			   increment=0
+			   for k in range(1,counter+1):
+			   	booked_room_numbers.append(available_room_numbers[increment])
+			   	increment+=1
+			   booked_rooms_numbers.append(booked_room_numbers)
 			   booked_rooms.append(i)
 			   booked_rooms_count.append(int(counter))
+		request.session['booked_rooms_numbers']=booked_rooms_numbers
 		request.session['booked_rooms']=booked_rooms
 		request.session['booked_rooms_count']=booked_rooms_count
-		request.session['service_request']=service_request			   
+		request.session['service_request']=service_request	   
 		return redirect('booking3')
 	mydata={}
 	mydata["mylist"]=mylist
@@ -140,6 +155,7 @@ def booking3(request):
 	identification=request.session['identification']
 	booked_rooms=request.session['booked_rooms']
 	booked_rooms_count=request.session['booked_rooms_count']
+	booked_rooms_numbers=request.session['booked_rooms_numbers']
 	service_request=request.session['service_request']
 	my_rooms=list(zip(booked_rooms,booked_rooms_count))
 	price_of_rooms=[]
@@ -176,7 +192,7 @@ def booking3(request):
 	for i in total_amount:
 		total+=i
     #total__Room__Amounts
-	total_costs=list(zip(booked_rooms,booked_rooms_count,total_price_rooms,total_tax,total_amount))
+	total_costs=list(zip(booked_rooms,booked_rooms_count,total_price_rooms,total_tax,total_amount,booked_rooms_numbers))
 	request.session['total_costs']=total_costs
 	request.session['service_request_data']=service_request_data
 	request.session['total']=total
@@ -205,6 +221,7 @@ def booking3(request):
 
 @login_required
 def booking4(request):
+	booked_rooms_numbers=request.session['booked_rooms_numbers']
 	in_time=request.session['in_time']
 	out_time=request.session['out_time']
 	in_date=request.session['in_date']
@@ -235,10 +252,29 @@ def booking4(request):
 		print(payment_type)
 		guests=booking_guest_details(user=user,in_date=in_date,in_time=in_time,out_date=out_date,out_time=out_time,room_count=room_count,guest_count=guest_count,adult_count=adult_count,children_count=children_count,country=country,fname=fname,lname=lname,phonenumber=phonenumber,town=town,gender=gender,email=email,identification=identification)
 		guests.save()
-		room=booking_room_details(user=user,booking_guest_details=guests,Room_details=total_costs,service_details=service_request_data,payment_type=payment_type)
+		room=booking_room_details(user=user,booking_guest_details=guests,Room_details=json.dumps(total_costs),service_details=json.dumps(service_request_data),payment_type=payment_type)
 		room.save()
 		bookings=booking(amount=total,booking_guest_details=guests,booking_room_details=room,user=user)
 		bookings.save()
+		MERCHANT_KEY = settings.PAYTM_MERCHANT_KEY
+		MERCHANT_ID = settings.PAYTM_MERCHANT_ID
+		get_lang = "/" + get_language() if get_language() else ''
+		CALLBACK_URL = settings.HOST_URL + get_lang + settings.PAYTM_CALLBACK_URL
+		ORDER_ID=Checksum.__id_generator__();
+		param_dict={
+			'MID':MERCHANT_ID,
+            'ORDER_ID':ORDER_ID,
+            'TXN_AMOUNT':str(total),
+            'CUST_ID':'email',
+            'INDUSTRY_TYPE_ID':'Retail',
+            'WEBSITE':settings.PAYTM_WEBSITE,
+            'CHANNEL_ID':'WEB',
+            # 'CALLBACK_URL':CALLBACK_URL,
+            'CALLBACK_URL':'http://127.0.0.1:8000/bookings/response/',
+		}
+		param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
+		return render(request, 'bookings/paytm.html', {'param_dict': param_dict})
+
 	mydata={}
 	mydata['in_date']=in_date
 	mydata['out_date']=out_date
@@ -246,42 +282,26 @@ def booking4(request):
 	mydata['total_costs']=total_costs
 	mydata['total_service_cost']=total_service_cost
 	mydata['total']=total
-	param_dict={
-			'MID':'WorldP64425807474247',
-            'ORDER_ID':str(1),
-            'TXN_AMOUNT':str(total),
-            'CUST_ID':'email',
-            'INDUSTRY_TYPE_ID':'Retail',
-            'WEBSITE':'worldpressplg',
-            'CHANNEL_ID':'WEB',
-            'CALLBACK_URL':'http://127.0.0.1:8000/bookings/handlerequest/',
-	}
-	param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
-	#return render(request,'bookings/booking4.html',mydata)
-	return render(request, 'bookings/paytm.html', {'param_dict': param_dict})
-
-	
-	#return render(request,'bookings/booking4.html',mydata)
-
-
+	return render(request,'bookings/booking4.html',mydata)
 
 @csrf_exempt
-def handlerequest(request):
-	# paytm will send post request here
-    form = request.POST
-    response_dict = {}
-    for i in form.keys():
-        response_dict[i] = form[i]
-        if i == 'CHECKSUMHASH':
-            checksum = form[i]
+def response(request):
+	MERCHANT_KEY = settings.PAYTM_MERCHANT_KEY
+	MERCHANT_ID = settings.PAYTM_MERCHANT_ID
+	form = request.POST
+	response_dict = {}
+	for i in form.keys():
+		response_dict[i] = form[i]
+		if i == 'CHECKSUMHASH':
+			checksum = form[i]
 
-    verify = Checksum.verify_checksum(response_dict, MERCHANT_KEY, checksum)
-    if verify:
-        if response_dict['RESPCODE'] == '01':
-            print('Order Successful')
-        else:
-            print('order was not successful because' + response_dict['RESPMSG'])
-    return render(request, 'bookings/paymentstatus.html', {'response': response_dict})
+	verify = Checksum.verify_checksum(response_dict,MERCHANT_KEY, checksum)
+	if verify:
+		if response_dict['RESPCODE'] == '01':
+			print('Order Successful')
+		else:
+			print('order was not successful because' + response_dict['RESPMSG'])
+	return render(request, 'bookings/paymentstatus.html', {'response': response_dict})
 	
 	#return HttpResponse("done")
 	#pass

@@ -24,6 +24,9 @@ body{
     padding: 5px 0px;
     width: 100%;
 }
+ .row-find button:focus{
+    outline: none;
+}
 .user-auth{
     display: flex;
     /* border-bottom: 1px solid #79797c; */

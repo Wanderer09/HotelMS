@@ -36,12 +36,12 @@
                     </div>
                     <div class="dashboard-links">
                         <ul>
-                            <li><a href="#" ><i class="fas fa-person-booth"></i> Room Status</a></li>
+                            <li><a href="{% url 'room_status' %}" ><i class="fas fa-person-booth"></i> Room Status</a></li>
                             <li><a href="{% url 'guest_list' %}" ><i class="fas fa-luggage-cart"></i> Guest List</a></li>
-                            <li><a href="#" ><i class="fas fa-broom"></i> Maintenance</a></li>
-                            <li><a href="#" ><i class="fas fa-plus"></i> Book Room</a> </li>
-                            <li><a href="#" ><i class="fas fa-user-check"></i> Customer Authorization</a></li>
-                            <li><a href="#" ><i class="fas fa-sign-out-alt"></i> Enquiry Request's </a></li>
+                            <li><a href="{% url 'maintenance' %}" ><i class="fas fa-broom"></i> Maintenance</a></li>
+                            <li><a href="{% url 'bookroom' %}" ><i class="fas fa-plus"></i> Book Room</a> </li>
+                            <li><a href="{% url 'customer' %}" ><i class="fas fa-user-check"></i> Customer Authorization</a></li>
+                            <li><a href="{% url 'enquiry' %}" ><i class="fas fa-sign-out-alt"></i> Enquiry Request's </a></li>
                         </ul>
                     </div>
                 </div>    

@@ -45,13 +45,13 @@
     </header>     
     <section class="container-contact">
         <div class="contact-us">
-            <form action="{% url 'contact_us' %}" method="post" onsubmit="return alert() ">{% csrf_token %}
+            <form action="{% url 'contact_us' %}" method="post" onsubmit="return alert('Thank You.Contact you soon') ">{% csrf_token %}
                 <h2> Get In Touch </h2>
                 <p>Send Us A Message</p>
                 <div class="information">
-                    <input type="text" name="name" placeholder="Name">
-                    <input type="text" name="phone" placeholder="Phone Number">
-                    <input type="email" name="email" placeholder="E-mail">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="text" name="phone" placeholder="Phone Number" required>
+                    <input type="email" name="email" placeholder="E-mail" required>
                     <textarea placeholder="Message" name="desc" class="message-input" maxlength="5000" id="message"></textarea>
                     <button type="submit">Submit</button>
                 </div>
