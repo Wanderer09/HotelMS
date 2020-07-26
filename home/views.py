@@ -103,5 +103,7 @@ def bookroom(request):
 def enquiry(request):
     return render(request,'home/enquiry.html') 
 def customer(request):
-    return render(request,'home/customer.html')                  
+    return render(request,'home/customer.html') 
+def aboutus(request):
+    return render(request,'home/aboutus.html')                  
 

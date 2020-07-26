@@ -1,0 +1,116 @@
+{%load static%}
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title> Fouses Hotels </title>
+            <link rel="stylesheet" href="{% static '/home/css/homepage.css' %}">
+            <link rel="stylesheet" href="{% static '/home/css/contact.css' %}">
+            <link rel="stylesheet" href="{% static '/home/css/aboutus.css' %}">
+            <script src="{% static '/home/js/aboutus.js' %}"></script>
+            <meta name="viewport" content="width=device-width , initial-scale=1.0">
+            <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        </head>
+        <body>
+            <header class="navigation aboutus">
+                <div class="back-image">  
+                    <div class="logo-image">
+                        <img src="{%static '/home/img/logoimg.png ' %} " height="60px" width="200px">
+                    </div>  
+                    <div class="navbar-list">
+                        <ul>  
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About-Us</a></li>
+                            <li><a href="#">Rooms</a></li>
+                            <li><a href="#">Dining</a></li>
+                            <li><a href="#">Gallary</a></li>
+                            <li id="nav-contact"><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                            <li id="nav-login">
+                                {% if user.authenticated %}
+                                <a href="{% url 'logout'%}">Logout</a>
+                                {% else %}
+                                <a href="{% url 'login' %}">Login</a>
+                                {% endif %}
+                            </li>  
+                            <li id="nav-search">
+                                <input type="text" placeholder="Search"></input>
+                                <i class="fas fa-search"></i>
+                            </li>  
+                        </ul> 
+                    </div> 
+                </div>
+                <div class="about-heading">
+                    <h2>AboutUs</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod</p>
+                </div>       
+            </header>  
+            <section class="about-row">
+                <div class="flex-about">
+                    <div class="about-row-one">
+                        <img class="about-image" src="{% static '/home/img/about-1.jpg'%}" height="400px" width="100%">
+                    </div>
+                    <div class="about-us-text">
+                        <h2>Our History</h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    </div> 
+                </div> 
+                <div class="about-row-two">
+                    <div class="flex-about">
+                        <div class="about-us-text">
+                            <h2>Why People Choose Us ?</h2>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                        </div> 
+                        <div class="about-row-one">
+                            <img class="about-image" src="{% static '/home/img/about-2.jpg'%}" height="420px" width="100%">
+                        </div>
+                    </div> 
+                </div>   
+            </section>  
+            <section class="hotel-stats">
+                <h2>OUR STATISTICS</h2>
+                <div class="flex-image">
+                    <div class="back-image-stats">
+                        <div class="stat-image">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stats">
+                            <div class="counter" data-target="9000">9000</div>
+                            <h3>Guest Stayed</h3>
+                        </div>    
+                    </div> 
+                    <div class="back-image-stats">
+                        <div class="stat-image">
+                            <i class="fas fa-suitcase-rolling"></i>
+                        </div>
+                        <div class="stats">
+                            <div class="counter" data-target="4000">4000</div>
+                            <h3>Rooms Booked</h3>
+                        </div>    
+                    </div>
+                </div>  
+                <div class="flex-image image-row-2">
+                    <div class="back-image-stats">
+                        <div class="stat-image">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="stats meals">
+                            <div class="counter" data-target="9000">2000</div>
+                            <h3>Meals Served</h3>
+                        </div>    
+                    </div> 
+                    <div class="back-image-stats ">
+                        <div class="stat-image">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="stats">
+                            <div class="counter" data-target="4000">1000</div>
+                            <h3>Total Staff</h3>
+                        </div>    
+                    </div>
+                </div>     
+            </section>    
+       </body>
+   </html>
+  
