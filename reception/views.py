@@ -8,7 +8,24 @@ jsonDec = json.decoder.JSONDecoder()
 
 # Create your views here.
 def reception_home(request):
-	return render(request,'reception/reception_home.html')
+	available_count=Room.objects.filter(room_status='available').count()
+	booked_count=Room.objects.filter(room_status='booked').count()
+	checked_in_count=Room.objects.filter(room_status='newly_checked_in').count()
+	checked_out_count=Room.objects.filter(room_status='checked_out').count()
+	service_count=Room.objects.filter(room_status='house_use').count()
+	occupied_count=Room.objects.filter(room_status='occupied').count()
+	out_count=Room.objects.filter(room_status='out_of_order').count()
+	enquiry_count=Contact.objects.filter(status='cleared').count()
+	data={}
+	data['available']=available_count
+	data['booked']=booked_count
+	data['checked_in']=checked_in_count
+	data['checked_out']=checked_out_count
+	data['service']=service_count
+	data['occupied']=occupied_count
+	data['enquiry']=enquiry_count
+	data['out_of_order']=out_count
+	return render(request,'reception/reception_home.html',data)
 def room_status(request):		
 	data=Room.objects.all()
 	room_number=[]
@@ -34,6 +51,12 @@ def room_status(request):
 			if(request.POST.get(j,False)):
 				room=Room.objects.get(room_number=i)
 				value=request.POST.get(j)
+				# if(value=='occupied_to_be_cleaned'):
+				# 	room.room_status='occupied'
+				# if(value=='vaccant_to_be_cleaned'):
+				# 	room.room_status='checked_out'
+				# if(value=='room_cleaned'):
+				# 	room.room_status='available'
 				room.housekeeping_status=value
 				room.save(update_fields=['housekeeping_status'])
 		return redirect('room_status',permanent=True)

@@ -12,6 +12,7 @@ from PayTm import Checksum
 from django.conf import settings
 import json
 # Create your views here.
+jsonDec = json.decoder.JSONDecoder()
 @login_required
 def bookings(request):
 	if(request.method=='POST'):
@@ -247,20 +248,19 @@ def booking4(request):
 	total=request.session['total']
 	total_service_cost=request.session['total_service_cost']
 	if(request.POST):
+		ORDER_ID=Checksum.__id_generator__();
 		user=request.user
 		payment_type=request.POST.get('radio-box',False)
-		print(payment_type)
 		guests=booking_guest_details(user=user,in_date=in_date,in_time=in_time,out_date=out_date,out_time=out_time,room_count=room_count,guest_count=guest_count,adult_count=adult_count,children_count=children_count,country=country,fname=fname,lname=lname,phonenumber=phonenumber,town=town,gender=gender,email=email,identification=identification)
 		guests.save()
 		room=booking_room_details(user=user,booking_guest_details=guests,Room_details=json.dumps(total_costs),service_details=json.dumps(service_request_data),payment_type=payment_type)
 		room.save()
-		bookings=booking(amount=total,booking_guest_details=guests,booking_room_details=room,user=user)
+		bookings=booking(amount=total,booking_guest_details=guests,booking_room_details=room,user=user,order_id=ORDER_ID)
 		bookings.save()
 		MERCHANT_KEY = settings.PAYTM_MERCHANT_KEY
 		MERCHANT_ID = settings.PAYTM_MERCHANT_ID
 		get_lang = "/" + get_language() if get_language() else ''
 		CALLBACK_URL = settings.HOST_URL + get_lang + settings.PAYTM_CALLBACK_URL
-		ORDER_ID=Checksum.__id_generator__();
 		param_dict={
 			'MID':MERCHANT_ID,
             'ORDER_ID':ORDER_ID,
@@ -273,6 +273,9 @@ def booking4(request):
             'CALLBACK_URL':'http://127.0.0.1:8000/bookings/response/',
 		}
 		param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
+		session_keys = list(request.session.keys())
+		for key in session_keys:
+			del request.session[key]
 		return render(request, 'bookings/paytm.html', {'param_dict': param_dict})
 
 	mydata={}
@@ -298,8 +301,25 @@ def response(request):
 	verify = Checksum.verify_checksum(response_dict,MERCHANT_KEY, checksum)
 	if verify:
 		if response_dict['RESPCODE'] == '01':
+			book=booking.objects.get(order_id=response_dict['ORDERID'])
+			rooms=booking_room_details.objects.get(id=book.booking_room_details_id)
+			booked_rooms=jsonDec.decode(rooms.Room_details)
+			for room,count,totalcost,tax,amount,number in booked_rooms:
+				for i in number:
+					room=Rooms.objects.get(room_number=i)
+					room.room_status='booked'
+					room.save()
+			book.payment_status='successful'
+			book.save()
 			print('Order Successful')
 		else:
+			for room,count,totalcost,tax,amount,number in booked_rooms:
+				for i in number:
+					room=Rooms.objects.get(room_number=i)
+					room.room_status='available'
+					room.save()
+			book.payment_status='failed'
+			book.save()
 			print('order was not successful because' + response_dict['RESPMSG'])
 	return render(request, 'bookings/paymentstatus.html', {'response': response_dict})
 	

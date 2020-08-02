@@ -2,8 +2,10 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from home import views
 from accounts import views as a
+from bookings import views as b
 urlpatterns = [
     path('',views.index,name="Home"),
+    path('bookings/',b.bookings,name="bookings"),
     path('contact/',views.contact,name="contact_us"),
     path('logout/',a.logout,name="logout"),
     path('login/',a.login,name="login"),

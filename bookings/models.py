@@ -29,7 +29,6 @@ class booking_room_details(models.Model):
 	service_details=models.TextField()
 	amount=models.CharField(max_length=10)
 	payment_type=models.CharField(max_length=20,blank=False)
-	payment_status=models.CharField(max_length=30,blank=False)
 	booking_status=models.CharField(max_length=20,blank=False)
 class booking(models.Model):
 	user = models.ForeignKey(user, on_delete=models.CASCADE)
@@ -37,6 +36,9 @@ class booking(models.Model):
 	amount = models.IntegerField()
 	booking_guest_details=models.ForeignKey(booking_guest_details,on_delete=models.CASCADE)
 	booking_room_details=models.ForeignKey(booking_room_details,on_delete=models.CASCADE)
+	order_id=models.CharField(max_length=100,default='')
+	payment_status=models.CharField(max_length=30,blank=False,default='')
+
 
 
 

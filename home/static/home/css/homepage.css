@@ -265,12 +265,12 @@
     width: 33.33%;
 }
 .module{
-    background-image: 
+    /*background-image: 
     linear-gradient(
       rgba(0, 0, 0, 0.2),
       rgba(0, 0, 0, 0.2)
     ),
-    url("/static/home/img/bed-2.jpg");
+    url("/static/home/img/bed-2.jpg");*/
   background-size: cover;
   width: 400px;
   height: 300px;

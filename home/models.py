@@ -8,6 +8,7 @@ class Contact(models.Model):
     email = models.CharField(max_length=70, default="")
     phone = models.CharField(max_length=70, default="")
     desc = models.CharField(max_length=500, default="")
+    status=models.CharField(max_length=100,default='cleared')
 
 
     def __str__(self):

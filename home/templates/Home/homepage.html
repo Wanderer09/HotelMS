@@ -94,8 +94,8 @@
                   {% for style,price,rating,show_on_homepage,room_available_count in mylist %}
                   {% if show_on_homepage %}
                   <div class="rooms-row">
-                    <a href="#">
-                      <div class="module row-content" id="mySlides"> 
+                    <a href="{% url 'booking' %}">
+                      <div class="module row-content" id="mySlides" style=" background-image:linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url('/static/home/img/bed-{{forloop.counter}}.jpg');background-size: cover;width: 400px;height: 300px;margin: 0 30px 0 0px; position: relative;float: left;margin-top: 50px;"> 
                         <div class="heading"><p>{{ style }}</p></div>
                         <div class="ratings">
                           <p>Ratings :
