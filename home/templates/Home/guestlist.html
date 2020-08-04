@@ -76,7 +76,7 @@
             </div>   
             <div class="row-search">
                 <div class="row-find">
-                    <input class="search-bar" placeholder="Search Guest" type="text" />
+                    <input class="search-bar" placeholder="Search By Name" type="text"  id="myInput" onkeyup=myFunction() />
                     <button type="submit"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="row-update">
@@ -84,7 +84,7 @@
                 </div>        
             </div> 
             <form action="#" method="GET">    
-            <table class="guest-list" width="100%">
+            <table class="guest-list" width="100%" id="myTable">
                 <tr>
                    <th>Guest Name</th>
                    <th>Country-Town</th>
@@ -98,7 +98,7 @@
                    <th class="select-input">Action</th>
                 </tr> 
                 <tr>
-                   <td>Rajendra prasad verma</td>
+                   <td>prasad verma</td>
                    <td><p>India</p>
                         <p>Thiruvananthpuram</p>
                    </td>
@@ -128,7 +128,7 @@
                    </td>    
                 </tr> 
                 <tr>
-                    <td>Rajendra prasad verma</td>
+                    <td>Rohit verma</td>
                     <td><p>India</p>
                          <p>Thiruvananthpuram</p>
                     </td>
@@ -403,3 +403,26 @@
         </section>    
     </body>
 </html>
+    <script>
+        function myFunction() {
+
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0] ;
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }
+        }
+        }
+    </script>
