@@ -49,7 +49,7 @@
         <section  class="current-status">
             <div class="guest-tabel">
                 <h2>Enquiry List</h2>
-            <table class="guest-list">
+            <table class="guest-list" id="myTable">
                 <tr>
                    <th width="10%">Date</th>
                    <th width="15%">Customer Name</th>
@@ -132,4 +132,27 @@
             </div>    
         </section>
     </body>
-</html>        
+</html>   
+<script>
+    function myFunction() {
+
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0] ;
+        if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+        }
+    }
+    }
+</script>     
