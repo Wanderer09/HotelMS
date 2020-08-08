@@ -19,5 +19,7 @@ urlpatterns = [
     path('enquiry/',views.enquiry,name="booking"),
     path('customer/',views.customer,name="booking"),
     path('aboutus/',views.aboutus,name="booking"),
+    path('manager/',views.manager,name="booking"),
+    path('travel/',views.travel,name="booking"),
 ]
 

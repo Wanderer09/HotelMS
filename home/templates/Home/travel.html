@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="{% static '/home/css/travel.css' %}">
+            <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+            <title>Travel Desk</title>
+        </head>
+        <body>
+            <header class="travel-desk">
+                <div class="navbar">
+                    
+                    <div class="user-travel">
+                        <div class="user-img">
+                            <img src="{% static 'home/img/avatar.png' %}" height="75px" width="80px">
+                        </div>
+                        <div class="user-name">
+                            <p>Rahul Singh</p>
+                        </div>    
+                    </div>    
+                    <div class="nav-page">
+                        <ul>
+                            <li><a href="#">Rental Status</a></li>
+                            <li><a href="#">Pick And Drop </a></li>
+                            <li><a href="#">Driver Status</a></li>
+                            <li><a href="#">Vehicle Status</a></li> 
+                            <li><a href="#">Logout</a></li>
+                        </ul>    
+                    </div>
+                </div>
+            </header>    
+            <section class="booking-form">
+                <form action="#" method="GET">
+                <div class="form-display">
+                    <div class="image-travel">
+                       <img src="{% static './home/img/travel-1.svg' %}" width="650px" height="450px">
+                    </div>
+                    <div class="form">
+                        <div class="flex-input">
+                          <div class="box-input">
+                            <label for="name">Guest Name :</label>
+                            <input type='text' id="name">
+                          </div>
+                          <div class="box-input">
+                            <label for="room-no">Room Number :</label>
+                            <input type="text" id="room-no">
+                          </div>
+                        </div>
+                        <select id="vehicle">
+                            <option disabled selected id="one">Rent a .. ?</option>
+                            <option>Car</option>
+                            <option>Bike</option>
+                            <option>Scooter</option>
+                        </select>  
+                        <div class="flex-input">      
+                            <select id="car-type" class="select">
+                                <option disabled selected id="one">Vehicle Type</option>
+                                <option>Mini Car</option>
+                                <option>Sedan Car</option>
+                                <option>Prime Car</option>
+                                <option>6-Seater Car</option>
+                                <option>Mini Van</option>
+                                <option>Jeep</option>
+                                <option>Luxury Car</option>
+                                <option>None</option>
+                            </select>        
+                            <select id="v-number" class="select">
+                                <option disabled selected id="one">Vehicle Number</option>
+                                <option> GJ 06 DB 7879</option>
+                                <option> GJ 07 TR 2020</option>
+                                <option>TS 09 UB 8902</option>
+                                <option>KA 01 EH 4923</option>
+                                <option>MH 12 RN 1289</option>
+                            </select>    
+                        </div>  
+                        <div class="flex-input">
+                            <div class="box-input">
+                              <label for="driver">Driver Alloted :</label>
+                              <input class="driver-name" type="text" id="driver">
+                            </div>
+                            <div class="box-input">
+                              <label for="hours">Alloted Time (Hrs) :</label>
+                              <input class="time" type="number"  id="hours"> 
+                            </div>
+                        </div>
+                        <select id="driving-type" >
+                            <option disabled selected id="one">Driving</option>
+                            <option>Driver</option>
+                            <option>Self</option>
+                        </select> 
+                        <input type="submit" class="btn-travel" >
+                    </div>    
+                </div>    
+                </form>
+            </section>    
+        </body>
+</html>
+  

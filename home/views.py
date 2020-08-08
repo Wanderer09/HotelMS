@@ -105,5 +105,9 @@ def enquiry(request):
 def customer(request):
     return render(request,'home/customer.html') 
 def aboutus(request):
-    return render(request,'home/aboutus.html')                  
+    return render(request,'home/aboutus.html') 
+def manager(request):
+    return render(request,'home/manager.html')   
+def travel(request):
+    return render(request,'home/travel.html')                  
 

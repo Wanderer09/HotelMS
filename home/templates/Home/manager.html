@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static '/home/css/manager.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        <title>Restaurant Manager </title>
+    </head>
+    <body>
+        <header class="manager-container">
+            <div class="sidebar-heading">
+              <img src="{% static '/home/img/logoimg.png' %}" height="60px" width="170px">
+            </div>
+            <div class="nav-bar">
+                <ul>
+                    <li><a href="#"><i class="fas fa-chair"></i>Table Booking Status</a></li>
+                    <li><a href="#"><i class="fas fa-concierge-bell"></i>Hotel Orders</a></li>
+                    <li><a href="#"><i class="far fa-list-alt"></i>Restaurant Menu</a></li>
+                    <li><a href="#"><i class="fas fa-percent"></i>Manage Offers</a></li>
+                    <li><a href="#"><i class="far fa-smile"></i>Customer Reviews</a></li>
+                </ul>    
+            </div>    
+        </header>    
+    </body>
+</html>
