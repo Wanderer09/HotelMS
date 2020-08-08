@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+*{
+    font-family: 'Cabin', sans-serif;
+}
+.manager-container{
+    width: 25%;
+    height: 100vh;
+    border-right: 1px solid #cfcfcf;
+    box-shadow: 7px 1px 14px 0px rgba(214, 214, 214, 0.87);
+}
+.sidebar-heading{
+    padding: 25px 10%;
+    background-color: wheat;
+    text-align: center;
+    padding-right:10% ;
+}
+.nav-bar{
+    padding: 40px 13%;
+}
+.nav-bar ul{
+    list-style: none;
+}
+.nav-bar li{
+    padding: 30px 10%;
+}
+.nav-bar li a{
+    text-decoration: none;
+    font-family: neutra;
+    text-align: center;
+    color: #0a0a0a;
+    font-size: 18px;
+   
+}
+.nav-bar li a i{
+    margin-right: 10%;
+}

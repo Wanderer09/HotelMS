@@ -71,8 +71,22 @@
                 </div>
             </div> 
         </header>  
-        <section class="guest-table">
-            <table class="guest-list" width="100%">
+         <section class="guest-table">
+            <div class="section-heading">
+                <h2>Guest List</h2>
+            </div>   
+            <div class="row-search">
+                <div class="row-find">
+                    <input class="search-bar" placeholder="Search By Name" type="text"  id="myInput" onkeyup=myFunction() />
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="row-update">
+                     <form action="" method="POST">  
+                      {% csrf_token %}
+                    <input type="submit" class="update-btn" value="Update">
+                </div>        
+            </div> 
+            <table class="guest-list" width="100%" id="myTable">
                 <tr>
                    <th>Guest Name</th>
                    <th>Country-Town</th>
@@ -85,7 +99,7 @@
                    <th>Alloted</th>
                    <th class="select-input">Action</th>
                 </tr>
-                {% for name,country,town,mail,phone,in_date,out_date,room_count,guest_count,id_proof,rooms in guest_details %}
+                {% for name,country,town,mail,phone,in_date,out_date,room_count,guest_count,id_proof,room,number,status in guest_details %}
                 <tr>
                    <td>{{name}}</td>
                    <td><p>{{country}}</p>
@@ -104,299 +118,48 @@
                        {{id_proof}}
                    </td>    
                    <td>
-                    {% for room,number in rooms %}
                     {{room}}
-                    {% endfor %}
                   </td>
                    <td>
-                    {% for room,number in rooms %}
                     {{number}}
-                    {% endfor %}
                    </td>
                    <td class="input-action">
-                       <select id="guest-option">
-                         <option>Checked-In</option>
-                         <option>Checked-Out</option>          
-                         <option>Early-In</option>
-                         <option>Late-Out</option>
-                         <option>Skipper</option>
-                         <option>No Update</option>
+                       <select id="guest-option" name="{{number}}">
+                         <option value="newly_checked_in" {% if status == newly_checked_in %}{{select}}{% endif %}>Checked-In</option>
+                         <option value="checked_out" {% if status == available %}{{select}}{% endif %}>Checked-Out</option>          
+                         <option value="booked" {% if status == booked %}{{select}}{% endif %}>Booked</option>          
                        </select>    
                    </td>   
                 </tr>
                 {% endfor %} 
-               <!--  <tr>
-                    <td>Rajendra prasad verma</td>
-                    <td><p>India</p>
-                         <p>Thiruvananthpuram</p>
-                    </td>
-                    <td rowspan="1" class="contact-row">
-                        <p>aashutosh2899@gmail.com</p>
-                        <p>9876543210</p>
-                    </td>
-                    <td rowspan="1">
-                        <p>28-07-2020</p><p>To</p><p> 31-07-2020</p>
-                    </td>
-                    <td> 01 </td>    
-                    <td> 05 </td>
-                    <td colspan="1">
-                        Aadhar Card
-                    </td>    
-                    <td>Luxury Room</td>
-                    <td>L-101</td>
-                    <td class="input-action">
-                        <label for="guest-option">
-                        <select id="guest-option">
-                          <option>Checked-In</option>
-                          <option>Checked-Out</option>          
-                          <option>Early-In</option>
-                          <option>Late-Out</option>
-                          <option>Skipper</option>
-                        </select>    
-                    </td>    
-                 </tr> 
-                 <tr>
-                    <td>Rajendra prasad verma</td>
-                    <td><p>India</p>
-                         <p>Thiruvananthpuram</p>
-                    </td>
-                    <td rowspan="1" class="contact-row">
-                        <p>abhir@gmail.com</p>
-                        <p>9876543210</p>
-                    </td>
-                    <td rowspan="1">
-                        <p>28-07-2020</p><p>To</p><p> 31-07-2020</p>
-                    </td>
-                    <td> 01 </td>    
-                    <td> 05 </td>
-                    <td colspan="1">
-                        Aadhar Card
-                    </td>    
-                    <td>Luxury Room</td>
-                    <td>L-101</td>
-                    <td class="input-action">
-                        <label for="guest-option">
-                        <select id="guest-option">
-                          <option>Checked-In</option>
-                          <option>Checked-Out</option>          
-                          <option>Early-In</option>
-                          <option>Late-Out</option>
-                          <option>Skipper</option>
-                        </select>    
-                    </td>    
-                 </tr> 
-                 <tr>
-                    <td>Rajendra prasad verma</td>
-                    <td><p>India</p>
-                         <p>Thiruvananthpuram</p>
-                    </td>
-                    <td rowspan="1" class="contact-row">
-                        <p>abhir@gmail.com</p>
-                        <p>9876543210</p>
-                    </td>
-                    <td rowspan="1">
-                        <p>28-07-2020</p><p>To</p><p> 31-07-2020</p>
-                    </td>
-                    <td> 01 </td>    
-                    <td> 05 </td>
-                    <td colspan="1">
-                        Aadhar Card
-                    </td>    
-                    <td>Luxury Room</td>
-                    <td>L-101</td>
-                    <td class="input-action">
-                        <label for="guest-option">
-                        <select id="guest-option">
-                          <option>Checked-In</option>
-                          <option>Checked-Out</option>          
-                          <option>Early-In</option>
-                          <option>Late-Out</option>
-                          <option>Skipper</option>
-                        </select>    
-                    </td>    
-                 </tr> 
-                 <tr>
-                    <td>Rajendra prasad verma</td>
-                    <td><p>India</p>
-                         <p>Thiruvananthpuram</p>
-                    </td>
-                    <td rowspan="1" class="contact-row">
-                        <p>abhir@gmail.com</p>
-                        <p>9876543210</p>
-                    </td>
-                    <td rowspan="1">
-                        <p>28-07-2020</p><p>To</p><p> 31-07-2020</p>
-                    </td>
-                    <td> 01 </td>    
-                    <td> 05 </td>
-                    <td colspan="1">
-                        Aadhar Card
-                    </td>    
-                    <td>Luxury Room</td>
-                    <td>L-101</td>
-                    <td class="input-action">
-                        <label for="guest-option">
-                        <select id="guest-option">
-                          <option>Checked-In</option>
-                          <option>Checked-Out</option>          
-                          <option>Early-In</option>
-                          <option>Late-Out</option>
-                          <option>Skipper</option>
-                        </select>    
-                    </td>    
-                 </tr> 
-                 <tr>
-                    <td>Rajendra prasad verma</td>
-                    <td><p>India</p>
-                         <p>Thiruvananthpuram</p>
-                    </td>
-                    <td rowspan="1" class="contact-row">
-                        <p>abhir@gmail.com</p>
-                        <p>9876543210</p>
-                    </td>
-                    <td rowspan="1">
-                        <p>28-07-2020</p>To<p> 31-07-2020</p>
-                    </td>
-                    <td> 01 </td>    
-                    <td> 05 </td>
-                    <td colspan="1">
-                        Aadhar Card
-                    </td>    
-                    <td>Luxury Room</td>
-                    <td>L-101</td>
-                    <td class="input-action">
-                        <label for="guest-option">
-                        <select id="guest-option">
-                          <option>Checked-In</option>
-                          <option>Checked-Out</option>          
-                          <option>Early-In</option>
-                          <option>Late-Out</option>
-                          <option>Skipper</option>
-                        </select>    
-                    </td>    
-                 </tr> 
-                 <tr>
-                    <td>Rajendra prasad verma</td>
-                    <td><p>India</p>
-                         <p>Thiruvananthpuram</p>
-                    </td>
-                    <td rowspan="1" class="contact-row">
-                        <p>abhir@gmail.com</p>
-                        <p>9876543210</p>
-                    </td>
-                    <td rowspan="1">
-                        <p>28-07-2020</p><p>To</p><p> 31-07-2020</p>
-                    </td>
-                    <td> 01 </td>    
-                    <td> 05 </td>
-                    <td colspan="1">
-                        Aadhar Card
-                    </td>    
-                    <td>Luxury Room</td>
-                    <td>L-101</td>
-                    <td class="input-action">
-                        <label for="guest-option">
-                        <select id="guest-option">
-                          <option>Checked-In</option>
-                          <option>Checked-Out</option>          
-                          <option>Early-In</option>
-                          <option>Late-Out</option>
-                          <option>Skipper</option>
-                        </select>    
-                    </td>    
-                 </tr> 
-                 <tr>
-                    <td>Rajendra prasad verma</td>
-                    <td><p>India</p>
-                         <p>Thiruvananthpuram</p>
-                    </td>
-                    <td rowspan="1" class="contact-row">
-                        <p>abhir@gmail.com</p>
-                        <p>9876543210</p>
-                    </td>
-                    <td rowspan="1">
-                        <p>28-07-2020</p><p>To</p><p> 31-07-2020</p>
-                    </td>
-                    <td> 01 </td>    
-                    <td> 05 </td>
-                    <td colspan="1">
-                        Aadhar Card
-                    </td>    
-                    <td>Luxury Room</td>
-                    <td>L-101</td>
-                    <td class="input-action">
-                        <label for="guest-option">
-                        <select id="guest-option">
-                          <option>Checked-In</option>
-                          <option>Checked-Out</option>          
-                          <option>Early-In</option>
-                          <option>Late-Out</option>
-                          <option>Skipper</option>
-                        </select>    
-                    </td>    
-                 </tr>  -->
-                 <!-- <tr>
-                    <td>Rajendra prasad verma</td>
-                    <td><p>India</p>
-                         <p>Thiruvananthpuram</p>
-                    </td>
-                    <td rowspan="1" class="contact-row">
-                        <p>abhir@gmail.com</p>
-                        <p>9876543210</p>
-                    </td>
-                    <td rowspan="1">
-                        <p>28-07-2020</p><p>To</p><p> 31-07-2020</p>
-                    </td>
-                    <td> 01 </td>    
-                    <td> 05 </td>
-                    <td colspan="1">
-                        Aadhar Card
-                    </td>    
-                    <td>Luxury Room</td>
-                    <td>L-101</td>
-                    <td class="input-action">
-                        <label for="guest-option">
-                        <select id="guest-option">
-                          <option>Checked-In</option>
-                          <option>Checked-Out</option>          
-                          <option>Early-In</option>
-                          <option>Late-Out</option>
-                          <option>Skipper</option>
-                          <option>No Update</option>
-                        </select>    
-                    </td>    
-                 </tr> 
-                 <tr>
-                    <td>Rajendra prasad verma</td>
-                    <td><p>India</p>
-                         <p>Thiruvananthpuram</p>
-                    </td>
-                    <td rowspan="1" class="contact-row">
-                        <p>abhir@gmail.com</p>
-                        <p>9876543210</p>
-                    </td>
-                    <td rowspan="1">
-                        <p>28-07-2020</p><p>To</p><p> 31-07-2020</p>
-                    </td>
-                    <td> 01 </td>    
-                    <td> 05 </td>
-                    <td colspan="1">
-                        Aadhar Card
-                    </td>    
-                    <td>Luxury Room</td>
-                    <td>L-101</td>
-                    <td class="input-action">
-                        <label for="guest-option">
-                        <select id="guest-option">
-                          <option>Checked-In</option>
-                          <option>Checked-Out</option>          
-                          <option>Early-In</option>
-                          <option>Late-Out</option>
-                          <option>Skipper</option>
-                        </select>    
-                    </td>    
-                 </tr>  -->
-            </table>    
+            </table> 
+            </form>   
         </section>    
     </body>
 </html>
+
+
+
+ <script>
+        function myFunction() {
+
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0] ;
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }
+        }
+        }
+    </script>

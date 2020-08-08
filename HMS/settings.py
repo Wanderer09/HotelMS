@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'accounts',
     'bookings',
     'reception',
+    'traveldesk',
+    'manager',
     'django.contrib.sites',
     'allauth',
     'allauth.account',

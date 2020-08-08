@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+*{
+    font-family: 'Cabin', sans-serif;
+}
+.travel-desk{
+    padding: 15px 2%;
+    padding-bottom: 8px;
+}
+.user-travel{
+    display: flex;
+    width: 30%;
+    padding: 0px 6%;
+}
+.user-img{
+    
+}
+.user-name p{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #e17055;
+}
+.user-img img{
+     border-radius: 50%;            
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+.nav-page{
+    width: 85%;
+    padding: 30px 0px ;
+}
+.nav-page ul{
+    text-decoration: none;
+    list-style: none;
+}
+.nav-page li{
+    display: inline;
+    padding: 0px 5%;
+}
+.nav-page li a{
+    text-decoration: none;
+    color:#0c2461 ;
+    font-size: 17px;
+    transition: 200ms ease-in-out;
+}
+.nav-page li a:hover{
+    color: #74b9ff;
+}
+.form-display{
+    display: flex;
+    justify-content: space-between;
+}
+.booking-form{
+    padding: 60px 3%;
+}
+.image-travel{
+    width: 53%;
+}
+.form{
+    width: 47%;
+}
+.flex-input{
+    display: flex;
+    justify-content: space-evenly;
+}
+.box-input{
+    width: 50%;
+    margin: 20px 10px;
+    margin-top: 10px;
+}
+.box-input label{
+    text-align: left;
+    color: #6c63ff;
+}
+.box-input input{
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 10px; 
+    border: 1px solid #cfcfcf;
+    color: #6c63ff;
+}
+.box-input input:focus{
+    outline: none;
+}
+.select{
+    width: 50%;
+    padding: 12px 15px;
+    margin: 25px 10px;
+    border: 1px solid #cfcfcf;
+    color: #6c63ff;
+}
+.select:focus{
+    outline: none;
+}
+#vehicle{
+    width: 97%;
+    padding: 12px 15px;
+    margin: 15px 10px;
+    border: 1px solid #cfcfcf;
+    color: #6c63ff;
+}
+#driving-type{
+    width: 97%;
+    padding: 12px 15px;
+    margin: 20px 10px;
+    border: 1px solid #cfcfcf;
+    color: #6c63ff;
+}
+#vehicle:focus{
+    outline: none;
+}
+#driving-type:focus{
+    outline: none;
+}
+#one{
+    font
+}
+.btn-travel{
+   padding: 12px 20px;
+   margin: 10px;
+   margin-top:20px;
+   border:none;
+   cursor: pointer;
+}
+.btn-travel:focus{
+    outline: none;
+}

@@ -23,4 +23,6 @@ urlpatterns = [
     path("accounts/",include("accounts.urls")),
     path("bookings/",include("bookings.urls")),
     path("reception/",include("reception.urls")),
+    path("traveldesk/",include("traveldesk.urls")),
+    path("manager/",include("manager.urls")),
 ]

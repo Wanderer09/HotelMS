@@ -11,7 +11,7 @@
 }
 @font-face{
     font-family: neutra;
-    src: url(/static/reception/fonts/neutra-text-font/NeutraText-Bold.otf);
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
 }
 *{
     font-family: 'Cabin', sans-serif;
@@ -19,13 +19,72 @@
 body{
     background-color: #232329;
 }
+.section-heading {
+    padding: 20px 2%;
+ }
+ .section-heading h2{
+     font-size: 24px;
+     color: #ecf0f1;
+ }
+ .section-heading h2::after{
+    display: block;
+    width: 60px;
+    height: 2px;
+    content: ' ';
+    margin-top: 8px;
+    background-color: #8e7037;
+    /* margin-left: auto;
+    margin-right: auto; */
+ }
+ .row-search{
+     display: flex;
+     padding: 40px 0px;
+     padding-bottom: 60px;
+ }
+ .row-find{
+     width: 80%;
+     /* border: 1px solid #ecf0f1; */
+     border-radius: 50px;
+     box-shadow:  5px 5px 10px #1b1b20, 
+     -5px -5px 10px #2b2b32;
+ }
+ .row-find button:focus{
+     outline: none;
+ }
+ .row-find button{
+     background-color: transparent;
+     border: none;
+     color: #ecf0f1;
+     font-size: 18px;
+ }
+ .row-update{
+     width:  20%;
+     text-align: center;
+     padding: 10px 0px;
+ }
+ .row-update input{
+     padding: 12px 25px;
+     border: none;
+     color: #fafafa;
+     background-color: #4bb543;
+     border-radius: 3px;
+ }
+ .row-find input{
+     width: 90%;
+     border: none;
+     color: #ecf0f1;
+     height: 10vh;
+     background-color: transparent;
+     padding: 20px 35px;
+     font-size: 18px;
+ }
+ .row-find input:focus{
+     outline: none;
+ }
 /**NAVBAR STYLING**/
 .user-info{
     padding: 5px 0px;
     width: 100%;
-}
- .row-find button:focus{
-    outline: none;
 }
 .user-auth{
     display: flex;
@@ -69,7 +128,7 @@ body{
 }
 /**TABLE STYLING**/
 .guest-table{
-    padding-top: 120px;
+    padding-top: 100px;
     padding: 40px 2%;
 }
 .guest-list{

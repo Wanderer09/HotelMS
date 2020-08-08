@@ -208,7 +208,6 @@ def enquiry(request):
 	return render(request,'reception/enquiry.html',mydata)
 def guest_list(request):
 	lists=booking_guest_details.objects.all()
-	print(lists)
 	name=[]
 	country=[]
 	town=[]
@@ -219,31 +218,58 @@ def guest_list(request):
 	room_count=[]
 	guest_count=[]
 	id_proof=[]
+	room_style=[]
+	room_numbers=[]
 	booked_room_details=[]
+	room_status=[]
 	for i in lists:
 		rooms=[]
 		room_number=[]
 		room_data=booking_room_details.objects.get(booking_guest_details_id=i.id)
 		k=jsonDec.decode(room_data.Room_details)
 		for room,count,totalcost,tax,amount,number in k:
-			# for i in number:
 			rooms.append(room)
 			room_number.append(number)
-		booked_room_details.append(list
-			(zip(rooms,room_number)))
-		print(room_number)
-		name_of_guest=i.fname+i.lname
-		name.append(name_of_guest)
-		country.append(i.country)
-		town.append(i.town)
-		mail.append(i.email)
-		phone.append(i.phonenumber)
-		in_date.append(i.in_date)
-		out_date.append(i.out_date)
-		room_count.append(i.room_count)
-		guest_count.append(i.guest_count)
-		id_proof.append(i.identification)
-	guest_details=zip(name,country,town,mail,phone,in_date,out_date,room_count,guest_count,id_proof,booked_room_details)
+		r=0
+		for a in rooms:
+			for b in room_number[r]:
+				name_of_guest=i.fname+i.lname
+				name.append(name_of_guest)
+				country.append(i.country)
+				town.append(i.town)
+				mail.append(i.email)
+				phone.append(i.phonenumber)
+				in_date.append(i.in_date)
+				out_date.append(i.out_date)
+				room_count.append(i.room_count)
+				guest_count.append(i.guest_count)
+				id_proof.append(i.identification)
+				room_style.append(a)
+				room_numbers.append(b)
+				room=Room.objects.get(room_number=b)
+				room_status.append(room.room_status)
+			r=r+1
+	guest_details=zip(name,country,town,mail,phone,in_date,out_date,room_count,guest_count,id_proof,room_style,room_numbers,room_status)
+	if request.method == 'POST':
+		print('anand')
+		for q in room_number:
+			for w in q:
+				if(request.POST.get(str(w),False)):
+					room=Room.objects.get(room_number=w)
+					value=request.POST.get(str(w))
+					print(value)
+					if(value=='checked_out'):
+						room.room_status='available'
+					elif(value=='newly_checked_in'):
+						room.room_status='occupied'
+					else:
+						room.room_status='booked'
+					room.save(update_fields=['room_status'])
+		return redirect('guest_list',permanent=True)
 	data={}
 	data['guest_details']=guest_details
+	data['select']='selected'
+	data['booked']='booked'
+	data['newly_checked_in']='newly_checked_in'
+	data['available']='available'
 	return render(request,'reception/guest_list.html',data)

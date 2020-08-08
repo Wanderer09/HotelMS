@@ -61,11 +61,11 @@ def index(request):
     show_on_homepage=[]
     # images=[]
     if(request.method=='POST'):
-        name=request.POST['name']
-        phonenumber=request.POST['phonenumber']
-        number_of_persons=request.POST['number_of_persons']
-        date=request.POST['date']
-        time=request.POST['time']
+        name=request.POST.get('name')
+        phonenumber=request.POST.get('phonenumber')
+        number_of_persons=request.POST.get('number_of_persons')
+        date=request.POST.get('date')
+        time=request.POST.get('time')
         Restaurant_Booking.objects.create(name=name,phonenumber=phonenumber,Number_of_persons=number_of_persons,date=date,time=time)
     for i in range(1,count+1):
         a=Room.objects.filter(room_status='available',room_type_id=i).count()
