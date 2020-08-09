@@ -109,5 +109,7 @@ def aboutus(request):
 def manager(request):
     return render(request,'home/manager.html')   
 def travel(request):
-    return render(request,'home/travel.html')                  
+    return render(request,'home/travel.html')   
+def pick(request):
+    return render(request,'home/pick.html')                      
 
