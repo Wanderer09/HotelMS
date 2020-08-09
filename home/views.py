@@ -111,5 +111,11 @@ def manager(request):
 def travel(request):
     return render(request,'home/travel.html')   
 def pick(request):
-    return render(request,'home/pick.html')                      
+    return render(request,'home/pick.html') 
+def rental(request):
+     return render(request,'home/rent.html')
+def driver(request):
+     return render(request,'home/driver.html') 
+def car(request):
+     return render(request,'home/car.html')                               
 

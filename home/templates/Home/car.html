@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static '/home/css/travel.css' %}">
+        <link rel="stylesheet" href="{% static '/home/css/pick.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        <title>Driver Status</title>
+    </head>
+    <body>
+        <header class="travel-desk">
+            <div class="navbar">
+                
+                <div class="user-travel">
+                    <div class="user-img">
+                        <img src="{% static 'home/img/avatar.png' %}" height="75px" width="80px">
+                    </div>
+                    <div class="user-name">
+                        <p>Rahul Singh</p>
+                    </div>    
+                </div>    
+                <div class="nav-page">
+                    <ul>
+                        <li><a href="#">Rental Status</a></li>
+                        <li><a href="#">Pick And Drop </a></li>
+                        <li><a href="#">Driver Status</a></li>
+                        <li><a href="#">Vehicle Status</a></li> 
+                        <li><a href="#">Logout</a></li>
+                    </ul>    
+                </div>
+            </div>
+        </header>    
+           <section class="pick">   
+                <div class="row-search">
+                    <div class="row-find">
+                        <input class="search-bar" placeholder="Search By Name" type="text"  id="myInput" onkeyup=myFunction() />
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="row-update">
+                        <input type="submit" class="update-btn" value="Update">
+                    </div>        
+                </div>
+            </section>   
+            <section class="drop">         
+                <form action="#" method="GET">    
+                    <table class="guest-list" width="100%" id="myTable">
+                        <tr>
+                            <th>Vehicle Number</th>
+                            <th>Vehicle</th>
+                            <th class="contact-info">Vehicle Name</th>
+                            <th class="guest">Registered Number</th>
+                            <th>Vehicle Category</th>
+                            <th class="room">Current Status</th>
+                        </tr> 
+                        <tr>
+                            <td>BK-101</td>
+                            <td>Bike</td>
+                            <td rowspan="1" class="contact-row">
+                              Activa
+                            </td>
+                            <td colspan="1">  
+                                GJ 06 DB 7879
+                            </td>    
+                            <td>
+                                Bike
+                            </td>
+                            <td>
+                                <select class="select-pick">
+                                    <option disabled selected>Current Status</option>
+                                    <option> Available </option>
+                                    <option> Booked </option>
+                                    <option> Out Of Order </option>
+                                    <option> Under Service </option>
+                                </select> 
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>MO-101</td>
+                            <td>Motor Bike</td>
+                            <td rowspan="1" class="contact-row">
+                              Duke
+                            </td>
+                            <td colspan="1">  
+                                GJ 06 DB 7879
+                            </td>    
+                            <td>
+                               Motor Bike
+                            </td>
+                            <td>
+                                <select class="select-pick">
+                                    <option disabled selected>Current Status</option>
+                                    <option> Available </option>
+                                    <option> Booked </option>
+                                    <option> Out Of Order </option>
+                                    <option> Under Service </option>
+                                </select> 
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>CA-101</td>
+                            <td>Car</td>
+                            <td rowspan="1" class="contact-row">
+                              Hundai
+                            </td>
+                            <td colspan="1">  
+                                GJ 06 DB 7879
+                            </td>    
+                            <td>
+                                Sedan
+                            </td>
+                            <td>
+                                <select class="select-pick">
+                                    <option disabled selected>Current Status</option>
+                                    <option> Available </option>
+                                    <option> Booked </option>
+                                    <option> Out Of Order </option>
+                                    <option> Under Service </option>
+                                </select> 
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>CA-102</td>
+                            <td>Car</td>
+                            <td rowspan="1" class="contact-row">
+                              Santro
+                            </td>
+                            <td colspan="1">  
+                                GJ 06 DB 7879
+                            </td>    
+                            <td>
+                                Mini Car
+                            </td>
+                            <td>
+                                <select class="select-pick">
+                                    <option disabled selected>Current Status</option>
+                                    <option> Available </option>
+                                    <option> Booked </option>
+                                    <option> Out Of Order </option>
+                                    <option> Under Service </option>
+                                </select> 
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>BK-101</td>
+                            <td>Bike</td>
+                            <td rowspan="1" class="contact-row">
+                              Activa
+                            </td>
+                            <td colspan="1">  
+                                GJ 06 DB 7879
+                            </td>    
+                            <td>
+                                Bike
+                            </td>
+                            <td>
+                                <select class="select-pick">
+                                    <option disabled selected>Current Status</option>
+                                    <option> Available </option>
+                                    <option> Booked </option>
+                                    <option> Out Of Order </option>
+                                    <option> Under Service </option>
+                                </select> 
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>BK-101</td>
+                            <td>Bike</td>
+                            <td rowspan="1" class="contact-row">
+                              Activa
+                            </td>
+                            <td colspan="1">  
+                                GJ 06 DB 7879
+                            </td>    
+                            <td>
+                                Bike
+                            </td>
+                            <td>
+                                <select class="select-pick">
+                                    <option disabled selected>Current Status</option>
+                                    <option> Available </option>
+                                    <option> Booked </option>
+                                    <option> Out Of Order </option>
+                                    <option> Under Service </option>
+                                </select> 
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>BK-101</td>
+                            <td>Bike</td>
+                            <td rowspan="1" class="contact-row">
+                              Activa
+                            </td>
+                            <td colspan="1">  
+                                GJ 06 DB 7879
+                            </td>    
+                            <td>
+                                Bike
+                            </td>
+                            <td>
+                                <select class="select-pick">
+                                    <option disabled selected>Current Status</option>
+                                    <option> Available </option>
+                                    <option> Booked </option>
+                                    <option> Out Of Order </option>
+                                    <option> Under Service </option>
+                                </select> 
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>BK-101</td>
+                            <td>Bike</td>
+                            <td rowspan="1" class="contact-row">
+                              Activa
+                            </td>
+                            <td colspan="1">  
+                                GJ 06 DB 7879
+                            </td>    
+                            <td>
+                                Bike
+                            </td>
+                            <td>
+                                <select class="select-pick">
+                                    <option disabled selected>Current Status</option>
+                                    <option> Available </option>
+                                    <option> Booked </option>
+                                    <option> Out Of Order </option>
+                                    <option> Under Service </option>
+                                </select> 
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>BK-101</td>
+                            <td>Bike</td>
+                            <td rowspan="1" class="contact-row">
+                              Activa
+                            </td>
+                            <td colspan="1">  
+                                GJ 06 DB 7879
+                            </td>    
+                            <td>
+                                Bike
+                            </td>
+                            <td>
+                                <select class="select-pick">
+                                    <option disabled selected>Current Status</option>
+                                    <option> Available </option>
+                                    <option> Booked </option>
+                                    <option> Out Of Order </option>
+                                    <option> Under Service </option>
+                                </select> 
+                            </td>
+                        </tr> 
+                </form>   
+            </section>         
+    </body>
+</html>
+<script>
+    function myFunction() {
+
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1] ;
+        if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+        }
+    }
+    }
+</script>
