@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+*{
+    font-family: 'Cabin', sans-serif;
+}
+.pick{
+    padding: 25px 6%;
+    padding-bottom: 15px;
+}
+.drop{
+    padding: 0px 2%;
+}
+.row-search{
+    display: flex;
+    padding: 40px 0px;
+    padding-bottom: 60px;
+    justify-content: space-evenly;
+}
+.row-find{
+    width: 60%;
+    /* border: 1px solid #ecf0f1; */
+    border: 1px solid #cfcfcf;
+    border-radius: 15px;
+}
+.row-find button:focus{
+    outline: none;
+}
+.row-find button{
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    color: #6c63ff;
+    font-size: 18px;
+    width: 30%;
+}
+.row-update{
+    width:  20%;
+    text-align: center;
+    padding: 10px 0px;
+}
+.row-update input{
+    padding: 12px 25px;
+    border: none;
+    color: #fafafa;
+    background-color: #4bb543;
+    border-radius: 3px;
+   
+}
+.row-find input{
+    width: 60%;
+    border: none;
+    color: #6c63ff;
+    background-color: transparent;
+    padding: 20px 35px;
+    font-size: 18px;
+  
+}
+.row-find input::placeholder{
+    color: #8b8b8b;
+}
+.row-find input:focus{
+    outline: none;
+}
+.guest-table{
+    padding-top: 100px;
+    padding: 40px 2%;
+}
+.guest-list{
+    text-align: center;
+    color: #8b8b8b;
+}
+table{
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+th{
+    padding: 30px 10px;
+    font-size: 17px;
+    color: #6c63ff;
+}
+td{
+    height: 20vh;
+    padding: 12px 8px;
+}
+.pick-input{
+    border: none;
+    border-bottom: 1px solid #7e7878;
+    padding: 3px 5px;
+    color: #8b8b8b;
+    background-color: transparent;
+}
+.pick-input:focus{
+    outline: none;
+}
+.select-pick{
+    padding: 3px 6px;
+    border: 1px solid #7e7878;
+    background-color: transparent;
+}
+th .room{
+    width: 10px
+}
+td p{
+    margin-bottom: 8px;
+}
+.contact-info{
+    max-width: 15%;
+}
+.contact-row{
+    max-width: 15%;
+}
+.input-action select:focus{
+    outline: none;
+}
+#myTable tr:nth-child(even){background-color: #fafafa;}

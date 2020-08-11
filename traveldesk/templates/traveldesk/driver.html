@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static '/traveldesk/css/travel.css' %}">
+        <link rel="stylesheet" href="{% static '/traveldesk/css/pick.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        <title>Driver Status</title>
+    </head>
+    <body>
+        <header class="travel-desk">
+            <div class="navbar">
+                
+                <div class="user-travel">
+                    <div class="user-img">
+                        <img src="{% static 'traveldesk/img/avatar.png' %}" height="75px" width="80px">
+                    </div>
+                    <div class="user-name">
+                        <p>Rahul Singh</p>
+                    </div>    
+                </div>    
+                <div class="nav-page">
+                    <ul>
+                        <li><a href="{% url 'traveldesk_home' %}">Home</a></li>
+                        <li><a href="{% url 'rent' %}">Rental Status</a></li>
+                        <li><a href="{% url 'pick' %}">Pick And Drop </a></li>
+                        <li><a href="{% url 'driver' %}">Driver Status</a></li>
+                        <li><a href="{% url 'car' %}">Vehicle Status</a></li> 
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    </ul>    
+                </div>
+            </div>
+        </header>    
+           <section class="pick">   
+                <div class="row-search">
+                    <div class="row-find">
+                        <form action="" method="POST" id="myform"> 
+                        {% csrf_token %}   
+                        <input class="search-bar" placeholder="Search By Name" type="text"  id="myInput" onkeyup=myFunction() />
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="row-update">
+                        <input type="submit" class="update-btn" value="Update">
+                    </div>        
+                </div>
+            </section>   
+            <section class="drop">         
+                    <table class="guest-list" width="100%" id="myTable">
+                        <tr>
+                            <th>Driver Number</th>
+                            <th>Driver Name</th>
+                            <th class="contact-info">Contact Number</th>
+                            <th>Current Status</th>
+                            <th class="room">Car Allocated</th>
+                            <th class="guest">Vehicle Number</th>
+                        </tr>
+                        {% for id,name,phn,status,alloted,number,registered_number in driver %}
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{name}}</td>
+                            <td rowspan="1" class="contact-row">
+                            {{phn}}
+                            </td>
+                            <td colspan="1">
+                            <select class="select-pick" name="status-{{id}}" onchange="submitform()">
+                                <option disabled selected>Current Status</option>
+                                <option value="available" {% if status == available %}{{select}}{% endif %}> Available </option>
+                                <option value="booked" {% if status == booked %}{{select}}{% endif %}> Booked </option>
+                                <option value="on_leave" {% if status == on_leave %}{{select}}{% endif %}> On leave </option>
+                            </select>    
+                            </td>    
+                            <td>
+                                <select class="select-pick" name="vehicle-{{id}}" onchange="submitform()">
+                                    <option disabled selected>Vehicle Type</option>
+                            {% for category in vehicle_type %}
+                                    <option value="{{category}}" {% if alloted == category %}{{select}}{% endif %}>{{category}}</option>
+                            {% endfor %}
+                                </select> 
+                            </td>
+                            <td>
+                                <select class="select-pick" name="number-{{id}}" onchange="submitform()">
+                                    <option disabled selected>Vehicle Number</option>
+                                    {% for type in number %}
+                                    <option value="{{type}}" {% if type == registered_number %}{{select}}{% endif %}>{{type}}</option>
+                                    {% endfor %}
+                                </select> 
+                            </td>
+                        </tr>
+                        {% endfor %}
+                       </table>
+                </form>   
+            </section>         
+    </body>
+</html>
+<script>
+    function myFunction() {
+
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1] ;
+        if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+        }
+    }
+    }
+     function submitform(){
+        document.forms["myform"].submit();
+    }
+</script>

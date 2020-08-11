@@ -25,17 +25,19 @@
                     </div>    
                     <div class="nav-page">
                         <ul>
-                            <li><a href="#">Rental Status</a></li>
-                            <li><a href="#">Pick And Drop </a></li>
-                            <li><a href="#">Driver Status</a></li>
-                            <li><a href="#">Vehicle Status</a></li> 
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="{% url 'traveldesk_home' %}">Home</a></li> 
+                            <li><a href="{% url 'rent' %}">Rental Status</a></li>
+                            <li><a href="{% url 'pick' %}">Pick And Drop </a></li>
+                            <li><a href="{% url 'driver' %}">Driver Status</a></li>
+                            <li><a href="{% url 'car' %}">Vehicle Status</a></li> 
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
                         </ul>    
                     </div>
                 </div>
             </header>    
             <section class="booking-form">
-                <form action="#" method="GET">
+                <form action="" method="POST" id="myform">
+                    {% csrf_token %}
                 <div class="form-display">
                     <div class="image-travel">
                        <img src="{% static './traveldesk/img/travel-1.svg' %}" width="650px" height="450px">
@@ -44,54 +46,47 @@
                         <div class="flex-input">
                           <div class="box-input">
                             <label for="name">Guest Name :</label>
-                            <input type='text' id="name">
+                            <input type='text' id="name" autocomplete="off" name="name" {% if name %} value="{{name}}" {% endif %}>
                           </div>
                           <div class="box-input">
                             <label for="room-no">Room Number :</label>
-                            <input type="text" id="room-no">
+                            <input type="text" id="room-no" name="room_number" {% if room_number %} value="{{room_number}}" {% endif %}>
                           </div>
                         </div>
-                        <select id="vehicle">
+                        <select id="vehicle" name="type" onchange="submitform()">
                             <option disabled selected id="one">Rent a .. ?</option>
-                            <option>Car</option>
-                            <option>Bike</option>
-                            <option>Scooter</option>
+                            {% for i in type %}
+                            <option value="{{i}}" {% if type_vehicle %}{% if i == type_vehicle %}{{select}}{% endif %}{% endif %}>{{i}}</option>
+                            {% endfor %}
                         </select>  
                         <div class="flex-input">      
-                            <select id="car-type" class="select">
+                            <select id="car-type" class="select" name="category" onchange="submitform()">
                                 <option disabled selected id="one">Vehicle Type</option>
-                                <option>Mini Car</option>
-                                <option>Sedan Car</option>
-                                <option>Prime Car</option>
-                                <option>6-Seater Car</option>
-                                <option>Mini Van</option>
-                                <option>Jeep</option>
-                                <option>Luxury Car</option>
-                                <option>None</option>
+                            {% for i in category %}
+                                <option value="{{i}}" {% if category_vehicle %}{% if i == category_vehicle %}{{select}}{% endif %}{% endif %}>{{i}}</option>
+                            {% endfor %}
                             </select>        
-                            <select id="v-number" class="select">
+                            <select id="v-number" class="select" name="number" onchange="submitform()">
                                 <option disabled selected id="one">Vehicle Number</option>
-                                <option>GJ 06 DB 7879</option>
-                                <option>GJ 07 TR 2020</option>
-                                <option>TS 09 UB 8902</option>
-                                <option>KA 01 EH 4923</option>
-                                <option>MH 12 RN 1289</option>
+                            {% for i in number %}
+                                <option value="{{i}}" {% if number_vehicle %}{% if i == number_vehicle %}{{select}}{% endif %}{% endif %}>{{i}}</option>
+                            {% endfor %}
                             </select>    
                         </div>  
                         <div class="flex-input">
-                            <div class="box-input">
+                            <!-- <div class="box-input">
                               <label for="driver">Driver Alloted :</label>
-                              <input class="driver-name" type="text" id="driver">
-                            </div>
+                              <input class="driver-name" type="text" id="driver" name="driver" {% if driver %} value="{{driver}}" {% endif %}>
+                            </div> -->
                             <div class="box-input">
                               <label for="hours">Alloted Time (Hrs) :</label>
-                              <input class="time" type="number"  id="hours"> 
+                              <input class="time" type="number"  id="hours" name="time"> 
                             </div>
                         </div>
-                        <select id="driving-type" >
+                        <select id="driving-type" name="driving">
                             <option disabled selected id="one">Driving</option>
-                            <option>Driver</option>
-                            <option>Self</option>
+                            <option value="driver">Driver</option>
+                            <option value="self">Self</option>
                         </select> 
                         <input type="submit" class="btn-travel" >
                     </div>    
@@ -100,3 +95,8 @@
             </section>    
         </body>
 </html>
+<script>
+     function submitform(){
+        document.forms["myform"].submit();
+    }
+</script>

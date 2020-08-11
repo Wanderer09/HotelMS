@@ -22,8 +22,8 @@
 }
 .user-travel{
     display: flex;
-    width: 30%;
-    padding: 0px 6%;
+    width: 20%;
+    padding: 0px 2%;
 }
 .user-img{
     
@@ -38,11 +38,11 @@
 }
 .navbar{
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
 }
 .nav-page{
     width: 85%;
-    padding: 30px 0px ;
+    padding: 25px 0px ;
 }
 .nav-page ul{
     text-decoration: none;
@@ -50,7 +50,7 @@
 }
 .nav-page li{
     display: inline;
-    padding: 0px 5%;
+    padding: 0px 4%;
 }
 .nav-page li a{
     text-decoration: none;

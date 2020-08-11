@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static '/traveldesk/css/travel.css' %}">
+        <link rel="stylesheet" href="{% static '/traveldesk/css/pick.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        <title>Vehicle Status</title>
+    </head>
+    <body>
+        <header class="travel-desk">
+            <div class="navbar">
+                
+                <div class="user-travel">
+                    <div class="user-img">
+                        <img src="{% static 'traveldesk/img/avatar.png' %}" height="75px" width="80px">
+                    </div>
+                    <div class="user-name">
+                        <p>Rahul Singh</p>
+                    </div>    
+                </div>    
+                <div class="nav-page">
+                    <ul>
+                        <li><a href="{% url 'traveldesk_home' %}">Home</a></li>
+                        <li><a href="{% url 'rent' %}">Rental Status</a></li>
+                        <li><a href="{% url 'pick' %}">Pick And Drop </a></li>
+                        <li><a href="{% url 'driver' %}">Driver Status</a></li>
+                        <li><a href="{% url 'car' %}">Vehicle Status</a></li> 
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    </ul>    
+                </div>
+            </div>
+        </header>    
+           <section class="pick">   
+                <div class="row-search">
+                    <div class="row-find">
+                        <input class="search-bar" placeholder="Search By Name" type="text"  id="myInput" onkeyup=myFunction() />
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="row-update">
+                        <form action="" method="POST" id="myform">
+                            {% csrf_token %}
+                        <input type="submit" class="update-btn" value="Update">
+                    </div>        
+                </div>
+            </section>   
+            <section class="drop">             
+                    <table class="guest-list" width="100%" id="myTable">
+                        <tr>
+                            <th>Vehicle Number</th>
+                            <th>Vehicle</th>
+                            <th class="contact-info">Vehicle Name</th>
+                            <th class="guest">Registered Number</th>
+                            <th>Vehicle Category</th>
+                            <th class="room">Current Status</th>
+                        </tr>
+                        {% for id,vehicle,vehicle_name,vehicle_number,vehicle_category,status in vehicle_details %}
+                         
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{vehicle}}</td>
+                            <td rowspan="1" class="contact-row">
+                              {{vehicle_name}}
+                            </td>
+                            <td colspan="1">  
+                                {{vehicle_number}}
+                            </td>    
+                            <td>
+                                {{vehicle_category}}
+                            </td>
+                            <td>
+                                <select class="select-pick" name="{{id}}" onchange="submitform()">
+                                    <option disabled selected>Current Status</option>
+                                    <option value="available" {% if status == available %}{{select}}{% endif %}> Available </option>
+                                    <option value="booked" {% if status == booked %}{{select}}{% endif %}> Booked </option>
+                                    <option value="out_of_order" {% if status == out_of_order %}{{select}}{% endif %}> Out Of Order </option>
+                                    <option value="under_service" {% if status == under_service %}{{select}}{% endif %}> Under Service </option>
+                                </select> 
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </form>   
+            </section>         
+    </body>
+</html>
+<script>
+    function myFunction() {
+
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1] ;
+        if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+        }
+    }
+    }
+    function submitform(){
+        document.forms["myform"].submit();
+    }
+</script>
