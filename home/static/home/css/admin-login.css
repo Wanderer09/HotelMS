@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+*{
+    font-family: 'Cabin', sans-serif;
+}
+.login{
+    display: flex;
+}
+.login-image{
+    width: 40%;
+    text-align: center;
+    align-self: center ;
+    padding: 120px 5%;
+}
+.login-image img{
+    bottom: 100px;
+}
+.login-image h1{
+    font-size: 38px;
+    margin-bottom: 60px;
+    color: #bf0019;
+}
+
+.login-page{
+    width: 60%;
+    text-align: center;
+    padding: 30px 5%;
+}
+.login-page span{
+    font-weight: 600;
+    font-size: 20px;
+    color: #bf0019;
+}
+.user-row{
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0px;
+}
+.select-box{
+    padding: 0px 15%;
+}
+
+.input-hidden{
+    position: absolute;
+    display: none;
+}
+.label{
+    position: relative;
+    padding: 5%;
+    width: 150px;
+}
+.label p{
+    margin-top: 15px;
+}
+input[type=radio]:checked + label>div {
+    border: 1px solid #fff;
+    box-shadow: 0 0 8px 2px rgb(118, 223, 108);
+  }
+.input-fields{
+    text-align: center;
+}
+.input-fields input{
+    width: 65%;
+    height: 6vh;
+    margin-bottom: 25px;
+    margin-top: 5px;
+    padding: 0px 2%;
+    box-shadow:0 0 8px rgb(118, 223, 108);
+    border: none;
+}
+.input-fields input:focus{
+    outline: none;
+    box-shadow:0 0 8px rgb(21, 255, 0);
+}
+.button{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+#forgot a{
+    font-size: 16px;
+    color: rgb(118, 223, 108);
+    padding: 15px 0px;
+    text-decoration: none;
+}
+.button button{
+    padding: 7px 25px;
+    background-color: transparent;
+    border: none;
+    color: rgb(95, 139, 91);
+    box-shadow:0 0 8px rgb(118, 223, 108);
+}
+.button button:hover{
+    box-shadow:0 0 8px rgb(21, 255, 0);
+    color: rgb(67, 172, 57);
+}
+.button button:focus{
+    outline: none;
+}

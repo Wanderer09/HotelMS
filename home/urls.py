@@ -24,6 +24,7 @@ urlpatterns = [
     path('pick/',views.pick,name="booking"),
     path('rent/',views.rental,name="booking"),
     path('driver/',views.driver,name="booking"),
-    path('car/',views.car,name="booking") 
+    path('car/',views.car,name="booking"),
+    path('admin-login/',views.admin,name="booking"),
 ]
 

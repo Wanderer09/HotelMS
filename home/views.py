@@ -117,5 +117,7 @@ def rental(request):
 def driver(request):
      return render(request,'home/driver.html') 
 def car(request):
-     return render(request,'home/car.html')                               
+     return render(request,'home/car.html') 
+def admin(request):
+     return render(request,'home/admin-login.html')                                    
 
