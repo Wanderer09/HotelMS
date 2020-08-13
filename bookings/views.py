@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .models import booking_guest_details,booking_room_details,booking
 from room.models import Room_type as Room_types
 from room.models import Room as Rooms
+from traveldesk.models import pick_drop
 from django.utils.translation import get_language
 from room.models import services 
 from django.contrib.auth.decorators import login_required
@@ -257,6 +258,18 @@ def booking4(request):
 		room.save()
 		bookings=booking(amount=total,booking_guest_details=guests,booking_room_details=room,user=user,order_id=ORDER_ID)
 		bookings.save()
+		booking_room_detail=booking_room_details.objects.all()
+		booking_guest_detail=booking_guest_details.objects.all()
+		temp=1
+		for i in booking_room_detail:
+			service_detail=jsonDec.decode(i.service_details)
+			for service,cost in service_detail:
+				if('Pick_Drop' in service):
+					guest=booking_guest_details.objects.get(id=i.booking_guest_details_id)
+					room=jsonDec.decode(i.Room_details)
+					for a,b,c,d,e,room_number in room:
+						for j in room_number:
+							pick_drop.objects.create(name=guest.fname+''+guest.lname,room_number=j,contact=guest.phonenumber,email=guest.email)
 		MERCHANT_KEY = settings.PAYTM_MERCHANT_KEY
 		MERCHANT_ID = settings.PAYTM_MERCHANT_ID
 		get_lang = "/" + get_language() if get_language() else ''

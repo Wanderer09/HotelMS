@@ -46,13 +46,13 @@ def index(request):
         Room.objects.create(room_number=310,room_type_id=6,room_status='available',room_floor=3)
     count_of_services=services.objects.all().count()
     if(count_of_services==0):
-        services.objects.create(service_type='Spa & Saloon',service_cost=1500,service_availability=True)
+        services.objects.create(service_type='Spa_Saloon',service_cost=1500,service_availability=True)
         services.objects.create(service_type='Gym',service_cost=1000,service_availability=True)
-        services.objects.create(service_type='private chef',service_cost=1200,service_availability=True)
+        services.objects.create(service_type='private_chef',service_cost=1200,service_availability=True)
         services.objects.create(service_type='laundary',service_cost=1600,service_availability=True)
-        services.objects.create(service_type='Pick & Drop',service_cost=2000,service_availability=True)
-        services.objects.create(service_type='Guided Tour',service_cost=4000,service_availability=False)
-        services.objects.create(service_type='Dry Cleaning',service_cost=3000,service_availability=True)
+        services.objects.create(service_type='Pick_Drop',service_cost=2000,service_availability=True)
+        services.objects.create(service_type='Guided_Tour',service_cost=4000,service_availability=False)
+        services.objects.create(service_type='Dry_Cleaning',service_cost=3000,service_availability=True)
     room_type=Room_type.objects.all()
     room_available_count=[]
     style=[]

@@ -59,7 +59,7 @@
                             <th class="room">Car Allocated</th>
                             <th class="guest">Vehicle Number</th>
                         </tr>
-                        {% for id,name,phn,status,alloted,number,registered_number in driver %}
+                        {% for id,name,phn,status,vehicle,number in driver %}
                         <tr>
                             <td>{{id}}</td>
                             <td>{{name}}</td>
@@ -74,21 +74,21 @@
                                 <option value="on_leave" {% if status == on_leave %}{{select}}{% endif %}> On leave </option>
                             </select>    
                             </td>    
-                            <td>
-                                <select class="select-pick" name="vehicle-{{id}}" onchange="submitform()">
+                            <td> {{vehicle}}
+                                <!-- <select class="select-pick" name="vehicle-{{id}}" onchange="submitform()">
                                     <option disabled selected>Vehicle Type</option>
                             {% for category in vehicle_type %}
                                     <option value="{{category}}" {% if alloted == category %}{{select}}{% endif %}>{{category}}</option>
                             {% endfor %}
-                                </select> 
+                                </select>  -->
                             </td>
-                            <td>
-                                <select class="select-pick" name="number-{{id}}" onchange="submitform()">
+                            <td> {{number}}
+                                <!-- <select class="select-pick" name="number-{{id}}" onchange="submitform()">
                                     <option disabled selected>Vehicle Number</option>
                                     {% for type in number %}
                                     <option value="{{type}}" {% if type == registered_number %}{{select}}{% endif %}>{{type}}</option>
                                     {% endfor %}
-                                </select> 
+                                </select> --> 
                             </td>
                         </tr>
                         {% endfor %}

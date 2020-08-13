@@ -73,7 +73,18 @@
                             {% endfor %}
                             </select>    
                         </div>  
+                        <select id="driving-type" name="driving">
+                            <option disabled selected id="one">Driving</option>
+                            <option value="driver">Driver</option>
+                            <option value="self">Self</option>
+                        </select> 
                         <div class="flex-input">
+                            <select id="v-number" class="select" name="driver">
+                                <option disabled selected id="one" value="None">Driver</option>
+                            {% for i,j in driver %}
+                                <option value="{{i}}" {% if number_vehicle %}{% if i == number_vehicle %}{{select}}{% endif %}{% endif %}>{{i}} {{j}}</option>
+                            {% endfor %}
+                            </select> 
                             <!-- <div class="box-input">
                               <label for="driver">Driver Alloted :</label>
                               <input class="driver-name" type="text" id="driver" name="driver" {% if driver %} value="{{driver}}" {% endif %}>
@@ -83,11 +94,6 @@
                               <input class="time" type="number"  id="hours" name="time"> 
                             </div>
                         </div>
-                        <select id="driving-type" name="driving">
-                            <option disabled selected id="one">Driving</option>
-                            <option value="driver">Driver</option>
-                            <option value="self">Self</option>
-                        </select> 
                         <input type="submit" class="btn-travel" >
                     </div>    
                 </div>    

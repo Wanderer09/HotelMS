@@ -13,9 +13,6 @@ class driver_details(models.Model):
 	driver_gender=models.CharField(max_length=10)
 	driver_age=models.PositiveIntegerField()
 	driver_status=models.CharField(max_length=20)
-	vehicle_alloted=models.CharField(max_length=20)
-	number=models.CharField(max_length=20)
-	vehicle_number=models.ForeignKey(vehicle,on_delete=models.CASCADE,to_field='id')
 class vehicle_bookings(models.Model):
 	guest_name=models.CharField(max_length=100)
 	room_number=models.CharField(max_length=100)
@@ -26,5 +23,17 @@ class vehicle_bookings(models.Model):
 	driver_alloted=models.CharField(max_length=100)
 	time_alloted=models.CharField(max_length=100)
 	made_on = models.DateTimeField(auto_now_add=True)
+class pick_drop(models.Model):
+	name=models.CharField(max_length=100)
+	room_number=models.CharField(max_length=100)
+	contact=models.CharField(max_length=100)
+	email=models.CharField(max_length=100,default='')
+	pick_location=models.CharField(max_length=100,default='')
+	drop_location=models.CharField(max_length=100,default='')
+	time=models.CharField(max_length=100,default='12:00')
+	driver=models.CharField(max_length=100,default='None')
+	vehicle_category=models.CharField(max_length=100,default='prime_car')
+	registered_number=models.CharField(max_length=100,default='None')
+	status=models.CharField(max_length=100,default='unclear')
 
 

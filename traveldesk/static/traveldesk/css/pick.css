@@ -129,3 +129,49 @@ td p{
     outline: none;
 }
 #myTable tr:nth-child(even){background-color: #fafafa;}
+
+
+
+/**Tooltip**/
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    margin-left: 5%;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    font-family: 'Cabin', sans-serif; 
+    font-size: 12px;
+  }
+  .tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+  .tooltip i{
+      color: #e32;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

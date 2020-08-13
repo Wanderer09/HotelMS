@@ -43,323 +43,70 @@
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </div>
                     <div class="row-update">
+                        <form action="" method="POST" id="myform"> 
+                            {% csrf_token %}
                         <input type="submit" class="update-btn" value="Update">
                     </div>        
                 </div>
             </section>   
-            <section class="drop">         
-                <form action="#" method="GET">    
+            <section class="drop">            
                     <table class="guest-list" width="100%" id="myTable">
                         <tr>
+                            <th>S.No</th>
                             <th>Guest Name</th>
                             <th>Room Number</th>
                             <th class="contact-info">Contact Info</th>
                             <th>Pickup Location</th>
                             <th class="room">Drop Location</th>
                             <th class="guest">Pickup Time</th>
-                            <th>Driver Alloted</th>
                             <th>Vehicle Alloted</th>
+                            <th>Driver Alloted</th>
+                            <th>Status</th>
                         </tr> 
+                        {% for num,name,numbe,phn,mail,pick,drop,time,categor,register,drive,status,list in data %}
                         <tr>
-                            <td>Prasad verma</td>
-                            <td>L-101</td>
+                            <td>{{num}}</td>
+                            <td>{{name}}</td>
+                            <td>{{numbe}}</td>
                             <td rowspan="1" class="contact-row">
-                                <p>abhir@gmail.com</p>
-                                <p>9876543210</p>
+                                <p>{{phn}}</p>
+                                <p>{{mail}}</p>
                             </td>
                             <td rowspan="1">
-                            <input type="text" class="pick-input">
+                            <input type="text" class="pick-input" name="pick-{{num}}" value="{{pick}}">
                             </td>
-                            <td> <input type="text" class="pick-input"> </td>    
-                            <td> <input type="time" class="pick-input"> </td>
-                            <td colspan="1">
-                            <select class="select-pick">
-                                <option>Ram Lal</option>
-                                <option>Sham Lal</option>
-                                <option>Raju Chowdhary</option>
-                                <option>Ramesh Mishra</option>
-                            </select>    
-                            </td>    
+                            <td> <input type="text" class="pick-input" name="drop-{{num}}" value="{{drop}}"> </td>    
+                            <td> <input type="time" class="pick-input" name="time-{{num}}" value="{{time}}"> </td> 
                             <td>
-                                <select class="select-pick">
-                                    <option> GJ 06 DB 7879</option>
-                                    <option> GJ 07 TR 2020</option>
-                                    <option>TS 09 UB 8902</option>
-                                    <option>KA 01 EH 4923</option>
-                                    <option>MH 12 RN 1289</option>
+                            <select class="select-pick" name="category-{{num}}" onchange="submitform()">
+                                {% for category in vehicle_category %}
+                                <option value="{{category}}" {% if  categor == category %}{{select}}{% endif %}>{{category}}</option>
+                                {% endfor %}
+
+                            </select>    
+                                <select class="select-pick" name="vehicle-{{num}}">
+                                    {% for number in list %}
+                                    <option value="{{number}}" {% if register == number %}{{select}}{% endif %}>{{number}}</option>
+                                    {% endfor %}
                                 </select> 
                             </td>
-                        </tr> 
-                        <tr>
-                            <td>Prasad verma</td>
-                            <td>L-101</td>
-                            <td rowspan="1" class="contact-row">
-                                <p>abhir@gmail.com</p>
-                                <p>9876543210</p>
-                            </td>
-                            <td rowspan="1">
-                            <input type="text" class="pick-input">
-                            </td>
-                            <td> <input type="text" class="pick-input"> </td>    
-                            <td> <input type="time" class="pick-input"> </td>
-                            <td colspan="1">
-                            <select class="select-pick">
-                                <option>Ram Lal</option>
-                                <option>Sham Lal</option>
-                                <option>Raju Chowdhary</option>
-                                <option>Ramesh Mishra</option>
+                             <td colspan="1">
+                            <select class="select-pick" name="driver-{{num}}">
+                                {% for id,driver in driver_list %}
+                                <option value="{{driver}}" {% if drive == driver %}{{select}}{% endif %}>{{id}} {{driver}}</option>
+                                 {% endfor %}
                             </select>    
-                            </td>    
-                            <td>
-                                <select class="select-pick">
-                                    <option> GJ 06 DB 7879</option>
-                                    <option> GJ 07 TR 2020</option>
-                                    <option>TS 09 UB 8902</option>
-                                    <option>KA 01 EH 4923</option>
-                                    <option>MH 12 RN 1289</option>
-                                </select> 
                             </td>
-                        </tr> 
-                        <tr>
-                            <td>Prasad verma</td>
-                            <td>L-101</td>
-                            <td rowspan="1" class="contact-row">
-                                <p>abhir@gmail.com</p>
-                                <p>9876543210</p>
-                            </td>
-                            <td rowspan="1">
-                            <input type="text" class="pick-input">
-                            </td>
-                            <td> <input type="text" class="pick-input"> </td>    
-                            <td> <input type="time" class="pick-input"> </td>
-                            <td colspan="1">
-                            <select class="select-pick">
-                                <option>Ram Lal</option>
-                                <option>Sham Lal</option>
-                                <option>Raju Chowdhary</option>
-                                <option>Ramesh Mishra</option>
+                             <td colspan="1">
+                            <select class="select-pick" name="status-{{num}}">
+                                {% for i in pick_drop_status %}
+                                <option value="{{i}}" {% if status == i %}{{select}}{% endif %}>{{i}}</option>
+                                 {% endfor %}
                             </select>    
-                            </td>    
-                            <td>
-                                <select class="select-pick">
-                                    <option> GJ 06 DB 7879</option>
-                                    <option> GJ 07 TR 2020</option>
-                                    <option>TS 09 UB 8902</option>
-                                    <option>KA 01 EH 4923</option>
-                                    <option>MH 12 RN 1289</option>
-                                </select> 
-                            </td>
+                            </td>   
                         </tr> 
-                        <tr>
-                            <td>Prasad verma</td>
-                            <td>L-101</td>
-                            <td rowspan="1" class="contact-row">
-                                <p>abhir@gmail.com</p>
-                                <p>9876543210</p>
-                            </td>
-                            <td rowspan="1">
-                            <input type="text" class="pick-input">
-                            </td>
-                            <td> <input type="text" class="pick-input"> </td>    
-                            <td> <input type="time" class="pick-input"> </td>
-                            <td colspan="1">
-                            <select class="select-pick">
-                                <option>Ram Lal</option>
-                                <option>Sham Lal</option>
-                                <option>Raju Chowdhary</option>
-                                <option>Ramesh Mishra</option>
-                            </select>    
-                            </td>    
-                            <td>
-                                <select class="select-pick">
-                                    <option> GJ 06 DB 7879</option>
-                                    <option> GJ 07 TR 2020</option>
-                                    <option>TS 09 UB 8902</option>
-                                    <option>KA 01 EH 4923</option>
-                                    <option>MH 12 RN 1289</option>
-                                </select> 
-                            </td>
-                        </tr> 
-                        <tr>
-                            <td>Prasad verma</td>
-                            <td>L-101</td>
-                            <td rowspan="1" class="contact-row">
-                                <p>abhir@gmail.com</p>
-                                <p>9876543210</p>
-                            </td>
-                            <td rowspan="1">
-                            <input type="text" class="pick-input">
-                            </td>
-                            <td> <input type="text" class="pick-input"> </td>    
-                            <td> <input type="time" class="pick-input"> </td>
-                            <td colspan="1">
-                            <select class="select-pick">
-                                <option>Ram Lal</option>
-                                <option>Sham Lal</option>
-                                <option>Raju Chowdhary</option>
-                                <option>Ramesh Mishra</option>
-                            </select>    
-                            </td>    
-                            <td>
-                                <select class="select-pick">
-                                    <option> GJ 06 DB 7879</option>
-                                    <option> GJ 07 TR 2020</option>
-                                    <option>TS 09 UB 8902</option>
-                                    <option>KA 01 EH 4923</option>
-                                    <option>MH 12 RN 1289</option>
-                                </select> 
-                            </td>
-                        </tr> 
-                        <tr>
-                            <td>Prasad verma</td>
-                            <td>L-101</td>
-                            <td rowspan="1" class="contact-row">
-                                <p>abhir@gmail.com</p>
-                                <p>9876543210</p>
-                            </td>
-                            <td rowspan="1">
-                            <input type="text" class="pick-input">
-                            </td>
-                            <td> <input type="text" class="pick-input"> </td>    
-                            <td> <input type="time" class="pick-input"> </td>
-                            <td colspan="1">
-                            <select class="select-pick">
-                                <option>Ram Lal</option>
-                                <option>Sham Lal</option>
-                                <option>Raju Chowdhary</option>
-                                <option>Ramesh Mishra</option>
-                            </select>    
-                            </td>    
-                            <td>
-                                <select class="select-pick">
-                                    <option> GJ 06 DB 7879</option>
-                                    <option> GJ 07 TR 2020</option>
-                                    <option>TS 09 UB 8902</option>
-                                    <option>KA 01 EH 4923</option>
-                                    <option>MH 12 RN 1289</option>
-                                </select> 
-                            </td>
-                        </tr> 
-                        <tr>
-                            <td>Prasad verma</td>
-                            <td>L-101</td>
-                            <td rowspan="1" class="contact-row">
-                                <p>abhir@gmail.com</p>
-                                <p>9876543210</p>
-                            </td>
-                            <td rowspan="1">
-                            <input type="text" class="pick-input">
-                            </td>
-                            <td> <input type="text" class="pick-input"> </td>    
-                            <td> <input type="time" class="pick-input"> </td>
-                            <td colspan="1">
-                            <select class="select-pick">
-                                <option>Ram Lal</option>
-                                <option>Sham Lal</option>
-                                <option>Raju Chowdhary</option>
-                                <option>Ramesh Mishra</option>
-                            </select>    
-                            </td>    
-                            <td>
-                                <select class="select-pick">
-                                    <option> GJ 06 DB 7879</option>
-                                    <option> GJ 07 TR 2020</option>
-                                    <option>TS 09 UB 8902</option>
-                                    <option>KA 01 EH 4923</option>
-                                    <option>MH 12 RN 1289</option>
-                                </select> 
-                            </td>
-                        </tr> 
-                        <tr>
-                            <td>Prasad verma</td>
-                            <td>L-101</td>
-                            <td rowspan="1" class="contact-row">
-                                <p>abhir@gmail.com</p>
-                                <p>9876543210</p>
-                            </td>
-                            <td rowspan="1">
-                            <input type="text" class="pick-input">
-                            </td>
-                            <td> <input type="text" class="pick-input"> </td>    
-                            <td> <input type="time" class="pick-input"> </td>
-                            <td colspan="1">
-                            <select class="select-pick">
-                                <option>Ram Lal</option>
-                                <option>Sham Lal</option>
-                                <option>Raju Chowdhary</option>
-                                <option>Ramesh Mishra</option>
-                            </select>    
-                            </td>    
-                            <td>
-                                <select class="select-pick">
-                                    <option> GJ 06 DB 7879</option>
-                                    <option> GJ 07 TR 2020</option>
-                                    <option>TS 09 UB 8902</option>
-                                    <option>KA 01 EH 4923</option>
-                                    <option>MH 12 RN 1289</option>
-                                </select> 
-                            </td>
-                        </tr> 
-                        <tr>
-                            <td>Prasad verma</td>
-                            <td>L-101</td>
-                            <td rowspan="1" class="contact-row">
-                                <p>abhir@gmail.com</p>
-                                <p>9876543210</p>
-                            </td>
-                            <td rowspan="1">
-                            <input type="text" class="pick-input">
-                            </td>
-                            <td> <input type="text" class="pick-input"> </td>    
-                            <td> <input type="time" class="pick-input"> </td>
-                            <td colspan="1">
-                            <select class="select-pick">
-                                <option>Ram Lal</option>
-                                <option>Sham Lal</option>
-                                <option>Raju Chowdhary</option>
-                                <option>Ramesh Mishra</option>
-                            </select>    
-                            </td>    
-                            <td>
-                                <select class="select-pick">
-                                    <option> GJ 06 DB 7879</option>
-                                    <option> GJ 07 TR 2020</option>
-                                    <option>TS 09 UB 8902</option>
-                                    <option>KA 01 EH 4923</option>
-                                    <option>MH 12 RN 1289</option>
-                                </select> 
-                            </td>
-                        </tr> 
-                        <tr>
-                            <td>Prasad verma</td>
-                            <td>L-101</td>
-                            <td rowspan="1" class="contact-row">
-                                <p>abhir@gmail.com</p>
-                                <p>9876543210</p>
-                            </td>
-                            <td rowspan="1">
-                            <input type="text" class="pick-input">
-                            </td>
-                            <td> <input type="text" class="pick-input"> </td>    
-                            <td> <input type="time" class="pick-input"> </td>
-                            <td colspan="1">
-                            <select class="select-pick">
-                                <option>Ram Lal</option>
-                                <option>Sham Lal</option>
-                                <option>Raju Chowdhary</option>
-                                <option>Ramesh Mishra</option>
-                            </select>    
-                            </td>    
-                            <td>
-                                <select class="select-pick">
-                                    <option> GJ 06 DB 7879</option>
-                                    <option> GJ 07 TR 2020</option>
-                                    <option>TS 09 UB 8902</option>
-                                    <option>KA 01 EH 4923</option>
-                                    <option>MH 12 RN 1289</option>
-                                </select> 
-                            </td>
-                        </tr> 
+                        {% endfor %}
+                        
                 </form>   
             </section>         
     </body>
@@ -385,5 +132,8 @@
         }
         }
     }
+    }
+    function submitform(){
+        document.forms["myform"].submit();
     }
 </script>
