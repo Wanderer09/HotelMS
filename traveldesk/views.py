@@ -83,13 +83,16 @@ def traveldesk_home(request):
 		time=request.POST.get('time')
 		driving=request.POST.get('driving')
 		driver_alloted=request.POST.get('driver')
-		if(name!='' and room_number!='' and type_vehicle!=None and category_vehicle!=None and number_vehicle!=None and time!='' and driving!=None and driver_alloted!=None):
-			driver_status=driver_details.objects.get(id=driver_alloted)
+		if(name!='' and room_number!='' and type_vehicle!=None and category_vehicle!=None and number_vehicle!=None and time!='' and driving!=None):
+			if(driving!='self'):
+				driver_status=driver_details.objects.get(id=driver_alloted)
+				driver_status.driver_status='booked'
+				driver_status.save(update_fields=['driver_status'])
+			else:
+				driver_alloted='None'
 			vehicle_status=vehicle.objects.get(registered_number=number_vehicle)
 			vehicle_status.vehicle_status='booked'
-			driver_status.driver_status='booked'
 			vehicle_status.save(update_fields=['vehicle_status'])
-			driver_status.save(update_fields=['driver_status'])
 			vehicle_bookings.objects.create(guest_name=name,room_number=room_number,vehicle=type_vehicle,vehicle_type=category_vehicle,vehicle_number=number_vehicle,driver_type=driving,driver_alloted=driver_alloted,time_alloted=time)
 			return redirect('rent',permanent=True)
 		if(name!='' and room_number!='' and type_vehicle!=None and category_vehicle!=None and number_vehicle!=None):
@@ -160,6 +163,24 @@ def traveldesk_home(request):
 			data['category']=vehicle_category
 			data['driver']=driver
 			return render(request,'traveldesk/travel.html',data)
+		# if(name=='' and room_number==''):
+		# 	data['error_name']=1
+		# 	data['error_room']=1
+		# 	data['hidden']='hidden'
+		# 	data['visible']='visible'
+		# 	return render(request,'traveldesk/travel.html',data)
+		# if(name==''):
+		# 	data['error_name']=1
+		# 	data['room_number']=room_number
+		# 	data['hidden']='hidden'
+		# 	data['visible']='visible'
+		# 	return render(request,'traveldesk/travel.html',data)
+		# if(room_number==''):
+		# 	data['error_room']=1
+		# 	data['name']=name
+		# 	data['hidden']='hidden'
+		# 	data['visible']='visible'
+		# 	return render(request,'traveldesk/travel.html',data)
 	mydata={}
 	mydata['type']=vehicle_type
 	mydata['number']=vehicle_number

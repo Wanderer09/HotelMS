@@ -36,7 +36,7 @@
                 </div>
             </header>    
             <section class="booking-form">
-                <form action="" method="POST" id="myform">
+                <form action="" method="POST" id="myform"  onsubmit="return validate()">
                     {% csrf_token %}
                 <div class="form-display">
                     <div class="image-travel">
@@ -45,41 +45,68 @@
                     <div class="form">
                         <div class="flex-input">
                           <div class="box-input">
-                            <label for="name">Guest Name :</label>
+                            <label for="name">Guest Name :
+                            <span id="error-name" style="visibility: hidden;color:red;">
+                                <i class="fas fa-exclamation"></i>
+                                <span>Enter Guest name</span>  
+                            </span>
+                            </label>
                             <input type='text' id="name" autocomplete="off" name="name" {% if name %} value="{{name}}" {% endif %}>
                           </div>
                           <div class="box-input">
-                            <label for="room-no">Room Number :</label>
+                            <label for="room-no">Room Number :
+                            <span id="error-room" style="visibility: hidden;color:red;">
+                                <i class="fas fa-exclamation"></i>
+                                <span>Enter Room number</span>  
+                            </span>
+                            </label>
                             <input type="text" id="room-no" name="room_number" {% if room_number %} value="{{room_number}}" {% endif %}>
                           </div>
                         </div>
+                        <span id="error-vehicle" style="visibility: hidden;color:red;">
+                                <i class="fas fa-exclamation"></i>
+                                <span>Please Select Vehicle</span>  
+                            </span>
                         <select id="vehicle" name="type" onchange="submitform()">
-                            <option disabled selected id="one">Rent a .. ?</option>
+                            <option disabled selected id="one" value="None">Vehicle : 
+                            </option>
                             {% for i in type %}
                             <option value="{{i}}" {% if type_vehicle %}{% if i == type_vehicle %}{{select}}{% endif %}{% endif %}>{{i}}</option>
                             {% endfor %}
-                        </select>  
+                        </select>
+                         <span id="error-number" style="visibility: hidden;color:red;">
+                                <i class="fas fa-exclamation"></i>
+                                <span>Please Select Car Number</span>  
+                         </span> 
                         <div class="flex-input">      
-                            <select id="car-type" class="select" name="category" onchange="submitform()">
-                                <option disabled selected id="one">Vehicle Type</option>
+                            <select id="car-type" class="select" name="category" onchange="submitform2()">
+                                <option disabled selected id="one" value="None">Vehicle Type</option>
                             {% for i in category %}
                                 <option value="{{i}}" {% if category_vehicle %}{% if i == category_vehicle %}{{select}}{% endif %}{% endif %}>{{i}}</option>
                             {% endfor %}
                             </select>        
-                            <select id="v-number" class="select" name="number" onchange="submitform()">
-                                <option disabled selected id="one">Vehicle Number</option>
+                            <select id="v-number" class="select" name="number" onchange="submitform3()">
+                                <option disabled selected id="one" value="None">Vehicle Number</option>
                             {% for i in number %}
                                 <option value="{{i}}" {% if number_vehicle %}{% if i == number_vehicle %}{{select}}{% endif %}{% endif %}>{{i}}</option>
                             {% endfor %}
                             </select>    
-                        </div>  
-                        <select id="driving-type" name="driving">
-                            <option disabled selected id="one">Driving</option>
+                        </div> 
+                        <span id="error-driving" style="visibility: hidden;color:red;">
+                                <i class="fas fa-exclamation"></i>
+                                <span>Please Select Driving type</span>  
+                         </span>  
+                        <select id="driving-type" name="driving" onchange="drive()">
+                            <option disabled selected id="one" value="None">Driving</option>
                             <option value="driver">Driver</option>
                             <option value="self">Self</option>
-                        </select> 
+                        </select>
+                        <span id="error-driver" style="visibility: hidden;color:red;">
+                                <i class="fas fa-exclamation"></i>
+                                <span>Please Select Driver</span>  
+                         </span> 
                         <div class="flex-input">
-                            <select id="v-number" class="select" name="driver">
+                            <select id="driver" class="select" name="driver" style="visibility:visible;">
                                 <option disabled selected id="one" value="None">Driver</option>
                             {% for i,j in driver %}
                                 <option value="{{i}}" {% if number_vehicle %}{% if i == number_vehicle %}{{select}}{% endif %}{% endif %}>{{i}} {{j}}</option>
@@ -89,12 +116,16 @@
                               <label for="driver">Driver Alloted :</label>
                               <input class="driver-name" type="text" id="driver" name="driver" {% if driver %} value="{{driver}}" {% endif %}>
                             </div> -->
+                            <span id="error-time" style="visibility: hidden;color:red;">
+                                <i class="fas fa-exclamation"></i>
+                                <span>Please Select Driver</span>  
+                         </span>
                             <div class="box-input">
                               <label for="hours">Alloted Time (Hrs) :</label>
                               <input class="time" type="number"  id="hours" name="time"> 
                             </div>
                         </div>
-                        <input type="submit" class="btn-travel" >
+                        <input type="submit" class="btn-travel">
                     </div>    
                 </div>    
                 </form>
@@ -102,7 +133,187 @@
         </body>
 </html>
 <script>
+    function validate()
+    {
+    var guest=document.getElementById('name').value
+    var room=document.getElementById('room-no').value
+    var type=document.getElementById('vehicle').value
+    var category=document.getElementById('car-type').value
+    var number=document.getElementById('v-number').value
+    var driving=document.getElementById('driving-type').value
+    var driver=document.getElementById('driver').value
+    var time=document.getElementById('hours').value
+    if(guest==''){
+    document.getElementById('error-name').style.visibility='visible';
+    return false;
+    }
+    else if(room==''){
+    document.getElementById('error-room').style.visibility='visible';
+    return false;
+    }
+     else if(type=='None'){
+    document.getElementById('error-vehicle').style.visibility='visible';
+    return false;
+    }
+    else if(category=='None'){
+    document.getElementById('error-category').style.visibility='visible';
+    return false;
+    }
+    else if(number=='None'){
+    document.getElementById('error-number').style.visibility='visible';
+    return false;
+    }
+    else if(driving=='None'){
+    document.getElementById('error-driving').style.visibility='visible';
+    return false;
+    }
+    else if(driving=='driver'){
+        if(driver=='None')
+        {
+         document.getElementById('error-driver').style.visibility='visible';
+         return false;
+        }
+    }
+    else if(time==''){
+         document.getElementById('error-time').style.visibility='visible';
+         return false;
+    }
+    else{
+        return true;
+    }
+    }
+
+    function drive(){
+    var driving=document.getElementById('driving-type').value
+    if(driving=='driver'){
+        document.getElementById('driver').style.visibility = "visible";
+        document.getElementById("driver").selectedIndex = 0;
+        return true;
+     }
+    else{
+        document.getElementById('driver').style.visibility = "hidden";
+        document.getElementById("driver").selectedIndex = 0;
+        return true;
+    }
+    }
      function submitform(){
+      var guest=document.getElementById('name').value
+      var room=document.getElementById('room-no').value
+      var type=document.getElementById('vehicle').value
+
+      if(guest=='' & room=='')
+      {
+        document.getElementById('error-name').style.visibility = "visible";
+        document.getElementById('error-room').style.visibility = "visible";
+        document.getElementById('error-vehicle').style.visibility = "hidden";
+        document.getElementById("vehicle").selectedIndex = 0;
+        document.getElementById("car-type").selectedIndex = 0;
+        document.getElementById("v-number").selectedIndex = 0;    
+        return false;  
+      }
+      else if(guest==''){
+        document.getElementById('error-name').style.visibility = "visible";
+        document.getElementById('error-vehicle').style.visibility = "hidden";
+        document.getElementById("vehicle").selectedIndex = 0;
+        document.getElementById("car-type").selectedIndex = 0;
+        document.getElementById("v-number").selectedIndex = 0;    
+        return false;
+      }
+      else if(room=='')
+      {
+        document.getElementById('error-room').style.visibility = "visible";
+        document.getElementById('error-vehicle').style.visibility = "hidden";
+        document.getElementById("vehicle").selectedIndex = 0;   
+        document.getElementById("car-type").selectedIndex = 0;
+        document.getElementById("v-number").selectedIndex = 0;    
+        return false;    
+      }    
+      else
+      {
         document.forms["myform"].submit();
+      }
+    }
+    function submitform2(){
+      var guest=document.getElementById('name').value
+      var room=document.getElementById('room-no').value
+      var type=document.getElementById('vehicle').value
+
+      if(guest=='' & room=='' & type=='None')
+      {
+        document.getElementById('error-name').style.visibility = "visible";
+        document.getElementById('error-room').style.visibility = "visible";
+        document.getElementById('error-vehicle').style.visibility = "visible";
+        document.getElementById('error-category').style.visibility = "hidden";
+        document.getElementById("car-type").selectedIndex = 0;  
+      }
+      else if(guest=='' & type=='None')
+      {
+        document.getElementById('error-name').style.visibility = "visible";
+        document.getElementById('error-vehicle').style.visibility = "visible";
+        document.getElementById('error-category').style.visibility = "hidden";
+        document.getElementById("car-type").selectedIndex = 0;  
+      }
+      else if(room=='' & type=='None')
+      {
+        document.getElementById('error-room').style.visibility = "visible";
+        document.getElementById('error-vehicle').style.visibility = "visible";
+        document.getElementById('error-category').style.visibility = "hidden";
+        document.getElementById("car-type").selectedIndex = 0;  
+      }
+      else if(type=='None')
+      {
+        document.getElementById('error-vehicle').style.visibility = "visible";
+        document.getElementById('error-category').style.visibility = "hidden";
+        document.getElementById("car-type").selectedIndex = 0;  
+      }      
+      else
+      {
+        document.forms["myform"].submit();
+      }
+    }
+    function submitform3(){
+      var guest=document.getElementById('name').value
+      var room=document.getElementById('room-no').value
+      var type=document.getElementById('vehicle').value
+      var category=document.getElementById('car-type').value
+      var number=document.getElementById('v-number').value
+      if(guest=='' & room=='' & type=='None' & category=='None')
+      {
+        document.getElementById('error-name').style.visibility = "visible";
+        document.getElementById('error-room').style.visibility = "visible";
+        document.getElementById('error-vehicle').style.visibility = "visible";
+        document.getElementById('error-category').style.visibility = "visible";
+        document.getElementById("v-number").selectedIndex = 0;  
+      }
+      else if(type=='None' & category=='None' & guest=='')
+      {
+        document.getElementById('error-room').style.visibility = "visible";
+        document.getElementById('error-vehicle').style.visibility = "visible";
+        document.getElementById('error-category').style.visibility = "visible";
+        document.getElementById("v-number").selectedIndex = 0;  
+      }
+      else if(room=='' & type=='None' & category=='None')
+      {
+        document.getElementById('error-vehicle').style.visibility = "visible";
+        document.getElementById('error-room').style.visibility = "visible";
+        document.getElementById('error-category').style.visibility = "visible";
+        document.getElementById("v-number").selectedIndex = 0;  
+      }
+      else if(type=='None' & category=='None')
+      {
+        document.getElementById('error-vehicle').style.visibility = "visible";
+        document.getElementById('error-room').style.visibility = "visible";
+        document.getElementById('error-category').style.visibility = "visible";
+        document.getElementById("v-number").selectedIndex = 0;  
+      }
+      else if(category=='None')
+      {
+        document.getElementById('error-category').style.visibility = "visible";
+        document.getElementById("v-number").selectedIndex = 0;  
+      }      
+      else
+      {
+        document.forms["myform"].submit();
+      }
     }
 </script>
