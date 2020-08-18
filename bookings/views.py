@@ -336,5 +336,4 @@ def response(request):
 			print('order was not successful because' + response_dict['RESPMSG'])
 	return render(request, 'bookings/paymentstatus.html', {'response': response_dict})
 	
-	#return HttpResponse("done")
-	#pass
+	
