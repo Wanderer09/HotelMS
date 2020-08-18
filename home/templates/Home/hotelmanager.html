@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static '/home/css/hotelmanager.css' %}">
+        <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        <title>Hotel Manager</title>
+    </head>
+    <body style="background-color: #f5f6fa;">
+        <header class="sidebar-manger">
+          <div class="manager-panel">
+                <div class="sidebar-manager">
+                    <div class="img">
+                    <img src="{% static '/home/img/logoimg.png'%} " height="70px" width="200px">
+                    </div>
+                    <div class="btn">
+                    <button class="employee-btn">Add Employee <i class="fas fa-user-plus"></i></button>
+                    </div>
+                    <div class="manager-list">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-bed"></i>
+                                <span>Rooms</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-user-friends"></i>
+                                <span>Guests</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               <div class="links">
+                                <i class="far fa-edit"></i>
+                                <span>Bookings</span>
+                               </div> 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>Revenue</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-file-invoice"></i>
+                                <span>Expenditure</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-utensils"></i>
+                                <span>Restaurant</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               <div class="links">
+                                <i class="fas fa-smile"></i>
+                                <span>Reviews</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               <div class="links">
+                                <i class="fas fa-male"></i>
+                                <span>Employees</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    </div>                                    
+                </div> 
+                <div class="user-profile">
+                    <div class="user-name">
+                        <i class="fas fa-user-tie"></i></span>
+                        <span>Rahul Singh</span>
+                    </div>        
+                </div>    
+           </div>
+        </header>  
+        <section class="info-container">
+            <div class="information">
+                <div class="block-row-one">
+                    <div class="background-icon">
+                     <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="content">
+                        <p id="number">1,000</p>
+                        <p>Total Rooms</p>
+                    </div>    
+                </div> 
+                <div class="block-row-one">
+                    <div class="background-icon icon-one">
+                        <i class="far fa-calendar-check"></i>
+                    </div>
+                    <div class="content">
+                        <p id="number">500</p>
+                        <p>Rooms Booked</p>
+                    </div>    
+                </div> 
+                <div class="block-row-one">
+                    <div class="background-icon icon-two">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="content">
+                        <p id="number">2,500</p>
+                        <p>Guest Stayed</p>
+                    </div>    
+                </div> 
+                <div class="block-row-one">
+                    <div class="background-icon icon-three">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="content">
+                        <p id="number">50%</p>
+                        <p>Occupancy Rate</p>
+                    </div>    
+                </div>    
+            </div> 
+            <div class="figures"> 
+                <div id="chartContainer" style="height: 250px; width: 67%;"> </div> 
+                <div id="chart" style="height: 250px; width: 22%;"></div>
+            </div>
+            <div class="occupancy">
+                <div id="chart-line" style="height: 240px; width: 56%;"></div>
+                <div id="chart-explode" style="height: 240px; width: 33%;">
+            </div>
+        </section>      
+    </body>
+</html>
+<script src="{% static '/home/js/chart.js' %}"> </script>  
