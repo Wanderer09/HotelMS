@@ -98,8 +98,9 @@
                    <th>Rooms Selected</th>
                    <th>Alloted</th>
                    <th class="select-input">Action</th>
+                   <th class="select-input">Booking Status</th>
                 </tr>
-                {% for name,country,town,mail,phone,in_date,out_date,room_count,guest_count,id_proof,room,number,status in guest_details %}
+                {% for i,name,country,town,mail,phone,in_date,out_date,room_count,guest_count,id_proof,room,number,status,bstatus in guest_details %}
                 <tr>
                    <td>{{name}}</td>
                    <td><p>{{country}}</p>
@@ -128,6 +129,15 @@
                          <option value="newly_checked_in" {% if status == newly_checked_in %}{{select}}{% endif %}>Checked-In</option>
                          <option value="checked_out" {% if status == available %}{{select}}{% endif %}>Checked-Out</option>          
                          <option value="booked" {% if status == booked %}{{select}}{% endif %}>Booked</option>          
+                       </select>    
+                   </td>
+                   <td class="input-action">
+                       <select id="guest-option" name="{{i}}-{{number}}">
+                         <option value="unclear" {% if bstatus == unclear %}{{select}}{% endif %}>Unclear</option>
+                         <option value="booked" {% if bstatus == booked %}{{select}}{% endif %}>Booked</option>          
+                         <option value="occupied" {% if bstatus == occupied %}{{select}}{% endif %}>Occupied</option>          
+                         <option value="cancelled" {% if bstatus == cancelled %}{{select}}{% endif %}>Cancelled</option>          
+                         <option value="closed" {% if bstatus == closed %}{{select}}{% endif %}>Closed</option>          
                        </select>    
                    </td>   
                 </tr>

@@ -30,7 +30,7 @@ class pick_drop(models.Model):
 	email=models.CharField(max_length=100,default='')
 	pick_location=models.CharField(max_length=100,default='')
 	drop_location=models.CharField(max_length=100,default='')
-	time=models.CharField(max_length=100,default='12:00')
+	time=models.CharField(max_length=100,default='')
 	driver=models.CharField(max_length=100,default='None')
 	vehicle_category=models.CharField(max_length=100,default='prime_car')
 	registered_number=models.CharField(max_length=100,default='None')

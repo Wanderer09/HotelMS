@@ -36,8 +36,10 @@ class booking(models.Model):
 	amount = models.IntegerField()
 	booking_guest_details=models.ForeignKey(booking_guest_details,on_delete=models.CASCADE)
 	booking_room_details=models.ForeignKey(booking_room_details,on_delete=models.CASCADE)
+	room=models.CharField(max_length=100)
 	order_id=models.CharField(max_length=100,default='')
 	payment_status=models.CharField(max_length=30,blank=False,default='')
+	status=models.CharField(max_length=30)
 
 
 

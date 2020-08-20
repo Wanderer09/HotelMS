@@ -248,7 +248,7 @@
                         </div>-->    
                         <div class="input-select-method">
                             <div class="input-options">
-                                <input type="radio" name="radio-box" value='online' class="check-option" onclick="details(2)">
+                                <input type="radio" name="radio-box" value='online' class="check-option">
                                 <span class="payment-icons paytm">
                                     <span>Pay Now</span>
                                     <i class="fas fa-wallet"></i>
@@ -270,6 +270,25 @@
                     </form>     
                 </section>    
             </div>
+            
+            <form method="POST" action="#"> {% csrf_token %} {#Replace this  withyour website's success callback URL#}
+            <script src="https://checkout.razorpay.com/v1/checkout.js"    
+            data-key="YOUR_KEY_ID"    
+            data-amount="50000"     
+            data-currency="INR"    
+            data-order_id="{{order_id}}"    
+            data-buttontext="Pay with Razorpay"    
+            data-name="Acme Corp"    
+            data-description="Test transaction"    
+            data-image="anylink"    
+            data-prefill.name="{{name}}"    
+            data-prefill.email="{{email}}"   
+            data-prefill.contact="{{phone}}"    
+            data-theme.color="#F37254">
+         </script>
+         <input type="hidden" custom="Hidden Element" name="hidden">
+     </form>
+            
             <script src="{% static '/bookings/js/booking4.js' %}"> </script>                  
         </body>
     </html>

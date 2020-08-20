@@ -22,7 +22,7 @@ room_status_choices=[
 class Room(models.Model):
 	room_number=models.PositiveIntegerField(primary_key=True);
 	room_type=models.ForeignKey(Room_type,on_delete=models.CASCADE,to_field='id');
-	room_status=models.CharField(max_length=30,choices=room_status_choices,default='a');
+	room_status=models.CharField(max_length=30,choices=room_status_choices,default='available');
 	room_floor=models.PositiveIntegerField();
 	housekeeping_status=models.CharField(max_length=100,default='room_cleaned')
 	issue=models.CharField(max_length=100,default='no_issues')
