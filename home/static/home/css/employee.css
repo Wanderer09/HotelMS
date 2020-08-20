@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+{
+    font-family: 'Montserrat', sans-serif ;
+}
+  {
+    font-family: 'Lato', sans-serif;
+}
+@font-face{
+    font-family: neutra;
+    src: url(/static/home/fonts/neutra-text-font/NeutraText-Bold.otf);
+}
+*{
+    font-family: 'Cabin', sans-serif;
+}
+.work-info{
+    padding: 30px 5%;
+}
+.add-form{
+    margin-top: 60px;
+}
+.add-heading h2{
+    /* font-family: neutra; */
+    font-size: 30px;
+}
+.add-heading::after{
+    display: block;
+    width: 80px;
+    height: 3px;
+    content: ' ';
+    margin-top: 7px;
+    background-color: #8e7037;
+}
+.personal-info h3{
+    margin: 30px 15px;
+    font-size:22px;
+    font-weight: 700;
+}
+.input-row-employee{
+    display: flex;
+}
+.personal-info{
+    padding: 0px 5%;
+}
+.input-class{
+    width: 50%;
+    padding: 0px 2%;
+    margin-bottom: 20px;
+}
+.input-class label p{
+    margin-bottom: 8px;
+}
+.center{
+    width: 50%;
+}
+.input-add{
+    width: 90%;
+    padding: 10px 2%;
+}
+.input-row{
+    padding-left: 2%;
+    margin-bottom: 20px;
+}
+.input-row textarea{
+    resize: none;
+    width: 93%;
+    padding: 8px 1% ;
+}
+.input-row label p{
+    margin-bottom: 5px ;
+}
+.country select{
+    width: 93%;
+}
+.birth{
+    display: flex;
+}
+.dob {
+    width: 100%;
+    padding-right: 3%;
+}
+.birth-day{
+    padding: 8px 3%;
+}
+.input-three-fields{
+    width: 98%;
+}
+.job{
+    padding: 0px 5%;
+}
+.job h3{
+    padding: 0px 2%;
+    font-size: 22px;
+    margin: 30px 0px;
+    
+}
+.input-two-fields{
+    width: 97%;
+}
+.signup{
+    padding: 0px 5%;
+}
+.signup h3{
+    padding: 0px 2%;
+    font-size: 22px;
+    margin: 30px 0px;
+}
+.emp-btn{
+    padding: 25px 7%;
+}
+.btn-employee{
+    padding: 8px 20px;
+    background-color: #713bdb;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.btn-employee:focus{
+    outline: none;
+}
+.input-add:focus{
+    outline: none;
+}
+.input-add{
+    /* border: 1px solid #b79cec; */
+    border: none;
+    box-shadow: 0 0 4px 1px #D4C4F4;
+    border-radius: 5px;
+}
+#doc{
+    border: none;
+    box-shadow: none;
+}
+.birth-day{
+    border: none;
+    box-shadow: 0 0 4px 1px #D4C4F4;
+    border-radius: 5px;
+}

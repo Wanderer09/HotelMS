@@ -121,5 +121,7 @@ def car(request):
 def admin(request):
      return render(request,'home/admin-login.html')        
 def hotel(request):
-     return render(request,'home/hotelmanager.html')                                 
+     return render(request,'home/hotelmanager.html') 
+def add(request):
+     return render(request,'home/employee.html')                                       
 
