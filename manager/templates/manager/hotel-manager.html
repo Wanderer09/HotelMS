@@ -1,0 +1,324 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static '/manager/css/hotel-manager.css' %}">
+        <script src="https://kit.fontawesome.com/d8f6b964b3.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        <title>Hotel Manager</title>
+    </head>
+    <body style="background-color: #f5f6fa;">
+        <header class="sidebar-manger">
+          <div class="manager-panel">
+                <div class="sidebar-manager">
+                    <div class="img">
+                    <img src="{% static '/manager/img/logoimg.png'%} " height="70px" width="200px">
+                    </div>
+                    <div class="btn">
+                    <button class="employee-btn">Add Employee <i class="fas fa-user-plus"></i></button>
+                    </div>
+                    <div class="manager-list">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-bed"></i>
+                                <span>Rooms</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-user-friends"></i>
+                                <span>Guests</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               <div class="links">
+                                <i class="far fa-edit"></i>
+                                <span>Bookings</span>
+                               </div> 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>Revenue</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-file-invoice"></i>
+                                <span>Expenditure</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="links">
+                                <i class="fas fa-utensils"></i>
+                                <span>Restaurant</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               <div class="links">
+                                <i class="fas fa-smile"></i>
+                                <span>Reviews</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               <div class="links">
+                                <i class="fas fa-male"></i>
+                                <span>Employees</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    </div>                                    
+                </div> 
+                <div class="user-profile">
+                    <div class="user-name">
+                        <i class="fas fa-user-tie"></i></span>
+                        <span>Rahul Singh</span>
+                    </div>        
+                </div>    
+           </div>
+        </header>  
+        <section class="info-container">
+            <div class="information">
+                <div class="block-row-one">
+                    <div class="background-icon">
+                     <i class="fas fa-bed"></i>
+                    </div>
+                    <div class="content">
+                        <p id="number">{{rooms_count}}</p>
+                        <p>Total Rooms</p>
+                    </div>    
+                </div> 
+                <div class="block-row-one">
+                    <div class="background-icon icon-one">
+                        <i class="far fa-calendar-check"></i>
+                    </div>
+                    <div class="content">
+                        <p id="number">{{booked_rooms_count}}</p>
+                        <p>Rooms Booked</p>
+                    </div>    
+                </div> 
+                <div class="block-row-one">
+                    <div class="background-icon icon-two">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="content">
+                        <p id="number">{{guests_count}}</p>
+                        <p>Guest Stayed</p>
+                    </div>    
+                </div> 
+                <div class="block-row-one">
+                    <div class="background-icon icon-three">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <div class="content">
+                        <p id="number">50%</p>
+                        <p>Occupancy Rate</p>
+                    </div>    
+                </div>    
+            </div>
+            <!-- <div class="figures"> -->
+                <!-- <div>{{plt|safe}}</div> -->
+                
+            <!-- </div>  -->
+            <div class="figures"> 
+                <div id="chartContainer" style="height: 250px; width: 67%;"> </div> 
+                <div id="chart" style="height: 250px; width: 22%;"></div>
+            </div>
+            <div class="occupancy">
+                <div id="chart-line" style="height: 240px; width: 56%;"></div>
+                <div id="chart-explode" style="height: 240px; width: 33%;">
+            </div>
+        </section>      
+    </body>
+</html>
+<!-- <script src="{% static '/manager/js/hotel.js' %}"> </script>   -->
+<script>
+    window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer", {    
+      theme: "light2",          
+      title:{
+        text: "Rooms Status"  ,
+        fontFamily:'Cabin',
+        horizontalAlign:'center',
+        fontSize:16,
+        padding:13,
+        fontWeight:700,
+
+      },   
+      axisY:{
+        gridColor: "#d8d8de",
+        labelFontColor: "#a0a0a0",
+        labelFontFamily: "Cabin",
+      },
+      axisX:{
+        labelFontFamily: "Cabin",
+        labelFontColor: "#a0a0a0",
+      },
+      dataPointMaxWidth: 15,
+      data: [  //array of dataSeries     
+      { //dataSeries - first quarter
+   /*** Change type "column" to "bar", "area", "line" or "pie"***/        
+       type: "column",
+       name: "Booked",
+       toolTipContent: "{y} Booked",
+       color:"#713bdb",
+       dataPoints: [
+       { label: "Week-1", y: {{week1_booked}} },
+       { label: "Week-2", y: {{week2_booked}} },
+       { label: "Week-3", y: {{week3_booked}} },                                    
+       { label: "Week-4", y: {{week4_booked}} },
+       ]
+       
+     },
+     { //dataSeries - second quarter
+
+      type: "column",
+      name: "Cancelled",
+      color:"#33d695",
+      toolTipContent: "{y} Cancelled",             
+      dataPoints: [
+      { label: "Week-1", y: {{week1_cancelled}} },
+      { label: "Week-2", y: {{week2_cancelled}} },
+      { label: "Week-3", y: {{week3_cancelled}} },                                    
+      { label: "Week-4", y: {{week4_cancelled}} },
+      ]
+    },
+    ]
+  });
+  var chartnew = new CanvasJS.Chart("chart",
+    {
+      title:{
+        text:"Monthly Report",
+        fontFamily: "Cabin",
+        fontWeight: "700",
+        fontSize:16,
+        padding:10,
+      },
+      legend: {
+        reversed: true,
+        horizontalAlign: "center",
+        verticalAlign:"top",
+      },   
+      data: [
+      {
+       type: "doughnut",
+       innerRadius: "86%",
+       toolTipContent: "{y} %",
+       indexLabel: "{x}",
+       showInLegend: true,
+       dataPoints: [
+       { label:"Cancelled", y: {{cancelled_percentage}} , color:"#fe8b57",legendText:"Cancelled"},
+       { label:"Booked" ,y: {{booked_percentage}} , color:"#32d69f",legendText:"Booked"},
+       { label:"Vaccant", y: {{vaccant_percentage}} , color:"#713bdb",legendText:"Vaccant"}
+       ]
+     }
+     ]
+   });
+   var chartLine = new CanvasJS.Chart("chart-line",
+        {
+      theme: "light2", 
+            title:{
+        text: "Occupancy Rate %",
+        fontFamily:'Cabin',
+        horizontalAlign:'center',
+        fontSize:16,
+        padding:13,
+        fontWeight:700,
+            },    
+      axisY:{
+        gridColor: "#d8d8de",
+        labelFontColor: "#a0a0a0",
+        labelFontFamily: "Cabin",
+      },
+            data: [
+            {        
+                toolTipContent: "{y} %",
+                type: "splineArea",
+        markerSize: 0,
+        color: "#fe9b6f",
+        markerBorderColor:"#feab85",
+        lineThickness:3,
+        fillOpacity:.1,
+                dataPoints: [
+          { label: "Week-1", y: {{week1_percentage}} },
+          { label: "Week-2", y: {{week2_percentage}} },
+          { label: "Week-3", y: {{week3_percentage}} },                                    
+          { label: "Week-4", y: {{week4_percentage}} }   
+                ]
+            }             
+            ]
+    });
+    var chartExplode = new CanvasJS.Chart("chart-explode",
+    {
+        title:{
+        text: "Type Of Rooms",
+        fontFamily:'Cabin',
+        horizontalAlign:'center',
+        fontSize:16,
+        padding:13,
+        fontWeight:700,
+      },
+      legend: {
+        reversed: true,
+        horizontalAlign: "center",
+        verticalAlign:"top",
+        maxHeight:100,
+      },  
+      data: [
+      {
+       type: "doughnut",
+       indexLabel: "{x}",
+       showInLegend:true,
+       innerRadius: "70%",
+       maxHeight:50,
+       dataPoints: [
+       {% for i,j,k in type_data %}
+       {  y:`{{j}}`, label:'{{i}}', exploded: true , legendText:'{{i}}' , color:'{{k}}'},
+       {% endfor %}
+       // {  y: 80, label:"Deluxe", exploded: true , legendText:"Deluxe" , color:"#fe8b57" },
+       // {  y: 300,label:"Standard" , exploded: true , legendText:"Standard" , color:"#32d69f" },
+       // {  y: 120,label: "King", exploded: true , legendText:"King" , color:"#B33771"},
+       // {  y: 130,label:"Queens" , exploded: true , legendText:"Queens", color:"#fb5180"},
+       // {  y: 250,label: "Triple" , exploded: true , legendText:"Triple",color:"#713bdb"}
+       ]
+     }
+     ]
+   });
+    chart.render();
+    chartnew.render();
+    chartLine.render();
+    chartExplode.render();
+  }    
+</script>

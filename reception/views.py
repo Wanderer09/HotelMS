@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from bookings.models import booking_guest_details,booking_room_details
+from bookings.models import booking_guest_details,booking_room_details,booking
 from room.models import Room,Room_type
 from home.models import Contact
 import json
@@ -220,8 +220,10 @@ def guest_list(request):
 	id_proof=[]
 	room_style=[]
 	room_numbers=[]
+	guest_id=[]
 	booked_room_details=[]
 	room_status=[]
+	guest_status=[]
 	for i in lists:
 		rooms=[]
 		room_number=[]
@@ -234,6 +236,7 @@ def guest_list(request):
 		for a in rooms:
 			for b in room_number[r]:
 				name_of_guest=i.fname+i.lname
+				guest_id.append(i.id)
 				name.append(name_of_guest)
 				country.append(i.country)
 				town.append(i.town)
@@ -244,20 +247,20 @@ def guest_list(request):
 				room_count.append(i.room_count)
 				guest_count.append(i.guest_count)
 				id_proof.append(i.identification)
+				booking_details=booking.objects.get(booking_guest_details_id=i.id,room=b)
+				guest_status.append(booking_details.status)
 				room_style.append(a)
 				room_numbers.append(b)
 				room=Room.objects.get(room_number=b)
 				room_status.append(room.room_status)
 			r=r+1
-	guest_details=zip(name,country,town,mail,phone,in_date,out_date,room_count,guest_count,id_proof,room_style,room_numbers,room_status)
+	guest_details=list(zip(guest_id,name,country,town,mail,phone,in_date,out_date,room_count,guest_count,id_proof,room_style,room_numbers,room_status,guest_status))
 	if request.method == 'POST':
-		print('anand')
 		for q in room_number:
 			for w in q:
 				if(request.POST.get(str(w),False)):
 					room=Room.objects.get(room_number=w)
 					value=request.POST.get(str(w))
-					print(value)
 					if(value=='checked_out'):
 						room.room_status='available'
 					elif(value=='newly_checked_in'):
@@ -265,11 +268,21 @@ def guest_list(request):
 					else:
 						room.room_status='booked'
 					room.save(update_fields=['room_status'])
+				for i in lists:
+					if(request.POST.get(str(i.id)+'-'+str(w)),False):
+						v=request.POST.get(str(i.id)+'-'+str(w))
+						s=booking.objects.get(booking_guest_details_id=i.id,room=w)
+						s.status=v
+						s.save(update_fields=['status'])
 		return redirect('guest_list',permanent=True)
 	data={}
 	data['guest_details']=guest_details
 	data['select']='selected'
 	data['booked']='booked'
+	data['cancelled']='cancelled'
+	data['occupied']='occupied'
+	data['unclear']='unclear'
+	data['closed']='closed'
 	data['newly_checked_in']='newly_checked_in'
 	data['available']='available'
 	return render(request,'reception/guest_list.html',data)

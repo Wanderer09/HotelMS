@@ -256,8 +256,10 @@ def booking4(request):
 		guests.save()
 		room=booking_room_details(user=user,booking_guest_details=guests,Room_details=json.dumps(total_costs),service_details=json.dumps(service_request_data),payment_type=payment_type)
 		room.save()
-		bookings=booking(amount=total,booking_guest_details=guests,booking_room_details=room,user=user,order_id=ORDER_ID)
-		bookings.save()
+		for i,j,k,l,m,n in total_costs:
+			for a in n:
+				bookings=booking(amount=total,booking_guest_details=guests,booking_room_details=room,user=user,order_id=ORDER_ID,room=a,status='unclear')
+				bookings.save()
 		booking_room_detail=booking_room_details.objects.all()
 		booking_guest_detail=booking_guest_details.objects.all()
 		temp=1
@@ -313,27 +315,35 @@ def response(request):
 
 	verify = Checksum.verify_checksum(response_dict,MERCHANT_KEY, checksum)
 	if verify:
+		book=booking.objects.filter(order_id=response_dict['ORDERID'])
 		if response_dict['RESPCODE'] == '01':
-			book=booking.objects.get(order_id=response_dict['ORDERID'])
-			rooms=booking_room_details.objects.get(id=book.booking_room_details_id)
+			for i in book:
+				i.status='booked'
+				i.payment_status='successful'
+				room_id=i.booking_room_details_id
+				print(room_id)
+				i.save(update_fields=['status','payment_status'])
+			rooms=booking_room_details.objects.get(id=room_id)
 			booked_rooms=jsonDec.decode(rooms.Room_details)
 			for room,count,totalcost,tax,amount,number in booked_rooms:
 				for i in number:
 					room=Rooms.objects.get(room_number=i)
 					room.room_status='booked'
 					room.save()
-			book.payment_status='successful'
-			book.save()
-			print('Order Successful')
 		else:
+			for i in book:
+				i.status='unclear'
+				i.payment_status='failed'
+				room_id=i.booking_room_details_id
+				print(room_id)
+				i.save(update_fields=['status','payment_status'])
+			rooms=booking_room_details.objects.get(id=room_id)
+			booked_rooms=jsonDec.decode(rooms.Room_details)
 			for room,count,totalcost,tax,amount,number in booked_rooms:
 				for i in number:
 					room=Rooms.objects.get(room_number=i)
 					room.room_status='available'
-					room.save()
-			book.payment_status='failed'
-			book.save()
-			print('order was not successful because' + response_dict['RESPMSG'])
+					room.save(update_fields=['room_status'])
 	return render(request, 'bookings/paymentstatus.html', {'response': response_dict})
 	
 	
