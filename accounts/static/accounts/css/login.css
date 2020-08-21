@@ -77,6 +77,9 @@ form{
 	font-size: 2.9rem;
 	font-family: neutra;
 }
+.social-icons a{
+	display: inline;
+}
 .social-icons i{
 	font-size: 30px;
 
